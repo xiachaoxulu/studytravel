@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+
+<head>
+  <title>asdada</title>
+  <meta charset="utf-8">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div id="clockContainer"></div>
+</body>
+<script>
+ 
+
+(function(window) {
+
+  var clockQueue = [];
+  var timer;
+  Array.observe(clockQueue, manageClockRun);
+
+  function manageClockRun(changes) {
+
+    if (clockQueue.length > 0 && timer == null) {
+      timer = window.setInterval(function() {
+
+        clockQueue.forEach(function(item) {
+
+          if (item.statu) {
+            item.currentTime.setSeconds(item.currentTime.getSeconds() + 1);
+            draw(item);
+          }
+        });
+
+      }, 1000);
+    }
+    if (clockQueue.length == 0 && timer != null) {
+      window.clearInterval(timer);
+    }
+
+  }
+
+  function Clock(el, opt) {
+    if (!el || !el.nodeType || el.nodeType == 3) {
+      throw new Error("el must be dom");
+    }
+    if (!(this instanceof Clock)) {
+      return new Clock(el, opt);
+    }
+
+    if (!opt) opt = {};
+    this.uuid = Math.ceil(Math.random(1) * 1000000);
+    this.width = opt.width || 150;
+    this.height = opt.height || 150;
+    this.fontHeight = opt.fontHeight || 15;
+    this.margin = opt.margin || 35;
+    this.nubmerSpacing = opt.nubmerSpacing || 20;
+    this.currentTime = opt.currentTime || new Date();
+
+    this.handTruncation = this.width / 2;
+    this.hourHandTruncation = this.width / 10;
+    this.radius = this.width / 2 - this.margin;
+    this.handRadius = this.radius + this.nubmerSpacing;
+
+    this.canvas = window.document.createElement('canvas');
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
+    this.context = this.canvas.getContext('2d');
+    this.context.font = this.fontHeight + 'px Arial';
+    el.appendChild(this.canvas);
+
+    this.statu = true;
+
+    clockQueue.push(this);
+  }
+
+
+
+  function draw(clock) {
+    var context = clock.context;
+    context.clearRect(0, 0, clock.canvas.width, clock.canvas.height);
+    drawCircle();
+    drawCenter();
+    drawHands();
+    drawNumbers();
+
+    function drawCircle() {
+      context.beginPath();
+      context.arc(context.canvas.width / 2, context.canvas.height / 2, clock.radius, 0, Math.PI * 2, true);
+      context.stroke();
+    }
+
+    function drawCenter() {
+      context.beginPath();
+      context.arc(context.canvas.width / 2, context.canvas.height / 2, 5, 0, Math.PI * 2, true);
+      context.fill();
+    }
+
+    function drawHands() {
+
+      var date = clock.currentTime,
+        hour = date.getHours();
+
+      hour = hour > 12 ? hour - 12 : hour;
+
+      drawHand(hour * 5 + (date.getMinutes() / 60) * 5, true, 0.5);
+      drawHand(date.getMinutes(), false, 0.5);
+      drawHand(date.getSeconds(), false, 0.2);
+    }
+
+    function drawNumbers() {
+
+      var numberals = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+        angle = 0,
+        numberalWidth = 0;
+      numberals.forEach(function(item) {
+
+        angle = Math.PI / 6 * (item - 3);
+        numberalWidth = context.measureText(item).width;
+        context.fillText(item, context.canvas.width / 2 + Math.cos(angle) * (clock.handRadius) - numberalWidth / 2, context.canvas.height / 2 + Math.sin(angle) * (clock.handRadius) + clock.fontHeight / 3);
+
+      });
+    }
+
+    function drawHand(loc, isHour) {
+ 		
+ 	  if(isHour){
+ 	  	context.save();
+ 	  	context.strokeStyle="#f3f3f3";
+ 	  }
+      var angle = (Math.PI * 2) * (loc / 60) - Math.PI / 2,
+        handRadius = isHour ? clock.radius - clock.handTruncation - clock.hourHandTruncation : clock.radius - clock.handTruncation;
+      context.moveTo(context.canvas.width / 2, context.canvas.height / 2);
+      context.lineTo(context.canvas.width / 2 + Math.cos(angle) * handRadius, context.canvas.height / 2 + Math.sin(angle) * handRadius);
+      context.stroke();
+
+      if(isHour){
+      	context.restore();
+      }
+    }
+  }
+ 
+
+  window.Clock = Clock;
+
+})(window);
+
+Clock(document.getElementById("clockContainer"));
+Clock(document.getElementById("clockContainer"));
+Clock(document.getElementById("clockContainer"));
+Clock(document.getElementById("clockContainer"));
+Clock(document.getElementById("clockContainer"));
+</script>
+
+</html>
