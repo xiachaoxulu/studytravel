@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0px;
+        padding: 0px;
+    }
+    
+    header {
+        padding: 10px;
+        background: #f3f3f3;
+        border-bottom: inset thin #d3d3d3;
+        box-shadow: 1px 1px #dcdcdc;
+    }
+    
+    section {
+        position: absolute;
+        top: 60px;
+        bottom: 30px;
+        left: 0;
+        right: 0;
+    }
+    
+    nav {
+        float: left;
+        width: 200px;
+        background: white;
+        padding: 10px;
+        height: 100%;
+        border-right: inset thin #d3d3d3;
+        box-shadow: 1px 1px #dcdcdc;
+        box-sizing: border-box;
+    }
+    
+    main {
+        height: 100%;
+        margin-left: 201px;
+        background: wheat;
+    }
+    
+    iframe {
+        width: 100%;
+        height: 100%;
+    }
+    
+    footer {
+        background: #f3f3f3;
+        border-bottom: inset thin #d3d3d3;
+        box-shadow: 1px 1px #dcdcdc;
+        text-align: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 30px;
+        line-height: 30px;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>btg.yoyo--测试</h1>
+    </header>
+    <section>
+        <nav>
+            <ul>
+                <li><a href="./canvas/clock.html" target="mainframe">canvas</a></li>
+                <li><a href="./crossdomain/windowname.html" target="mainframe">(跨域)windowname</a></li>
+                <li>
+                    <a href="./crossdomain/domain.html" target="mainframe">(跨域)domain</a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+                <li>
+                    <a href=""></a>
+                </li>
+            </ul>
+        </nav>
+        <main>
+            <iframe name="mainframe" frameborder="0"></iframe>
+        </main>
+    </section>
+    <footer>
+        nothing...
+    </footer>
+</body>
+
+</html>

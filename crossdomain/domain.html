@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    // 同主域名不同子域名下的页面，可以设置 document.domain 让它们同域
+    //副作用：
+    //1. 如果修改了document.domain，则在某些机器上的IE678里，获取location.href有权限异常。
+    //2. 如果页面修改了document.domain，则它包含的iframe，必须也设domain，才能进行交互。就算是同域的页面也必须要设。
+    //
+    document.domain="主域名"
+    window.onload=function(){
+        console.log(document.domain)
+        console.log(window.frames[0].test());
+    }
+   
+    //同域的时候可以被子访问到
+    function test() {
+        console.log("i am from parent");
+
+        return 'parent ok';
+    }
+    </script>
+</head>
+
+<body>
+    <iframe name="abc" src="" frameborder="0"></iframe>
+</body>
+
+</html>

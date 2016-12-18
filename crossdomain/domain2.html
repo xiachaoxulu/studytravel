@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		document.domain="abc"
+		window.onload=function(){
+			console.log(document.domain,document.URL)
+			console.log(window.parent.test());
+		}
+
+
+
+		//同域的时候可以被父访问到
+		function test(argument) {
+			console.log("i am from cf2");
+			return 'ok';
+		}
+	</script>
+</head>
+<body>
+	i am cf2
+</body>
+</html>

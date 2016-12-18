@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script>
+    //     如何引用: (iFrame指的是iframe DOM节点)
+    // 1. 引用iframe的window对象：iFrame.contentWindow
+    // 2. 引用iframe的document对象：iFrame.contentDocument，或者：iFrame.contentWindow.document
+
+
+    //用 window.name 作为媒介来传统信息。
+    //利用了window.name 只要窗口存在就不会改变的特性，(无论src，url 怎么变化)
+    //1.windowname2 内部的js代码 设置window.name='所要传递的数据'
+    //2.监听Iframe的load状态,第一次加载完成的时候，将iframe的src指向同域的一个代理页面
+    //3.当代理页面加载完成的时候 ，读取window.name 属性，完成跨域信息传递
+    //window.name 的方式的副作用：如果本页面有个 a 标签 target = abc. 在修改了window.name之后，这个target 将找不到abc，会直接打开一个新窗口。所以在用的时候最好封装一个控件
+    //DOMcontentloaded 事件在iframe加载前，就会触发
+
+    window.addEventListener('DOMContentLoaded', function() {
+        var state = 0;
+        document.getElementsByTagName('iframe')[0].onload = function() {
+            if (state == 0) {
+                state = 1;
+
+                this.src = "http://localhost:3000/crossdomain/proxy.html";
+            } else {
+                //拿到了不同域的data数据
+                console.log(this.contentWindow.name)
+            }
+        }
+    });
+
+    window.onload = function() {
+
+    };
+    //同域的时候可以被子访问到
+    function test() {
+        console.log("i am from parent");
+
+        return 'parent ok';
+    }
+    </script>
+</head>
+
+<body>
+    <iframe name="abc" src="http://localhost:3001/windowname2.html" frameborder="0"></iframe>
+</body>
+
+</html>
