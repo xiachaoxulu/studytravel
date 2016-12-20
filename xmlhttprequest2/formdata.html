@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script>
+
+	var form=new FormData();
+	form.append("key","3333");
+	var xhttp=new XMLHttpRequest();
+	xhttp.open("POST","http://localhost:3000/",false);
+	xhttp.onreadystatechange=function () {
+		if(xhttp.readyState==4){
+			if(xhttp.status==200){
+				console.log(xhttp.responseText);
+			}
+			else{
+				console.log(xhttp.status,xhttp.statusText);
+			}
+		}
+	}
+	console.log(form.toString()); //[Object FormData]
+	// Content-type 应该默认成multipart，如果不设置默认是multipart. vue-resoure 插件，处理formdata： 如果发生data 是formData 类型就直接删除了 content-type
+	// xhttp.setRequestHeader("Content-type","application/x-www-four-urlencoded");
+	xhttp.send(form);
+	</script>
+
+</head>
+<body>
+	
+</body>
+</html>
