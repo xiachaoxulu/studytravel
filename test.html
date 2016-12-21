@@ -7,31 +7,29 @@
 </head>
 <script>
 function change(file) {
-  window.ss = file.files[0];
-  console.dir(ss);
+  var ss = file.files[0];
+  
+  var url = URL.createObjectURL(ss)
+  var test = document.getElementById('test');
+  test.src = url;
+   
+  document.body.removeChild(file);
+  console.log(url);
 
 }
 
-var b = new Blob();
-
-console.dir(b);
-
-function Person() {
-  Object.defineProperty(this.__proto__,'a', {
-      
-      get:function(){
-      	return 22;
-      }
-  });
+function test(a,b,c,d){
+  console.log(a,b,c,d);
 }
 
-var p=new Person();
+test.apply(this,[1,2,3,4])
 
-console.dir(p);
 </script>
 
 <body>
   <input type="file" onchange="change(this)">
+  <img id="test" src="" alt="">
+   
 </body>
 
 </html>

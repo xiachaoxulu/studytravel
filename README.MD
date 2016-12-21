@@ -16,3 +16,5 @@ jquery 源码阅读
  
 
 移动端新特性] Passive Event Listeners
+
+supervisor 这个小工具可以解决开发中的调试问题。 
