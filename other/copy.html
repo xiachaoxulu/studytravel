@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+  //自动选中元素到剪贴板
+  window.onload = function() {
+ 
+    var range = document.createRange();
+    var a = document.getElementsByTagName('a')[0];
+    range.selectNode(a);
+    window.getSelection().addRange(range);
+ 	
+  }
+
+  function copy() {
+    var copy = document.execCommand('copy');
+    console.dir(copy);
+  }
+  </script>
+</head>
+
+<body>
+  <button onclick="copy()">sssss</button>
+  <a href="http://www.baidu.com"><span style="font-size:0">http://www.baidu.com</span>百度</a>
+   
+  <input type="text">
+</body>
+
+</html>

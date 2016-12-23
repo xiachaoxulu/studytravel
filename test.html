@@ -6,23 +6,26 @@
   <title>Document</title>
 </head>
 <script>
-function change(file) {
-  var ss = file.files[0];
-  
-  var url = URL.createObjectURL(ss)
-  var test = document.getElementById('test');
-  test.src = url;
-   
-  document.body.removeChild(file);
-  console.log(url);
+ 
 
-}
+ var a={
+  data:[1,2,3]
+ }
+ Object.freeze(a.data);
 
-function test(a,b,c,d){
-  console.log(a,b,c,d);
-}
+ a.data.push(4);
+ Object.defineProperty(a,'data',{
+  get :function(argument) {
+    console.log(1);  
+    return [];
+  },
+  set :function(value){
+    console.log(2);
+  }
+ });
 
-test.apply(this,[1,2,3,4])
+ var ss=a.data;
+ a.data=[];
 
 </script>
 
@@ -30,6 +33,10 @@ test.apply(this,[1,2,3,4])
   <input type="file" onchange="change(this)">
   <img id="test" src="" alt="">
    
+
+   <div v-for="item in list">
+     {{item}}
+   </div>
 </body>
 
 </html>
