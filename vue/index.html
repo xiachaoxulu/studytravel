@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src='vue1.js'></script>
+    <script>
+    var list = {
+        id: 'root',
+        name: 'root'
+    };
+    window.onload = function() {
+
+        var dep = 4;
+
+
+        function mock(root, dep) {
+            if (dep == 0) {
+                return;
+            }
+            root.children = []
+            for (var i = 10; i >= 1; i--) {
+                var obj = {
+                    id: root.id + i,
+                    name: root.name + i
+                };
+                root.children.push(obj);
+                mock(obj, dep - 1);
+
+            }
+        }
+
+        mock(list, dep);
+
+        console.log(list)
+
+        Vue.component('child', {
+            name: 'test',
+            props: {
+                list: list
+            },
+            template: `<ul>
+			            <li>
+			                 <span style="background-color:red;" @click="change(list)">{{list.name}}</span>
+				             <div v-if="list.children && list.children.length!=0">
+				               <test v-for="cel in list.children" :list="cel"></test>
+				             </div>
+			             </li>
+			           </ul>`,
+            methods: {
+                change: function(list) {
+                    list.name = list.name + "~~";
+                    if (list.children && list.children.length != 0) {
+                        for (var i = 9; i >= 0; i--) {
+                            // list.children[i].name=list.children[i].name+'~~';
+                            this.change(list.children[i])
+                        }
+                    } else {
+                        return;
+                    }
+
+                }
+            }
+        });
+        var test = new Vue({
+            data: {
+                list: list
+            },
+            template: `<child :list="list"></child>`,
+            el: '#app'
+
+        });
+
+        console.log(list);
+    }
+    </script>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+
+</html>
