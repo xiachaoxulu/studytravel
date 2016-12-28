@@ -10,7 +10,6 @@
 }(this, function () { 'use strict';
 
   function set(obj, key, val) {
-
     if (hasOwn(obj, key)) {
       obj[key] = val;
       return;
@@ -29,7 +28,6 @@
     if (ob.vms) {
       var i = ob.vms.length;
       while (i--) {
-
         var vm = ob.vms[i];
         vm._proxy(key);
         vm._digest();
@@ -1954,7 +1952,7 @@ var transition = Object.freeze({
   /**
    * A dep is an observable that can have multiple
    * directives subscribing to it.
-   * 一个dep对象包括可以包含多个指令来描述他
+   *
    * @constructor
    */
   function Dep() {
@@ -1965,7 +1963,6 @@ var transition = Object.freeze({
   // the current target watcher being evaluated.
   // this is globally unique because there could be only one
   // watcher being evaluated at any time.
-  //全局的~目标watcher 将来会被设置成一个Wather对象
   Dep.target = null;
 
   /**
@@ -2004,10 +2001,7 @@ var transition = Object.freeze({
     // stablize the subscriber list first
     var subs = toArray(this.subs);
     for (var i = 0, l = subs.length; i < l; i++) {
-      // var date=Date.parse(new Date());
       subs[i].update();
-      // var date1=Date.parse(new Date());
-      // console.log("notify:"+(date1-date));
     }
   };
 
@@ -2114,18 +2108,7 @@ var transition = Object.freeze({
   function Observer(value) {
     this.value = value;
     this.dep = new Dep();
-    //搞一個__ob__到value上，当成他的一个属性
-    //
-    // function def(obj, key, val, enumerable) {
-    //   Object.defineProperty(obj, key, {
-    //     value: val,
-    //     enumerable: !!enumerable,
-    //     writable: true,
-    //     configurable: true
-    //   });
-    // }
     def(value, '__ob__', this);
-    //然后处理他的递归子属性
     if (isArray(value)) {
       var augment = hasProto ? protoAugment : copyAugment;
       augment(value, arrayMethods, arrayKeys);
@@ -2254,7 +2237,6 @@ var transition = Object.freeze({
     }
     if (ob && vm) {
       ob.addVm(vm);
- 
     }
     return ob;
   }
@@ -2266,7 +2248,7 @@ var transition = Object.freeze({
    * @param {String} key
    * @param {*} val
    */
-   //给对象的属性 添加get ，set
+
   function defineReactive(obj, key, val) {
     var dep = new Dep();
 
@@ -2278,8 +2260,7 @@ var transition = Object.freeze({
     // cater for pre-defined getter/setters
     var getter = property && property.get;
     var setter = property && property.set;
-    //这块递归添加get,set
-    
+
     var childOb = observe(val);
     Object.defineProperty(obj, key, {
       enumerable: true,
@@ -2301,8 +2282,6 @@ var transition = Object.freeze({
         return value;
       },
       set: function reactiveSetter(newVal) {
-        
-        console.log("define:"+Date.parse(new Date()));
         var value = getter ? getter.call(obj) : val;
         if (newVal === value) {
           return;
@@ -2314,7 +2293,6 @@ var transition = Object.freeze({
         }
         childOb = observe(newVal);
         dep.notify();
-        console.log("define:"+Date.parse(new Date()));
       }
     });
   }
@@ -2482,7 +2460,7 @@ var transition = Object.freeze({
 
       // initialize data observation and scope inheritance.
       this._initState();
-      
+
       // setup event system and option events.
       this._initEvents();
 
@@ -2493,7 +2471,6 @@ var transition = Object.freeze({
       if (options.el) {
         this.$mount(options.el);
       }
-
     };
   }
 
@@ -3193,7 +3170,6 @@ var expression = Object.freeze({
    */
 
   Watcher.prototype.get = function () {
-
     this.beforeGet();
     var scope = this.scope || this.vm;
     var value;
@@ -3219,7 +3195,6 @@ var expression = Object.freeze({
       value = this.postProcess(value);
     }
     this.afterGet();
-   
     return value;
   };
 
@@ -7899,7 +7874,6 @@ var template = Object.freeze({
       }
       // make sure to convert string selectors into element now
       el = options.el = query(el);
-      // console.log(el,props);
       this._propsUnlinkFn = el && el.nodeType === 1 && props
       // props must be linked in proper scope if inside v-for
       ? compileAndLinkProps(this, el, props, this._scope) : null;
@@ -7927,17 +7901,14 @@ var template = Object.freeze({
         // 1. it's not already defined as a prop
         // 2. it's provided via a instantiation option AND there are no
         //    template prop present
-        
         if (!props || !hasOwn(props, key)) {
           this._proxy(key);
         } else if ('development' !== 'production') {
           warn('Data field "' + key + '" is already defined ' + 'as a prop. To provide default value for a prop, use the "default" ' + 'prop option; if you want to pass prop values to an instantiation ' + 'call, use the "propsData" option.', this);
         }
       }
-      // console.log(data,this);
       // observe data
       observe(data, this);
-
     };
 
     /**
@@ -7947,7 +7918,6 @@ var template = Object.freeze({
      */
 
     Vue.prototype._setData = function (newData) {
-       
       newData = newData || {};
       var oldData = this._data;
       this._data = newData;
