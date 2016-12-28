@@ -6,37 +6,25 @@
   <title>Document</title>
 </head>
 <script>
- 
-
- var a={
-  data:[1,2,3]
- }
- Object.freeze(a.data);
-
- a.data.push(4);
- Object.defineProperty(a,'data',{
-  get :function(argument) {
-    console.log(1);  
-    return [];
-  },
-  set :function(value){
-    console.log(2);
+  function test(e,b,c){
+    console.log(e,b,c)
+     
   }
- });
-
- var ss=a.data;
- a.data=[];
-
+  function test1($aruments){
+    
+  }
 </script>
 
 <body>
-  <input type="file" onchange="change(this)">
-  <img id="test" src="" alt="">
-   
+  <input type="button" onclick="test('abc','123','2131')" value="2222">
+  <script>
+    
 
-   <div v-for="item in list">
-     {{item}}
-   </div>
+    // var button=document.getElementsByTagName('input')[0];
+    // button.onclick=function(e){
+    //   console.log(e);
+    // }
+  </script>
 </body>
 
 </html>
