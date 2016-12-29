@@ -7,26 +7,6 @@
 </head>
 <script>
  
-
- var a={
-  data:[1,2,3]
- }
- Object.freeze(a.data);
-
- a.data.push(4);
- Object.defineProperty(a,'data',{
-  get :function(argument) {
-    console.log(1);  
-    return [];
-  },
-  set :function(value){
-    console.log(2);
-  }
- });
-
- var ss=a.data;
- a.data=[];
-
 </script>
 
 <body>
