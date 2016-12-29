@@ -13,14 +13,14 @@
     window.onload = function() {
 
         var dep = 4;
-
+        var log=10;
 
         function mock(root, dep) {
             if (dep == 0) {
                 return;
             }
             root.children = []
-            for (var i = 10; i >= 1; i--) {
+            for (var i = log; i >= 1; i--) {
                 var obj = {
                     id: root.id + i,
                     name: root.name + i
@@ -40,19 +40,29 @@
             props: {
                 list: list
             },
-            template: `<ul>
-			            <li>
-			                 <span style="background-color:red;" @click="change(list)">{{list.name}}</span>
-				             <div v-if="list.children && list.children.length!=0">
-				               <test v-for="cel in list.children" :list="cel"></test>
-				             </div>
-			             </li>
+            template: ` 
+            			<div><span style="background-color:red;" @click="change(list)">{{list.name}}</span></div>
+            			<ul>
+				            <li v-for="cel in list.children">
+				                 <span>{{ cel.name }}</span>
+					              
+					             	<ul v-if="cel.children && cel.children.length!=0">
+					             		<template v-for="cell in cel.children">
+
+										<li v-if="cell.children && cell.children.length!=0">
+					                       <test :list="cell"></test>
+					             		</li>
+					             		<li v-else>{{ cell.name}}</li>									             		
+					             		</template>
+					             	</ul>
+					              
+				            </li>
 			           </ul>`,
             methods: {
                 change: function(list) {
                     list.name = list.name + "~~";
                     if (list.children && list.children.length != 0) {
-                        for (var i = 9; i >= 0; i--) {
+                        for (var i = log-1; i >= 0; i--) {
                             // list.children[i].name=list.children[i].name+'~~';
                             this.change(list.children[i])
                         }
