@@ -2004,10 +2004,10 @@ var transition = Object.freeze({
     // stablize the subscriber list first
     var subs = toArray(this.subs);
     for (var i = 0, l = subs.length; i < l; i++) {
-      // var date=Date.parse(new Date());
+      var date=Date.parse(new Date());
       subs[i].update();
-      // var date1=Date.parse(new Date());
-      // console.log("notify:"+(date1-date));
+      var date1=Date.parse(new Date());
+      console.log("notify:"+(date1-date));
     }
   };
 
@@ -2302,7 +2302,7 @@ var transition = Object.freeze({
       },
       set: function reactiveSetter(newVal) {
         
-        console.log("define:"+Date.parse(new Date()));
+        console.log(Date.parse(new Date()));
         var value = getter ? getter.call(obj) : val;
         if (newVal === value) {
           return;
@@ -2314,7 +2314,6 @@ var transition = Object.freeze({
         }
         childOb = observe(newVal);
         dep.notify();
-        console.log("define:"+Date.parse(new Date()));
       }
     });
   }

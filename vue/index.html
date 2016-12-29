@@ -56,7 +56,7 @@
                 </ul>`,
       methods: {
         change: function(list) {
-          console.log("define:"+Date.parse(new Date()));
+          console.log("start:"+Date.parse(new Date()));
           list.name = list.name + "~~";
           if (list.children && list.children.length != 0) {
             for (var i = 9; i >= 0; i--) {
