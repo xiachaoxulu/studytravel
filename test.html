@@ -6,14 +6,23 @@
   <title>Document</title>
 </head>
 <script>
- 
+var xhr = new XMLHttpRequest();
+xhr.open('POST', 'http://127.0.0.1/api/query/?table=userinfobysns&token=5c75V_JsDgGnaybghHIU5sVc4wjtNKSEb3S13ewKgzAdguWEUuZe0GtmfMj3_h3q3F4=');
+xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=gb2312")  
+xhr.onreadystatechange = function() {
+  if (xhr.readyState == 4) {  
+    if (xhr.status == 200) {  
+       console.log(xhr);
+       document.body.innerHTML=xhr.responseText;
+    } else {
+      alert("Problem retrieving XML data");
+    }
+  }
+};
+xhr.send("sns=['3388162501043']");
 </script>
 
 <body>
-  <input type="file" onchange="change(this)">
-  <img id="test" src="" alt="">
- 
 </body>
 
 </html>
-
