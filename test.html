@@ -6,27 +6,26 @@
   <title>Document</title>
 </head>
 <script>
- 
-
- var a={
-  data:[1,2,3]
- }
- Object.freeze(a.data);
-
- a.data.push(4);
- Object.defineProperty(a,'data',{
-  get :function(argument) {
-    console.log(1);  
-    return [];
-  },
-  set :function(value){
-    console.log(2);
+  function A() {
+    
   }
- });
+  A.prototype.say=function(){
 
- var ss=a.data;
- a.data=[];
+  }
 
+
+  function B(){
+
+  }
+  B.prototype.__proto__=A.prototype;
+  B.prototype.walk=function(){
+
+  }
+
+  var a=new A();
+  var b=new B();
+  console.dir(a);
+  console.dir(b);
 </script>
 
 <body>
