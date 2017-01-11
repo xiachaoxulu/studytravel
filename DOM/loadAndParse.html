@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+  //   在 Firefox 及其他浏览器中的 XML 解析器
+  // 下面的 JavaScript 片段把 XML 文档 ("books.xml") 载入了解析器：
+  // var xmlDoc = document.implementation.createDocument("", "", null);
+  // xmlDoc.async = "false";
+  // xmlDoc.load("book.xml");
+  // console.dir(xmlDoc)
+
+  // // 解析 XML 文件 - 一个跨浏览器的实例
+  // try //Internet Explorer
+  // {
+  //   xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+  // } catch (e) {
+  //   try //Firefox, Mozilla, Opera, etc.
+  //   {
+  //     xmlDoc = document.implementation.createDocument("", "", null);
+  //   } catch (e) {
+  //     alert(e.message)
+  //   }
+  // }
+  // try {
+  //   xmlDoc.async = false;
+  //   xmlDoc.load("books.xml");
+  //   document.write("xmlDoc is loaded, ready for use");
+  // } catch (e) {
+  //   alert(e.message)
+  // }
+
+  text = "<bookstore>"
+  text = text + "<book>";
+  text = text + "<title>Harry Potter</title>";
+  text = text + "<author>J K. Rowling</author>";
+  text = text + "<year>2005</year>";
+  text = text + "</book>";
+  text = text + "</bookstore>";
+
+  try //Internet Explorer
+  {
+    xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+    xmlDoc.async = "false";
+    xmlDoc.loadXML(text);
+  } catch (e) {
+    try //Firefox, Mozilla, Opera, etc.
+    {
+      parser = new DOMParser();
+      xmlDoc = parser.parseFromString(text, "application/xml");
+    } catch (e) {
+      alert(e.message)
+    }
+  }
+  document.write("xmlDoc is loaded, ready for use");
+
+  newCDATA = xmlDoc.createCDATASection("Special Offer & Book Sale");
+
+  x = xmlDoc.getElementsByTagName("book")[0];
+  x.appendChild(newCDATA);
+
+  console.log(xmlDoc)
+  // var x = xmlDoc.getElementsByTagName("title");
+  // console.log(x[0].childNodes[0].nodeValue); //文本节点，属性节点才有nodeValue
+  // x[0].removeAttribute("category");  下面的代码片段删除第一个 <book> 元素中的 "category" 属性：
+  // removeAttributeNode 下面的代码片段删除所有 <book> 元素的所有属性：
+  // 遍历节点
+  // parentNode
+  // childNodes
+  // firstChild
+  // lastChild
+  // nextSibling
+  // previousSibling
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>

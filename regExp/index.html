@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script>
+  // var str = "Every man in the world! Every woman on earth!";
+
+  // patt = /man/g;
+  // console.log(patt.lastIndex)
+  // str2 = str.replace(patt, "person");
+  // console.log(patt.lastIndex)
+  // document.write(str2 + "<br />");
+
+  // patt = /(wo)?man/g;
+  // // patt.compile(patt);
+  // console.log(patt.lastIndex)
+  // str2 = str.replace(patt, "person");
+  // console.log(patt.lastIndex)
+  // document.write(str2);
+  // 
+  var str = "VisitW3SchoolsasdW3SchoolasdasdadtW3School";
+  var patt = new RegExp("W3School", "");   /*i 不区分大小写 g 全局模式 m 支持多行*/
+  // var result = patt.exec(str);//
+  // var result = patt.test(str);
+  var result = str.replace(patt,"*");
+  console.log(result);
+  patt=/tW3School/;
+  // patt.compile("tW3School");
+  result = str.replace(patt,"&&");
+  console.log(result);
+  // var result = str.match(patt);
+  // var result = str.search(patt);
+  // var result = str.replace(patt,function(a,b,c){
+  // 	console.log(a,b,c);
+  // 	return "sss"
+  // });
+  // var result = str.split(patt,2);
+  // patt.lastIndex=0;
+  // var str3="sW3SchoolssssssssssssssssssssssssVisit  sasdW3School asdasdadW3School";
+  // result = patt.exec(str3);
+  // console.log(result);
+  // while (result != null) {
+  // 	result=patt.exec(str);
+  //   console.log(result);
+  //   console.log(patt.lastIndex);
+  // }
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>

@@ -4,25 +4,69 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <style>
+  div:first-of-type {
+ 
+    background: red;
+  }
+  </style>
 </head>
 <script>
-var xhr = new XMLHttpRequest();
-xhr.open('POST', 'http://127.0.0.1/api/query/?table=userinfobysns&token=5c75V_JsDgGnaybghHIU5sVc4wjtNKSEb3S13ewKgzAdguWEUuZe0GtmfMj3_h3q3F4=');
-xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=gb2312")  
-xhr.onreadystatechange = function() {
-  if (xhr.readyState == 4) {  
-    if (xhr.status == 200) {  
-       console.log(xhr);
-       document.body.innerHTML=xhr.responseText;
-    } else {
-      alert("Problem retrieving XML data");
-    }
-  }
-};
-xhr.send("sns=['3388162501043']");
+// var xhr = new XMLHttpRequest();
+// xhr.open('POST', 'http://127.0.0.1/api/query/?table=userinfobysns&token=40db7raloVNfXpCzDUS5mkYjaWuwoe1zwNOE2W2Lvlvirt84qZNx_Uh9ugkt0l8N9Pk=');
+// xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded; charset=gb2312")  
+// xhr.onreadystatechange = function() {
+//   if (xhr.readyState == 4) {  
+//     if (xhr.status == 200) {  
+//        console.log(xhr);
+//        document.body.innerHTML=xhr.responseText;
+//     } else {
+//       alert("Problem retrieving XML data");
+//     }
+//   }
+// };
+// xhr.send("sns=[3388162501043]");
+// 
+// <!-- <book>
+//   <title>Harry Potter</title>
+//   <author>J K. Rowling</author>
+//   <year>2005</year>
+//   <price>29.99</price>
+// </book> --> 
+
+
+// function A() {
+//   var age = {
+//     ss: "sss"
+//   };
+//   genarator(this, 'age', age);
+// }
+
+// function genarator(obj, key, val) {
+
+//   Object.defineProperty(obj, key, {
+//     get: function() { 
+//       return val;
+//     },
+//     set: function(value) {
+//       val = value;
+//     }
+//   })
+// }
+// var a = new A();
+// // a.age = 20;
+// console.log(a.age);
+//
 </script>
 
 <body>
+  <button onclick="add()">asdasd</button>
+  <div><span>asd</span></div>
+  <div><span>asdasdad</span></div>
+  <input type="checkbox">
+  <script>
+  a = document.querySelectorAll("div > *");
+  </script>
 </body>
 
 </html>
