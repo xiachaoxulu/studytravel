@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>clipboard pasete images </title>
+    <style media="screen">
+    h3 {
+        text-align: center;
+    }
+    
+    #log-box {
+        width: 910px;
+        height: 500px;
+        border: 1px solid silver;
+        border-radius: 5px;
+        overflow: hidden;
+    }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h3>知乎评论栏</h3>
+        <img src="C:\Users\acewill\Desktop\csrf.jpg" alt="">
+        <div contenteditable="true" tabindex=1 id="log-box">
+        </div>
+        <button id="clear-logs">
+            清除所sadasda有
+        </button>
+       
+    </section>
+</body>
+<script>
+window.addEventListener('load', function(e) {
+    var lastEditRange
+    var logBox = document.getElementById('log-box')
+        //原理：图像的二进制数据复制
+        // 步骤：创建img元素  把src设置为 ObjectURL(blob) append img 到输入区域
+    logBox.addEventListener('click', function() {
+            // 获取选定对象
+            var selection = getSelection()
+                // 设置最后光标对象
+            lastEditRange = selection.getRangeAt(0)
+        })
+        // 编辑框按键弹起事件
+    // logBox.addEventListener('keyup', function() {
+    //     var range = document.createRange();
+    //     var textnode = this.childNodes[0];
+    //     if (textnode) {
+    //         range.selectNode(textnode);
+    //         range.setStart(textnode, 1);
+    //         range.setEnd(textnode, 1);
+    //         getSelection().empty();
+    //         getSelection().addRange(range)
+    //     }
+    // })
+
+    logBox.onpaste = function(e) {
+        console.log(e);
+        var items = e.clipboardData.items;
+        console.log(items.length, items[0])
+        for (var i = 0; i < items.length; ++i) {
+            //是文件类型 且 是图片type
+            if (items[i].kind == 'file' &&
+                items[i].type.indexOf('image/') !== -1) {
+                var blob = items[i].getAsFile();
+                window.URL = window.URL || window.webkitURL;
+                var blobUrl = window.URL.createObjectURL(blob);
+                var img = document.createElement('img');
+                img.src = blobUrl;
+                var logBox = document.getElementById('log-box');
+                logBox.appendChild(img);
+                var selection = getSelection()
+                    // 设置最后光标对象
+
+                lastEditRange = selection.getRangeAt(0)
+                lastEditRange.focusOffset++
+                    console.log(selectionStart);
+            }
+        }
+    }
+
+    var btn = document.getElementById('clear-logs')
+    btn.addEventListener('click', function(e) {
+        clearLog();
+    });
+});
+
+function clearLog() {
+    var node = document.getElementById('log-box');
+    while (node.firstChild) {
+        node.removeChild(node.firstChild);
+    }
+}
+</script>
+
+</html>
