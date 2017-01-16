@@ -16,7 +16,7 @@ jQuery.noConflict = function( deep ) {
 	if ( window.$ === jQuery ) {
 		window.$ = _$;
 	}
-
+-
 	if ( deep && window.jQuery === jQuery ) {
 		window.jQuery = _jQuery;
 	}
@@ -32,3 +32,8 @@ if ( !noGlobal ) {
 }
 
 } );
+
+
+jiazai sef$
+jiazai zzhenzz
+// var aa=$.noConflict();
