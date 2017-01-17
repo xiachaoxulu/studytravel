@@ -1,10 +1,21 @@
 module.exports = function(grunt) {
 
-  // grunt.log.write(grunt.file.readJSON('package.json')).ok()
   var pkg = grunt.file.readJSON('package.json');
-  console.log("sss=>"+pkg.name);
+  console.log("sss=>" + pkg.name);
   grunt.initConfig({
     pkg: pkg,
+    test: {
+      options: {
+        banner: 'sssssssssss'
+      },
+      s: {
+        t: {
+          options: {
+            banner: 'tttttttt'
+          }
+        }
+      }
+    },
     uglify: {
       options: {
         banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -18,6 +29,8 @@ module.exports = function(grunt) {
 
   // 加载包含 "uglify" 任务的插件。
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
-  grunt.registerTask('default', ['uglify']);
+  grunt.registerMultiTask('test', '测试测试', function(arg1, arg2) {
+    console.dir(this)
+    grunt.log.write('参数:' + arg1 + "," + arg2);
+  });
 }

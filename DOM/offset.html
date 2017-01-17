@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="margin: 5px;">
+	<div id="test" style="background: red;width: 200px;height: 200px;position: relative;margin: 10px;border:10px solid black">
+		<div id="test1" style="background: yellow;width: 100px;height: 100px;"></div>
+	</div>
+	<script>
+		
+		var test=document.getElementById('test');
+		console.log(test.offsetLeft,test.offsetTop)
+		var test1=document.getElementById('test1');
+		console.log(test1.offsetLeft,test1.offsetTop,test1.offsetParent)
+	</script>
+</body>
+</html>
