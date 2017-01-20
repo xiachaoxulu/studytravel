@@ -4,15 +4,20 @@ var http = require('http');
 var fs = require('fs');
 var path = require('path');
 var url = require('url');
- 
+
 
 var server = http.createServer(function(request, respose) {
 
   var pathname = url.parse(request.url).pathname;
-  if(pathname=='/'){
-  	pathname="/index.html";
+  if (pathname == '/') {
+    pathname = "/index.html";
   }
-  pathname=path.join(__dirname,pathname);
+  if (pathname == '/ajaxtest') {
+    respose.write("cbs('sss')");
+    respose.end();
+    return;
+  }
+  pathname = path.join(__dirname, pathname);
   console.log(pathname);
   fs.exists(pathname, function(exist) {
 
