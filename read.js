@@ -1,8 +1,8 @@
 var fs = require("fs");
 var path = require('path');
 var reg = /([\u4e00-\u9fa5]+).*?(\d+)/gim;
-var fileFilter = /\\users.dat$/;
-var location = 'C:\\Users\\xiachao\\Desktop\\tt';
+var fileFilter = /\\user.dat$/;
+var location = 'C:\\Users\\xiachao\\Desktop\\tt\\ss';
 var targetLocation = 'C:\\Users\\xiachao\\Desktop\\result.txt';
 
 var allFiles = [];

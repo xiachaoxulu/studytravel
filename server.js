@@ -17,6 +17,7 @@ var server = http.createServer(function(request, respose) {
     respose.end();
     return;
   }
+
   pathname = path.join(__dirname, pathname);
   console.log(pathname);
   fs.exists(pathname, function(exist) {
@@ -29,24 +30,46 @@ var server = http.createServer(function(request, respose) {
       respose.write("this request url " + pathname + " not found");
       respose.end();
     } else {
-      fs.readFile(pathname, "binary", function(err, file) {
+      var time = 0;
+      if (pathname.includes('test.js')) {
 
-        if (err) {
-          respose.writeHead(500, {
-            'Content-Type': 'text/plain'
-          });
-          respose.end();
-        } else {
+        time = 3000;
+      }
+      if (pathname.includes('test1.js')) {
 
-          respose.writeHead(200, {
-            'Content-Type': 'text/html'
-          });
-          respose.write(file, "binary");
-          respose.end();
-        }
+        time = 10000;
+      }
+      if(pathname.includes('linktest.css')){
+        time = 5000;
+      }
+      if(pathname.includes('linktest1.css')){
+        time = 7000;
+      }
+      setTimeout(function() {
+        fs.readFile(pathname, "binary", function(err, file) {
+
+          if (err) {
+            respose.writeHead(500, {
+              'Content-Type': 'text/plain'
+            });
+            respose.end();
+          } else {
+            var ss='text/html';
+            if(time==5000 || time==7000)
+            {
+              ss='text/css';
+            }
+            respose.writeHead(200, {
+              'Content-Type': ss
+            });
+            respose.write(file, "binary");
+            respose.end();
+          }
 
 
-      });
+        });
+      }, time);
+
     }
   });
 

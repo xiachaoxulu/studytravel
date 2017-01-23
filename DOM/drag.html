@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>JS Bin</title>
+</head>
+<body>
+  <div  draggable="true">asdasdasda</div>
+  <div id="empty">xxxxxxx</div>
+  <script>
+    var div=document.getElementsByTagName('div')[0];
+ 
+    div.ondragstart=function(e){
+    	e.dataTransfer.setDragImage(document.getElementById('empty'),null,null)
+    }
+    div.ondrag=function(){
+        
+    }
+  </script>
+</body>
+</html>
