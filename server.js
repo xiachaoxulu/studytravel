@@ -17,7 +17,14 @@ var server = http.createServer(function(request, respose) {
     respose.end();
     return;
   }
-
+  if (pathname == '/cgi') {
+    respose.writeHead(200, {
+      'Content-Type': 'text/html;charset=GBK'
+    })
+    respose.write("{ test :'夏超'}");
+    respose.end();
+    return;
+  }
   pathname = path.join(__dirname, pathname);
   console.log(pathname);
   fs.exists(pathname, function(exist) {
@@ -39,10 +46,10 @@ var server = http.createServer(function(request, respose) {
 
         time = 10000;
       }
-      if(pathname.includes('linktest.css')){
+      if (pathname.includes('linktest.css')) {
         time = 5000;
       }
-      if(pathname.includes('linktest1.css')){
+      if (pathname.includes('linktest1.css')) {
         time = 7000;
       }
       setTimeout(function() {
@@ -54,10 +61,9 @@ var server = http.createServer(function(request, respose) {
             });
             respose.end();
           } else {
-            var ss='text/html';
-            if(time==5000 || time==7000)
-            {
-              ss='text/css';
+            var ss = 'text/html';
+            if (time == 5000 || time == 7000) {
+              ss = 'text/css';
             }
             respose.writeHead(200, {
               'Content-Type': ss

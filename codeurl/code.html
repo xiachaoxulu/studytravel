@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Document</title>
+  <script>
+  var xmlhttp = new XMLHttpRequest();
+  var url = '/cgi';
+  xmlhttp.onreadystatechange = function() {
+    if (xmlhttp.readyState == 4) {
+      if (xmlhttp.status == 200) {
+        console.log(xmlhttp.responseText, xmlhttp)
+      }
+    }
+  }
+  xmlhttp.open('POST', url)
+  xmlhttp.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+  xmlhttp.send('test=%u554A%u5341%u5927%u5927');
+  </script>
+</head>
+
+<body>
+  <form action="/" accept-charset="utf-8" method="post">
+    <input type="text" name="asa">
+    <button type="submit"></button>
+  </form>啊十大大
+  <a href="/test.html/夏?param=夏">2222222</a>
+  <script src="./codejs.js"></script>
+  <script>
+  document.write(unescape('%u554A%u5341%u5927%u5927'))
+  </script>
+</body>
+
+</html>
