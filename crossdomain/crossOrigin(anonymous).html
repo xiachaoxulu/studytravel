@@ -1,0 +1,107 @@
+<html>
+<meta http-equiv="X-UA-Compatible" content="chrome=1">
+<!-- Origin字段里只包含是谁发起的请求，并没有其他信息 (通常情况下是方案，主机和活动文档URL的端口)。跟Referer不一样的是，Origin字段并没有包含涉及到用户隐私的URL路径和请求内容，这个尤其重要。 -->
+<head>
+  <script type="text/javascript" src="http://img.uniqtee.com/yout-js/html2canvas.min.js"></script>
+  <script>
+  function takeScreenshot() {
+    console.log('test');
+    html2canvas(document.getElementById('view'), {
+      onrendered: function(canvas) {
+
+        var img2 = new Image();
+        // img2.crossOrigin = "Anonymous";
+        img2.onload = function() {
+          canvas.getContext("2d").drawImage(img2, 0, 0);
+        };
+        img2.src = "http://img.uniqtee.com/yout-product/20170207/1484742917178.png";
+        var image = canvas.toDataURL("image/png");
+        console.log(image)
+      },
+      allowTaint: true
+        // width: 300,
+        // height: 300
+    });
+  }
+  window.onload = function() {
+    draw();
+    var saveButton = document.getElementById("saveImageBtn");
+    bindButtonEvent(saveButton, "click", saveImageInfo);
+    var dlButton = document.getElementById("downloadImageBtn");
+    bindButtonEvent(dlButton, "click", saveAsLocalImage);
+  };
+
+  function draw() {
+
+    var domimg = document.getElementById('imgtest');
+    //alert(domimg.src);
+
+    var canvas = document.getElementById("thecanvas");
+    var ctx = canvas.getContext("2d");
+
+
+
+    var img2 = new Image();
+    img2.crossOrigin = "Anonymous";
+    img2.onload = function() {
+      ctx.drawImage(img2, 0, 0);
+    };
+    img2.src = "http://10.0.10.6:8080/system/resource/images/bg.jpg";
+
+    // var img = new Image();
+    // img.crossOrigin = "Anonymous";
+    // img.onload = function() {
+    //   ctx.drawImage(img, 100, 100);
+    // };
+    // img.src = domimg.src;
+
+    // ctx.fillStyle = "rgba(125, 46, 138, 0.5)";
+    // ctx.fillRect(25, 25, 100, 100);
+    // ctx.fillStyle = "rgba( 0, 146, 38, 0.5)";
+    // ctx.fillRect(58, 74, 125, 100);
+    // ctx.fillStyle = "rgba( 0, 0, 0, 1)"; // black color 
+    // ctx.fillText("Gloomyfish - Demo", 50, 50);
+  }
+
+  function bindButtonEvent(element, type, handler) {
+    if (element.addEventListener) {
+      element.addEventListener(type, handler, false);
+    } else {
+      element.attachEvent('on' + type, handler);
+    }
+  }
+
+  function saveImageInfo() {
+    var mycanvas = document.getElementById("thecanvas");
+    var image = mycanvas.toDataURL("image/png");
+    console.log(image);
+    // var w = window.open('about:blank', 'image from canvas');
+    // w.document.write("<img src='" + image + "' alt='from canvas'/>");
+  }
+
+  function saveAsLocalImage() {
+    var myCanvas = document.getElementById("thecanvas");
+    // here is the most important part because if you dont replace you will get a DOM 18 exception. 
+    // var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream;Content-Disposition: attachment;filename=foobar.png"); 
+    var image = myCanvas.toDataURL("image/png").replace("image/png", "image/octet-stream");
+    window.location.href = image; // it will save locally 
+  }
+  </script>
+</head>
+
+<body bgcolor="#E6E6FA">
+  <div>
+    <canvas width=700 height=700 id="thecanvas"></canvas>
+    <button id="saveImageBtn">Save Image</button>
+    <button id="downloadImageBtn">Download Image</button>
+  </div>
+  <a href="http://img.uniqtee.com/yout-pattern/20170207/1486436540474.png" download="aaa.png" crossorigin="anonymous">aaa</a>
+  <img src="http://img.uniqtee.com/yout-pattern/20170207/1486436540474.png" id="imgtest" />
+  <hr>
+  <div id="view" style="width: 300px; height: 100px;">
+    <img src="http://img.uniqtee.com/yout-pattern/20170207/1486436540474.png" />
+  </div>
+  <input type="button" value="截图" onclick="takeScreenshot()">
+</body>
+
+</html>
