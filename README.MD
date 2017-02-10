@@ -41,5 +41,4 @@ vw, vh, vmin, vmax：IE9+局部支持，chrome/firefox/safari/opera支持，iOS 
  
 15. http://blog.csdn.net/lx583274568/article/details/52049742 es6 对字符串码点的规则。  字符串的length 错误
 16. fiddle2 使用
-17. crossorigin="anonymous"
 18. css 图形

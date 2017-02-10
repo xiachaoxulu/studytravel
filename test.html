@@ -4,10 +4,47 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+  <script>
+  if (window.DeviceMotionEvent) {
+    window.addEventListener('devicemotion', deviceMotionHandler, false);
+    window.addEventListener('deviceorientation',abc,false)
+  } else {
+    document.getElementById("dmEvent").innerHTML = "Not supported on your device."
+  }
+
+  var SHAKE_THRESHOLD = 800;
+  var last_update = 0;
+  var x, y, z, last_x, last_y, last_z;
+
+  function deviceMotionHandler(eventData) {
+    var acceleration = eventData.accelerationIncludingGravity;
+    var curTime = new Date().getTime();
+      console.log(acceleration)
+    if ((curTime - last_update) > 300) {
+      var diffTime = curTime - last_update;
+      last_update = curTime;
+      x = acceleration.x;
+      y = acceleration.y;
+      z = acceleration.z;
+      var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+
+      if (speed > SHAKE_THRESHOLD) {
+        alert("shaked!");
+      }
+      last_x = x;
+      last_y = y;
+      last_z = z;
+    }
+  }
+
+  function abc(eventData){
+  	console.log(eventData)
+  }
+  </script>
 </head>
 
 <body>
-  <div> </div>
+  <div id="dmEvent"> </div>
 </body>
 
 </html>

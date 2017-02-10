@@ -740,7 +740,7 @@ var requirejs, require, define;
 
     Module.prototype = {
       init: function(depMaps, factory, errback, options) {
-        console.log("init:" + document.readyState);
+ 
         options = options || {};
 
         //Do not do more inits if already done. Can happen if there
@@ -846,7 +846,7 @@ var requirejs, require, define;
         if (!this.enabled || this.enabling) {
           return;
         }
-        console.log("load:" + document.readyState);
+ 
         var err, cjsModule,
           id = this.map.id,
           depExports = this.depExports,
@@ -1408,7 +1408,7 @@ var requirejs, require, define;
 
         function localRequire(deps, callback, errback) {
           var id, map, requireMod;
-          console.log("localRequire" + document.readyState);
+     
           if (options.enableBuildCallback && callback && isFunction(callback)) {
             callback.__requireJsBuild = true;
           }
@@ -1448,13 +1448,13 @@ var requirejs, require, define;
 
           //Grab defines waiting in the global queue.
           intakeDefines();
-          console.log("localRequire" + document.readyState);
+ 
           //Mark all the dependencies as needing to be loaded.
           context.nextTick(function() {
             //Some defines could have been added since the
             //require call, collect them.
             intakeDefines();
-            console.log("nextTick" + document.readyState);
+             
             requireMod = getModule(makeModuleMap(null, relMap));
 
             //Store if map config should be applied to this require
@@ -1614,7 +1614,7 @@ var requirejs, require, define;
             callGetModule([moduleName, (shim.deps || []), shim.exportsFn]);
           }
         }
-
+        // console.log(args)
         checkLoaded();
       },
 
@@ -1796,7 +1796,6 @@ var requirejs, require, define;
     if (config) {
       context.configure(config);
     }
-
     return context.require(deps, callback, errback);
   };
 
@@ -1896,7 +1895,7 @@ var requirejs, require, define;
    * @param {Object} url the URL to the module.
    */
   req.load = function(context, moduleName, url) {
-    console.log('xxxx' + document.readyState)
+ 
     var config = (context && context.config) || {},
       node;
     if (isBrowser) {

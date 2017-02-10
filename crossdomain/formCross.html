@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	//form 跨域提交也会带着cookie。   这样很不安全，后台在涉及到状态更改的时候，要都使用post请求，因为post请求http头会带着origin属性, 后台可以判断origin 会决定是否执行
+	<form action="http://10.0.10.6:8080/acewill/OrgEmployee/selectCount.htm" target="myframe" method="POST">
+		<input type="text" name="key">
+		<button type="submit">提交</button>
+	</form>
+	<button onclick=>读取</button>
+	<iframe   frameborder="0" id="myframe" name="myframe"  ></iframe>
+</body>
+</html>
