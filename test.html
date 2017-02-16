@@ -5,46 +5,38 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script>
-  if (window.DeviceMotionEvent) {
-    window.addEventListener('devicemotion', deviceMotionHandler, false);
-    window.addEventListener('deviceorientation',abc,false)
-  } else {
-    document.getElementById("dmEvent").innerHTML = "Not supported on your device."
-  }
+  function insertSort(arr) {
 
-  var SHAKE_THRESHOLD = 800;
-  var last_update = 0;
-  var x, y, z, last_x, last_y, last_z;
+    for (var i = 1; i < arr.length; i++) {
 
-  function deviceMotionHandler(eventData) {
-    var acceleration = eventData.accelerationIncludingGravity;
-    var curTime = new Date().getTime();
-      console.log(acceleration)
-    if ((curTime - last_update) > 300) {
-      var diffTime = curTime - last_update;
-      last_update = curTime;
-      x = acceleration.x;
-      y = acceleration.y;
-      z = acceleration.z;
-      var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+      var key = arr[i];
+      var j = i - 1;
 
-      if (speed > SHAKE_THRESHOLD) {
-        alert("shaked!");
+
+      while (j >= 0 && arr[j] > key) {
+        arr[j + 1] = arr[j]
+        j--;
       }
-      last_x = x;
-      last_y = y;
-      last_z = z;
+
+      arr[j + 1] = key;
+
     }
+
+    return arr
+
+
   }
 
-  function abc(eventData){
-  	console.log(eventData)
-  }
+
+  var arr = [8, 2, 6, 12, 4, 7, 24, 6, 78];
+  console.log(insertSort(arr));
   </script>
 </head>
 
 <body>
-  <div id="dmEvent"> </div>
+  <div id="dmEvent" style="height: 500px;width: 1000px; background-color: red">
+    <div style="height: 100px;width: 100px; background-color: blue"></div>
+  </div>
 </body>
 
 </html>

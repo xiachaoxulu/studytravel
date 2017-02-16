@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="./sea-debug.js"></script>
+  <script>
+  // seajs 的简单配置
+  seajs.config({
+  
+    alias: {
+      "b": "./b.js",
+      "c": "./c.js",
+      "ac": {
+        src: "./a.js",
+        deps: ['b'],
+        exports: 'aaaa'
+      },
+    }
+  })
+
+  // 加载入口模块
+  seajs.use("b")
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>

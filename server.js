@@ -38,6 +38,10 @@ var server = http.createServer(function(request, respose) {
       respose.end();
     } else {
       var time = 0;
+      if (pathname.includes('c.js')) {
+
+        time = 8000;
+      }
       if (pathname.includes('test.js')) {
 
         time = 3000;
