@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				RECT = paper.rect(240, 40, 50, 50, 10).attr({fill:'#008000'});
+				PATH = paper.path("M 60,70  L 110,70   A 50,50 0 1,1   60,20   Z").attr({fill:'#C0C000'});
+				ELPS = paper.ellipse(250, 150, 40, 20).attr({fill:'#FF0000'});
+				var count=0;
+
+				/*Executed for each object*/
+				function callback(thisarg){
+					if(thisarg.type=="path"){
+						var warn="Found a path.(br)Aborting paper.forEach loop.";
+						alert(warn);
+						//modal.showModalFace(warn,1,[function(){ modal.shutModal(); }],"90%");
+						return false;
+					}
+				}
+
+				//setInfoContent("InfoContent","Example:Paper.forEach.","120%");	
+				$('#start').on('click',function(){
+					paper.forEach(callback,this );
+				})				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<input id="start" type="button" class="btn btn-primary" value="开始forEach"/>
+		<div class="example1" >
+			<h3>Paper.forEach(callback, thisArg)</h3>
+			为画布上每个元素执行指定函数<br/>
+			如果回调函数返回false则会停止循环。<br/>
+			<h3>参数</h3>
+			<code>callback</code> function 函数运行<br/>
+			<code>thisArg</code> object    回调函数的环境<br/>
+			返回：object       画布对象<br/>
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			RECT = paper.rect(240, 40, 50, 50, 10).attr({fill:'#008000'});
+			PATH = paper.path("M 60,70  L 110,70   A 50,50 0 1,1   60,20   Z").attr({fill:'#C0C000'});
+			ELPS = paper.ellipse(250, 150, 40, 20).attr({fill:'#FF0000'});
+			var count=0;
+
+			/*Executed for each object*/
+			function callback(thisarg){
+				if(thisarg.type=="path"){
+					var warn="Found a path.(br)Aborting paper.forEach loop.";
+					alert(warn);
+					//modal.showModalFace(warn,1,[function(){ modal.shutModal(); }],"90%");
+					return false;
+				}
+			}
+
+			//setInfoContent("InfoContent","Example:Paper.forEach.","120%");	
+			$('#start').on('click',function(){
+				paper.forEach(callback,this );
+			})					
+	</pre>
+	   
+	</body>
+</html>

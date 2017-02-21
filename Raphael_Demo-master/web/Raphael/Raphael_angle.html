@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				/*The shared parameters for the path and the angle function*/
+				var pdim=[10, 10, 10, 200, 200, 10];
+				/*Create the path which will also be used to orientate the rectangle*/
+				var path_1 = paper.path('M '+pdim[0]+" "+pdim[1]+" L"+pdim[2]+" "+pdim[3]+" "+pdim[4]+" "+pdim[5]);
+				path_1.attr({'stroke-width':3,stroke:'#0000FF'});
+				/*Work out the angle formed by the path line*/
+				var angle = Raphael.angle(pdim[0], pdim[1], pdim[2], pdim[3], pdim[4], pdim[5]);
+				var aligned_rect = paper.rect(40, 270, 50, 50, 10).attr({fill:"#0000FF"});
+
+				var warn="About to orientate the rectangle and line it up with the path(br)The path made an angle of "+angle+" degrees.";
+				
+				$('#do').on('click',function(){
+					if(confirm(warn)){
+						aligned_rect.rotate(angle, true);
+					}
+				
+				})
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<input id="do" value="do" class="btn btn-primary" type="button"/>
+		<div class="example1">
+			<h3>Raphael.angle(x1, y1, x2, y2, [x3], [y3])</h3>
+			返回两个或三个点之间的角度
+			<h3>参数</h3>
+			<table class="table table-hover" >
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>参数</th>
+						<th>类型</th>
+						<th>描述</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>1</td>
+						<td>x1</td>
+						<td>number</td>
+						<td>第一点的x坐标</td>
+					</tr>
+					<tr>
+						<td>2</td>
+						<td>y1</td>
+						<td>number</td>
+						<td>第一点的y坐标</td>
+					</tr>
+					<tr>
+						<td>3</td>
+						<td>x2</td>
+						<td>number</td>
+						<td>第二点的x坐标</td>
+					</tr>
+					<tr>
+						<td>4</td>
+						<td>y2</td>
+						<td>number</td>
+						<td>第二点的y坐标</td>
+					</tr>
+					<tr>
+						<td>5</td>
+						<td>x3</td>
+						<td>number</td>
+						<td>第三点的x坐标</td>
+					</tr>
+					<tr>
+						<td>6</td>
+						<td>y3</td>
+						<td>number</td>
+						<td>第三点的y坐标</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			/*The shared parameters for the path and the angle function*/
+			var pdim=[10, 10, 10, 200, 200, 10];
+			/*Create the path which will also be used to orientate the rectangle*/
+			var path_1 = paper.path('M '+pdim[0]+" "+pdim[1]+" L"+pdim[2]+" "+pdim[3]+" "+pdim[4]+" "+pdim[5]);
+			path_1.attr({'stroke-width':3,stroke:'#0000FF'});
+			/*Work out the angle formed by the path line*/
+			var angle = Raphael.angle(pdim[0], pdim[1], pdim[2], pdim[3], pdim[4], pdim[5]);
+			var aligned_rect = paper.rect(40, 270, 50, 50, 10).attr({fill:"#0000FF"});
+
+			var warn="About to orientate the rectangle and line it up with the path(br)The path made an angle of "+angle+" degrees.";
+			
+			$('#do').on('click',function(){
+				if(confirm(warn)){
+					aligned_rect.rotate(angle, true);
+				}
+			
+			})
+		</pre>
+	   
+	</body>
+</html>

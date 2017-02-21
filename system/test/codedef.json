@@ -1,0 +1,23 @@
+{
+    "success": "true",
+    "err_msg": "",
+    "err_code": "8888",
+    "result": {
+        "recordCount": "15",
+        "recordList": [{
+            "createtime": "1456451052000",
+            "difintionName": "学历",
+            "ID": "1",
+            "viewType": "wxc",
+            "des": "1",
+            "valid": "1"
+        }, {
+            "createtime": "1456451052000",
+            "difintionName": "政治面貌",
+            "ID": "2",
+            "viewType": "wxc",
+            "des": "1",
+            "valid": "1"
+        }]
+    }
+}

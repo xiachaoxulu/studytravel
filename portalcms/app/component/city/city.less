@@ -1,0 +1,107 @@
+/**
+* @Created Date       : 2016-10-24T10:11:03+08:00
+* @Last Modified time : 2016-10-24T11:27:32+08:00
+*/
+
+
+
+.qcity {
+  background: #fff;
+  border: 1px solid #ccc;
+  font-size: 12px;
+  & .city-nav {
+    border-bottom: 1px solid #e8e8e8;
+    padding-left: 10px;
+    zoom: 1;
+    &:after {
+      clear: both;
+      content: ".";
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+    & span {
+      position: relative;
+      bottom: -1px;
+      float: left;
+      display: inline;
+      margin-right: 25px;
+      color: #0084bb;
+      cursor: pointer;
+      font-size: 12px;
+      height: 32px;
+      line-height: 32px;
+      text-align: center;
+    }
+    & .active {
+      border-bottom: 1px solid #0084bb;
+      font-weight: bold;
+    }
+  }
+  & .city-content .active {
+    display: block;
+  }
+  & .city-panel {
+    padding: 9px 0 0 10px;
+    display: none;
+    & .list {
+      height: 1%;
+      margin: 0;
+      padding: 0;
+      &:after {
+        clear: both;
+        content: ".";
+        display: block;
+        height: 0;
+        visibility: hidden;
+      }
+    }
+    & dt {
+      color: #0084bb;
+      display: block;
+      float: left;
+      height: 24px;
+      line-height: 24px;
+      text-align: left;
+      width: 10px;
+      font-weight: bold;
+      vertical-align: middle;
+    }
+    & dd {
+      display: block;
+      line-height: 24px;
+      margin-left: 10px;
+    }
+    & ul {
+      height: 1%;
+      margin: 0;
+      padding: 0;
+      margin-left: 10px;
+      & li {
+        float: left;
+        height: 24px;
+        vertical-align: middle;
+        line-height: 24px;
+        overflow: hidden;
+        text-align: left;
+        width: 20%;
+      }
+      & a {
+        color: #333;
+        font-size: 12px;
+      }
+      & a:hover {
+        color: #0084bb;
+        text-decoration: none;
+        font-weight: 700;
+      }
+    }
+    & ul:after {
+      clear: both;
+      content: ".";
+      display: block;
+      height: 0;
+      visibility: hidden;
+    }
+  }
+}

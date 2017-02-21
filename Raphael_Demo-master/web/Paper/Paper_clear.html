@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/controlsv4t.js"></script>
+
+
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				mouseovertxt=paper.text(0,170, "").attr({fill:'#ff0000', 'font-size':20,'text-anchor':'start'});
+
+				/***Raphael Widgets*****************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				Note: function passed as argument.
+				***********************************************************/
+
+				var redo = function(){
+					/*Paper.clear:-implemented here*/
+					paper.clear();
+					//paper.rect(0, 0, 400, 480, 10).attr({fill: "red", stroke: "none"});
+					setContent("InfoContent","Paper redone\nExample:Paper.clear."); 
+				}
+				/*Clear implemented below*/
+				showClearWarn = function(){ 
+					var warn="Warning:-You are about to clear the Code viewing window.";
+					if(confirm(warn)){
+						redo();
+					}
+				}
+				paper.widgets.button(paper,410, 440, 35, "Clear", "#800000" , "#FF7F00" ,24,showClearWarn);
+
+				commmm = addCommunity(mouseovertxt,paper,"Release your code..");
+				commmm.translate( (-1*commmm.getBBox().x) ,(-1*commmm.getBBox().y));
+
+
+				setContent("InfoContent","Example:Paper.clear.");
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div id="InfoContent" class="example1"></div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			mouseovertxt=paper.text(0,170, "").attr({fill:'#ff0000', 'font-size':20,'text-anchor':'start'});
+
+			/***Raphael Widgets*****************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			Note: function passed as argument.
+			***********************************************************/
+
+			var redo = function(){
+				/*Paper.clear:-implemented here*/
+				paper.clear();
+				//paper.rect(0, 0, 400, 480, 10).attr({fill: "red", stroke: "none"});
+				setContent("InfoContent","Paper redone\nExample:Paper.clear."); 
+			}
+			/*Clear implemented below*/
+			showClearWarn = function(){ 
+				var warn="Warning:-You are about to clear the Code viewing window.";
+				if(confirm(warn)){
+					redo();
+				}
+			}
+			paper.widgets.button(paper,410, 440, 35, "Clear", "#800000" , "#FF7F00" ,24,showClearWarn);
+
+			commmm = addCommunity(mouseovertxt,paper,"Release your code..");
+			commmm.translate( (-1*commmm.getBBox().x) ,(-1*commmm.getBBox().y));
+
+
+			setContent("InfoContent","Example:Paper.clear.");
+		</pre>
+	   
+	</body>
+</html>

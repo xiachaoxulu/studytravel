@@ -1,0 +1,40 @@
+{
+    "success": "true",
+    "err_msg": "",
+    "err_code": "8888",
+    "result": {
+        "recordCount": "15",
+        "recordList": [{
+            "createTime":1457422067000,
+            "des":"123",
+            "ID":1,
+            "moduleName":"模块1",
+            "valid":1
+        }, {
+            "createTime":1457422067000,
+            "des":"123",
+            "ID":1,
+            "moduleName":"模块2",
+            "valid":1
+        }, {
+            "createTime":1457422067000,
+            "des":"123",
+            "ID":1,
+            "moduleName":"模块3",
+            "valid":1
+        }, {
+            "createTime":1457422067000,
+            "des":"123",
+            "ID":1,
+            "moduleName":"模块4",
+            "valid":1
+        }, {
+            "createTime":1457422067000,
+            "des":"123",
+            "ID":1,
+            "moduleName":"模块5",
+            "valid":1
+        }]
+    }
+}
+                        

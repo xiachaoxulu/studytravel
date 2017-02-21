@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+
+				paper = new Raphael(0,0,900,500);
+				/*Create a path and put a box around the element*/
+				var c = paper.path("M310,250 C310,210 350,210 350,250");
+				var bBox = c.getBBox();
+				cboundingBox = c.paper.rect(bBox.x,bBox.y,bBox.width,bBox.height).attr({stroke:"#FF0000"});
+
+				/*Clone the path and rotate it from the bottom left and put a box around the element*/
+				c2=c.clone();
+				c2.rotate(180,bBox.x+bBox.width,bBox.y+bBox.height);
+				bBox = c2.getBBox();
+				c2boundingBox = paper.rect(bBox.x,bBox.y,bBox.width,bBox.height).attr({stroke:"#0000ff"});
+				/*Translate the cloned path and do a new getBBox()*/
+				c2.translate(0, 100);
+				bBox = c2.getBBox();
+				c2boundingBox = paper.rect(bBox.x,bBox.y,bBox.width,bBox.height).attr({stroke:"#0000ff"});
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div class="example1">
+			<h3>参数</h3>
+			<code>isWithoutTransformboolean</code>
+			如果你想得到变换之前的边界，使用true。默认值为 false。
+
+		</div>
+        <pre class="brush: javascript">
+        	paper = new Raphael(0,0,900,500);
+			/*Create a path and put a box around the element*/
+			var c = paper.path("M310,250 C310,210 350,210 350,250");
+			var bBox = c.getBBox();
+			cboundingBox = c.paper.rect(bBox.x,bBox.y,bBox.width,bBox.height).attr({stroke:"#FF0000"});
+
+			/*Clone the path and rotate it from the bottom left and put a box around the element*/
+			c2=c.clone();
+			c2.rotate(180,bBox.x+bBox.width,bBox.y+bBox.height);
+			bBox = c2.getBBox();
+			c2boundingBox = paper.rect(bBox.x,bBox.y,bBox.width,bBox.height).attr({stroke:"#0000ff"});
+			/*Translate the cloned path and do a new getBBox()*/
+			c2.translate(0, 100);
+			bBox = c2.getBBox();
+			c2boundingBox = paper.rect(bBox.x,bBox.y,bBox.width,bBox.height).attr({stroke:"#0000ff"});
+
+			//setInfoContent("InfoContent","Note that without specifying an 'isWithoutTransform' parameter the default value is false and the bounding box will form around the new position of the translated/moved element. Specifying true will show the original position of the element despite subsequent translations/moves.(br)(br)Example:Element.getBBox.","100%");
+
+
+		</pre>
+	   
+	</body>
+</html>

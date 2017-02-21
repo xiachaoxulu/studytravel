@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var draggableset = paper.set();
+
+				var path3938 =   paper.path('M 53.6 93.8 L 159.8 93.8 L 159.8 200 L 53.6 200 L 53.6 93.8')
+						.attr({'fill':'#ff00ff','stroke-width':'1','stroke':'none','fill-opacity':'1','stroke-opacity':'1'});
+				draggableset.push(path3938)
+
+				var path3940 =   paper.path('M 286 85 L 285 93 L 283 101 L 280 109 L 275 116 L 270 123 L 263 128 L 256 133 L 248 136 L 240 138 L 232 139 L 223 138 L 215 136 L 207 133 L 200 128 L 193 123 L 188 116 L 183 109 L 180 101 L 178 93 L 178 85 L 178 76 L 180 68 L 183 60 L 188 53 L 193 46 L 200 41 L 207 37 L 215 33 L 223 31 L 232 31 L 240 31 L 248 33 L 256 37 L 263 41 L 270 46 L 275 53 L 280 60 L 283 68 L 285 76 L 286 85')
+						.attr({'fill':'#ffff14','stroke-width':'1','stroke':'none','fill-opacity':'1','stroke-opacity':'1'});
+				draggableset.push(path3940)
+
+				var path3970 =   paper.path('M 461 131 L 461 136 L 458 140 L 454 145 L 448 148 L 441 152 L 433 155 L 423 157 L 413 159 L 402 160 L 392 160 L 381 160 L 370 159 L 360 157 L 350 155 L 342 152 L 335 148 L 329 145 L 325 140 L 322 136 L 322 131 L 322 127 L 325 122 L 329 118 L 335 114 L 342 111 L 350 108 L 360 105 L 370 104 L 381 102 L 392 102 L 402 102 L 413 104 L 423 105 L 433 108 L 441 111 L 448 114 L 454 118 L 458 122 L 461 127 L 461 131')
+					.attr({'fill':'#00ffff','stroke':'#0097e6','stroke-width':'7','fill-opacity':'1','stroke-opacity':'1'}); 
+				draggableset.push(path3970)
+
+				/*Worth testing if the lines become blurred on IE9 or Firefox*/
+				paper.renderfix();
+
+				//setInfoContent("InfoContent","Example:Paper.renderfix.","120%");
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var draggableset = paper.set();
+
+			var path3938 =   paper.path('M 53.6 93.8 L 159.8 93.8 L 159.8 200 L 53.6 200 L 53.6 93.8')
+					.attr({'fill':'#ff00ff','stroke-width':'1','stroke':'none','fill-opacity':'1','stroke-opacity':'1'});
+			draggableset.push(path3938)
+
+			var path3940 =   paper.path('M 286 85 L 285 93 L 283 101 L 280 109 L 275 116 L 270 123 L 263 128 L 256 133 L 248 136 L 240 138 L 232 139 L 223 138 L 215 136 L 207 133 L 200 128 L 193 123 L 188 116 L 183 109 L 180 101 L 178 93 L 178 85 L 178 76 L 180 68 L 183 60 L 188 53 L 193 46 L 200 41 L 207 37 L 215 33 L 223 31 L 232 31 L 240 31 L 248 33 L 256 37 L 263 41 L 270 46 L 275 53 L 280 60 L 283 68 L 285 76 L 286 85')
+					.attr({'fill':'#ffff14','stroke-width':'1','stroke':'none','fill-opacity':'1','stroke-opacity':'1'});
+			draggableset.push(path3940)
+
+			var path3970 =   paper.path('M 461 131 L 461 136 L 458 140 L 454 145 L 448 148 L 441 152 L 433 155 L 423 157 L 413 159 L 402 160 L 392 160 L 381 160 L 370 159 L 360 157 L 350 155 L 342 152 L 335 148 L 329 145 L 325 140 L 322 136 L 322 131 L 322 127 L 325 122 L 329 118 L 335 114 L 342 111 L 350 108 L 360 105 L 370 104 L 381 102 L 392 102 L 402 102 L 413 104 L 423 105 L 433 108 L 441 111 L 448 114 L 454 118 L 458 122 L 461 127 L 461 131')
+				.attr({'fill':'#00ffff','stroke':'#0097e6','stroke-width':'7','fill-opacity':'1','stroke-opacity':'1'}); 
+			draggableset.push(path3970)
+
+			/*Worth testing if the lines become blurred on IE9 or Firefox*/
+			paper.renderfix();
+
+			//setInfoContent("InfoContent","Example:Paper.renderfix.","120%");
+		</pre>
+	   
+	</body>
+</html>

@@ -1,0 +1,71 @@
+/*  
+@require "/resource/css/base.css" 
+*/
+
+.progress-warp {
+  width: 100%;
+  height: 20px;
+  position: relative;
+  & .base {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background-color: #c5c5c5;
+    overflow: hidden;
+    & .current {
+      width: 100%;
+      height: 100%;
+      background: #85c440;
+      border-radius: 10px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      border-color: #78b337 #6ba031 #568128;
+      background-image: -webkit-linear-gradient(top, #b7dc8e 0%, #99ce5f 70%, #85c440 100%);
+      background-image: -moz-linear-gradient(top, #b7dc8e 0%, #99ce5f 70%, #85c440 100%);
+      background-image: -o-linear-gradient(top, #b7dc8e 0%, #99ce5f 70%, #85c440 100%);
+      background-image: linear-gradient(to bottom, #b7dc8e 0%, #99ce5f 70%, #85c440 100%);
+      & .label {
+        padding: 0 20px;
+        font-size: 12px;
+        font-weight: bold;
+        color: rgba(0, 0, 0, 0.7);
+        text-shadow: 0 1px rgba(255, 255, 255, 0.4);
+      }
+    }
+    & .node-list {
+      position: absolute;
+      left: 0px;
+      right: 0px;
+      top: 0px;
+      bottom: 0px;
+      z-index: 1;
+      & .node {
+        position: absolute;
+        top: -5px;
+        height: 30px;
+        width: 30px;
+        margin-left: -15px;
+        background-color: #c5c5c5;
+
+        border-color: #78b337 #6ba031 #568128;
+        border-radius: 15px;
+      }
+      & .node.active {
+        background-image: -webkit-linear-gradient(top, #b7dc8e 0%, #99ce5f 70%, #85c440 100%);
+        background-image: -moz-linear-gradient(top, #b7dc8e 0%, #99ce5f 70%, #85c440 100%);
+        background-image: -o-linear-gradient(top, #b7dc8e 0%, #99ce5f 70%, #85c440 100%);
+        background-image: linear-gradient(to bottom, #b7dc8e 0%, #99ce5f 70%, #85c440 100%);
+      }
+      & .label {
+        position: absolute;
+        top: -20px;
+        width: 80px;
+        left: -25px;
+        text-align: center;
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+    "success": "true",
+    "err_msg": "",
+    "err_code": "8888",
+    "result": {
+        "recordCount": "1522",
+        "recordList": [{
+            "createtime": "1456451052000",
+            "codeName": "小学",
+            "ID": "1",
+            "code": "wxc",
+            "des": "1",
+            "orderNum": "1",
+            "difintionID":"1"
+        }, {
+          "createtime": "1456451052000",
+          "codeName": "初中",
+          "ID": "2",
+          "code": "wxc",
+          "des": "1",
+          "orderNum": "1",
+          "difintionID": "1"
+        }]
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "success": "true",
+    "err_msg": "",
+    "err_code": "8888",
+    "result": {
+        "recordCount": "112111",
+        "recordList": [{
+            "createtime": "1456451052000",
+            "des": "系统管理员",
+            "ID": "1",
+            "userName": "wxc",
+            "valid": "1"
+        }, {
+            "createtime": "1456451051000",
+            "des": "系统管理员",
+            "ID": "2",
+            "userName": "wxc",
+            "valid": "1"
+        }]
+    }
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				//Translate a circle
+				var c = paper.circle(100, 250, 50);
+				var cc=c.clone();
+				c.attr({fill:"#FF0000"});
+				c.translate(250, 0);
+				//Translate a path
+				var path = paper.path('M 246.078,121.508 C 246.078,113.387 235.324,105.602 216.187,99.859 C 197.05,94.117 171.097,90.891 144.031,90.891 C 116.964,90.891 91.0117,94.117 71.875,99.859 C 52.7383,105.602 41.9844,113.387 41.9844,121.508 C 41.9844,129.625 52.7383,137.414 71.875,143.152 C 91.0117,148.895 116.964,152.121 144.031,152.121 C 171.097,152.121 197.05,148.895 216.187,143.152 C 235.324,220 246.078,129.625 246.078,121.508z');
+				var pc=path.clone();
+				path.attr({fill:'#ff9900', stroke:'#FF0000', 'stroke-width':5 });
+				paper.text(50,400,'Translate is a common/non-attribute dependent way to move primitives.')
+					.attr({fill:'#000000', 'font-size':16, 'stroke-width':1 , 'text-anchor':'start' });
+				path.translate(250, 0);
+				//setInfoContent("InfoContent","Example:Element.translate.","120%");	
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div class="example1">
+			<code>Element.translate(dx, dy)</code><br/>
+			为元素增加平移变换。<br/>
+			建议不要使用。使用Element.transform代替。
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			//Translate a circle
+			var c = paper.circle(100, 250, 50);
+			var cc=c.clone();
+			c.attr({fill:"#FF0000"});
+			c.translate(250, 0);
+			//Translate a path
+			var path = paper.path('M 246.078,121.508 C 246.078,113.387 235.324,105.602 216.187,99.859 C 197.05,94.117 171.097,90.891 144.031,90.891 C 116.964,90.891 91.0117,94.117 71.875,99.859 C 52.7383,105.602 41.9844,113.387 41.9844,121.508 C 41.9844,129.625 52.7383,137.414 71.875,143.152 C 91.0117,148.895 116.964,152.121 144.031,152.121 C 171.097,152.121 197.05,148.895 216.187,143.152 C 235.324,220 246.078,129.625 246.078,121.508z');
+			var pc=path.clone();
+			path.attr({fill:'#ff9900', stroke:'#FF0000', 'stroke-width':5 });
+			paper.text(50,400,'Translate is a common/non-attribute dependent way to move primitives.')
+				.attr({fill:'#000000', 'font-size':16, 'stroke-width':1 , 'text-anchor':'start' });
+			path.translate(250, 0);
+			//setInfoContent("InfoContent","Example:Element.translate.","120%");	
+
+		</pre>
+	   
+	</body>
+</html>

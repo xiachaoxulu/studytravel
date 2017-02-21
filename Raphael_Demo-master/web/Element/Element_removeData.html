@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				
+				showthemessage=paper.text(15,400,'Mouse over the Circles.').attr({fill:'#0000ff', 'font-size':24, 'stroke-width':1 ,'text-anchor':'start'});
+				function displayData(obj)
+				{
+					showthemessage.attr({ text: "Circle number : "+obj.data("i")+" has colour "+ obj.data("colour") } );
+				}
+				var circles=[];
+				for (i = 0; i < 5; i++) 
+				{
+				    circles[i]=paper.circle(20 + 50 * i, 20, 20);
+				    colour=Raphael.getColor(0.75);
+				    circles[i].attr({fill: colour});
+				    circles[i].data("i", i);
+				    circles[i].data("colour", colour);
+				    circles[i].mouseover(function () 
+				    {
+				        displayData(this);
+				    });
+				}
+
+				function removeData() 
+				{ 
+				    showthemessage.attr( { text: "All colour data was removed.\nNow run the mouse over the circles." } );
+
+					for (i = 0; i < 5; i++) 
+					{
+						/*Element.removeData implemented here*/
+				    	circles[i].removeData("colour");
+				    }
+				} 
+
+				/***Raphael Widgets*****************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				Note: function passed as argument.
+				***********************************************************/
+				/*Element.pause implemented here*/
+				paper.widgets.button(paper,500, 400, 75, "Remove\nData", "#800000" , "#FF7F00" ,36,removeData);
+
+				setInfoContent("InfoContent","Example:Element.removeData(key, [value]).","120%");	
+
+
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			showthemessage=paper.text(15,400,'Mouse over the Circles.').attr({fill:'#0000ff', 'font-size':24, 'stroke-width':1 ,'text-anchor':'start'});
+			function displayData(obj)
+			{
+				showthemessage.attr( { text: "Circle number : "+obj.data("i")+" has colour "+ obj.data("colour") } );
+			}
+			var circles=[];
+			for(i = 0; i < 5; i++){
+			    circles[i]=paper.circle(20 + 50 * i, 20, 20);
+			    //Raphael.getColor([value])
+				//每次调用返回色谱中的下一个颜色。要重置回红色，调用Raphael.getColor.reset
+			    colour=Raphael.getColor(0.75);
+			    circles[i].attr({fill: colour});
+			    circles[i].data("i", i);
+			    circles[i].data("colour", colour);
+			    circles[i].mouseover(function (){
+			        displayData(this);
+			    });
+			}
+
+			function removeData(){ 
+			    showthemessage.attr( { text: "All colour data was removed.\nNow run the mouse over the circles." } );
+
+				for (i = 0; i < 5; i++){
+					/*Element.removeData implemented here*/
+			    	circles[i].removeData("colour");
+			    }
+			} 
+
+			/***Raphael Widgets*****************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			Note: function passed as argument.
+			***********************************************************/
+			/*Element.pause implemented here*/
+			paper.widgets.button(paper,500, 400, 75, "Remove\nData", "#800000" , "#FF7F00" ,36,removeData);
+
+			setInfoContent("InfoContent","Example:Element.removeData(key, [value]).","120%");	
+
+
+		</pre>
+	   
+	</body>
+</html>

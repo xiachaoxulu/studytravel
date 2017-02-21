@@ -1,0 +1,139 @@
+{
+    "success": "true",
+    "err_msg": "",
+    "err_code": "8888",
+    "result": {
+    	"actids":[1,3,4],
+        "startevent": {
+            "x": 361,
+            "y": 52,
+            "text": {
+                "x": 361,
+                "y": 52,
+                "text": "开始"
+            },
+            "actid": 1,
+            "lines": [{
+                "type": "start",
+                "path": "M391.0447567690943,82L507,106",
+                "condition": "",
+                "text": {
+                    "x": 474.02237838454715,
+                    "y": 79,
+                    "text": "To 节点1"
+                }
+            }]
+        },
+        "endevent": {
+            "x": 385,
+            "y": 429,
+            "text": {
+                "x": 385,
+                "y": 429,
+                "text": "结束"
+            },
+            "actid": 2,
+            "lines": [{
+                "type": "end",
+                "path": "M512,351L415.04475676909425,399",
+                "condition": "",
+                "text": {
+                    "x": 488.5223783845471,
+                    "y": 360,
+                    "text": "To 结束"
+                }
+            }]
+        },
+        "tasks": [{
+            "x": 507,
+            "y": 106,
+            "text": {
+                "x": 557,
+                "y": 131,
+                "text": "节点1"
+            },
+            "actid": 3,
+            "user": "",
+            "postion": "",
+            "lines": [{
+                "type": "end",
+                "path": "M391.0447567690943,82L507,106",
+                "condition": "",
+                "text": {
+                    "x": 474.02237838454715,
+                    "y": 79,
+                    "text": "To 节点1"
+                }
+            }, {
+                "type": "start",
+                "path": "M507,156L429,216",
+                "condition": "",
+                "text": {
+                    "x": 493,
+                    "y": 171,
+                    "text": "To 节点2"
+                }
+            }]
+        }, {
+            "x": 329,
+            "y": 216,
+            "text": {
+                "x": 379,
+                "y": 241,
+                "text": "节点2"
+            },
+            "actid": 4,
+            "user": "",
+            "postion": "",
+            "lines": [{
+                "type": "end",
+                "path": "M507,156L429,216",
+                "condition": "",
+                "text": {
+                    "x": 493,
+                    "y": 171,
+                    "text": "To 节点2"
+                }
+            }, {
+                "type": "start",
+                "path": "M429,266L512,301",
+                "condition": "",
+                "text": {
+                    "x": 495.5,
+                    "y": 268.5,
+                    "text": "To 节点3"
+                }
+            }]
+        }, {
+            "x": 512,
+            "y": 301,
+            "text": {
+                "x": 562,
+                "y": 326,
+                "text": "节点3"
+            },
+            "actid": 5,
+            "user": "",
+            "postion": "",
+            "lines": [{
+                "type": "end",
+                "path": "M429,266L512,301",
+                "condition": "",
+                "text": {
+                    "x": 495.5,
+                    "y": 268.5,
+                    "text": "To 节点3"
+                }
+            }, {
+                "type": "start",
+                "path": "M512,351L415.04475676909425,399",
+                "condition": "",
+                "text": {
+                    "x": 488.5223783845471,
+                    "y": 360,
+                    "text": "To 结束"
+                }
+            }]
+        }]
+    }
+}

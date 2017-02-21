@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				
+				/*Advanced rotation / rotating a set*/
+				showthemessage=paper.text(15,410,'Select a rotation type.').attr({fill:'#0000ff', 'font-size':24, 'stroke-width':1 ,'text-anchor':'start'});
+				var s = paper.set();
+				/***Raphael Widgets*****************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				Note: function passed as argument.
+				***********************************************************/
+				defaultRotate=function (){ 
+				    showthemessage.attr( { text: "Default rotation is from the centre.\nIt applies to the objects not the set." } );
+				    s.rotate(45);
+				};
+				paper.widgets.button(paper,105, 275, 100, "Rotate Set\nobjects only\n(1 argument)", "#800000" , "#FF7F00" ,24,defaultRotate);
+
+				locateCentre=function (){ 
+				    showthemessage.attr( { text: "Bespoke rotation to locate an alternative centre for rotation." } );
+				    s.rotate(45, bbox.x+(bbox.width / 2), bbox.y+(bbox.height / 2));
+				};
+				paper.widgets.button(paper,315, 275, 100, "Rotate Set\nat centre\n(3 argument)", "#800000" , "#FF7F00" ,24,locateCentre);
+
+				alternativeCentre=function (){ 
+				    showthemessage.attr( { text: "Bespoke rotation to locate an alternative centre for rotation." } );
+				    s.rotate(45, bbox.x+bbox.width, bbox.y+bbox.height);
+				};
+
+				paper.widgets.button(paper,530, 275, 100, "Rotate Set\nat bottom\nright\n(3 argument)", "#800000" , "#FF7F00" ,24,alternativeCentre);
+
+				s.push(paper.rect(210, 80, 30, 30, 10).attr({fill:'#FF0000'}));
+				s.push(paper.rect(250, 80, 30, 30, 5).attr({fill:'#0000FF'}));
+				s.push(paper.rect(290, 80, 30, 30).attr({fill:'#FF4040'}));
+
+				/*getBBox() to locate an alternative centre for rotation*/
+				bbox=s.getBBox();
+
+				setInfoContent("InfoContent","Example:Element.rotate.","120%");	
+
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div class="example1">
+			<code>Element.rotate(deg, [cx], [cy])<br/></code>
+			建议不要使用！使用Element.transform代替。围绕指定的点旋转指定角度。
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			/*Advanced rotation / rotating a set*/
+			showthemessage=paper.text(15,410,'Select a rotation type.').attr({fill:'#0000ff', 'font-size':24, 'stroke-width':1 ,'text-anchor':'start'});
+			var s = paper.set();
+			/***Raphael Widgets*****************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			Note: function passed as argument.
+			***********************************************************/
+			defaultRotate=function (){ 
+			    showthemessage.attr( { text: "Default rotation is from the centre.\nIt applies to the objects not the set." } );
+			    s.rotate(45);
+			};
+			paper.widgets.button(paper,105, 275, 100, "Rotate Set\nobjects only\n(1 argument)", "#800000" , "#FF7F00" ,24,defaultRotate);
+
+			locateCentre=function (){ 
+			    showthemessage.attr( { text: "Bespoke rotation to locate an alternative centre for rotation." } );
+			    s.rotate(45, bbox.x+(bbox.width / 2), bbox.y+(bbox.height / 2));
+			};
+			paper.widgets.button(paper,315, 275, 100, "Rotate Set\nat centre\n(3 argument)", "#800000" , "#FF7F00" ,24,locateCentre);
+
+			alternativeCentre=function (){ 
+			    showthemessage.attr( { text: "Bespoke rotation to locate an alternative centre for rotation." } );
+			    s.rotate(45, bbox.x+bbox.width, bbox.y+bbox.height);
+			};
+
+			paper.widgets.button(paper,530, 275, 100, "Rotate Set\nat bottom\nright\n(3 argument)", "#800000" , "#FF7F00" ,24,alternativeCentre);
+
+			s.push(paper.rect(210, 80, 30, 30, 10).attr({fill:'#FF0000'}));
+			s.push(paper.rect(250, 80, 30, 30, 5).attr({fill:'#0000FF'}));
+			s.push(paper.rect(290, 80, 30, 30).attr({fill:'#FF4040'}));
+
+			/*getBBox() to locate an alternative centre for rotation*/
+			//Element.getBBox(isWithoutTransform)
+			//返回指定元素的边界框
+			bbox=s.getBBox();
+
+			setInfoContent("InfoContent","Example:Element.rotate.","120%");	
+
+		</pre>
+	   
+	</body>
+</html>

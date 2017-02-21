@@ -1,0 +1,92 @@
+/**
+* @Created Date       : 2016-10-24T10:11:03+08:00
+* @Last Modified time : 2016-10-25T10:44:43+08:00
+*/
+
+
+
+/*
+@require "/resource/css/base.css"
+*/
+
+.header2 {
+  color: black;
+  width: 100%;
+  min-width: 1000px;
+  & .logo ,.login-name{
+    display: inline-block;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 30px;
+  }
+  & .login-name{
+    color:#666;
+  }
+  & h1 {
+    padding-left: 50px;
+    background: url('../../../resource/image/logo.png') no-repeat 0px 10px;
+    background-size: 35px;
+    font-size: x-large;
+    color:black;
+  }
+  & .login {
+    height: 60px;
+    line-height: 60px;
+    float: right;
+    & input {
+      font-size: 14px;
+      font-family: 'Microsoft Yahei';
+      width: 115px;
+      height: 35px;
+      border-radius: 20px;
+      border: 1px #ccc solid;
+      background: transparent;
+      outline: none;
+      cursor: pointer;
+      margin-right: 20px;
+    }
+    & input:hover {
+      color: white;
+      background: #00C87F;
+      border: none;
+    }
+    & input:last-child {
+      margin-right: 0px;
+    }
+  }
+  & .inlogin {
+    position: relative;
+    & .photo {
+      width: 40px;
+      height: 32px;
+      display: inline-block;
+      vertical-align: middle;
+      background: url('../../../resource/image/tx.png');
+    }
+    & .item-container {
+      display: none;
+      font-size: 14px;
+      position: absolute;
+      right: 0px;
+      top: 65px;
+      width: 80px;
+      line-height: normal;
+      padding: 10px 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, .2);
+    }
+    & .item {
+      margin-bottom: 5px;
+    }
+    & .item:hover {
+      opacity: 0.7;
+      filter: alpha(opacity=70);
+    }
+    & a {
+      color: black;
+    }
+  }
+}

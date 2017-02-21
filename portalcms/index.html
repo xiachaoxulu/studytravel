@@ -1,0 +1,328 @@
+<!--
+* @Created Date       : 2016-10-24T10:11:03+08:00
+* @Last Modified time : 2016-12-02T11:40:43+08:00
+ -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="x-ua-compatible" content="IE=edge" >
+	<title>人力管家</title>
+	<!-- <script src="https//cdn.bootcss.com/es5-shim/4.5.9/es5-shim.min.js"></script>
+	<script src="https//cdn.bootcss.com/es5-shim/4.5.9/es5-sham.min.js"></script>
+	<script src="https//cdn.bootcss.com/es6-shim/0.35.1/es6-shim.min.js"></script>
+	<script src="https//cdn.bootcss.com/es6-shim/0.35.1/es6-sham.min.js"></script> -->
+	<script type="text/javascript" src="lib/mod.js"></script>
+	<script>
+	function f(s){
+		console.log(s);
+	}
+	</script>
+	<script type="text/javascript" src="app/page/index.js" onload='f'></script>
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+	<link rel="shortcut icon" type="image/x-icon" href="app/favicon.ico" />
+	<link rel="stylesheet" href="app/page/index.less">
+
+</head>
+
+<body>
+	<div class="wrap-index">
+		<div class="fix-head">
+			<div class="header">
+				<link rel="import" href="app/component/head/head.tpl?__inline">
+			</div>
+		</div>
+		<div class="main-content">
+			<div class="page-control">
+				<a href="javascript:void(0)" class="active"></a>
+				<a href="javascript:void(0)"></a>
+				<a href="javascript:void(0)"></a>
+				<a href="javascript:void(0)"></a>
+			</div>
+			<div class="page page1">
+				<div class="page-content">
+					<div class="content" style="display:table;">
+						<div class="left">
+							<div class="note">
+								<h2>喰星云 ·人力管家</h2>
+								<h4>为餐饮企业量身打造的人事管理软件</h4>
+								<input type="button" value="立即申请" class="btn" style="margin-left: 50px;">
+								<div class="erweima">
+									<img src="resource/image/erwm.png" alt="">
+									<p>关注微信公众号</p>
+									<p>及时获得更多产品信息</p>
+								</div>
+							</div>
+						</div>
+						<div class="right">
+							<img src="resource/image/macbook.png" alt="">
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page page2">
+				<div class="page-content">
+					<div class="content">
+						<h1>标准模块</h1>
+						<!-- <h1>标准模块, ￥
+							<money>5800</money>/年 <span><a href="javascript:void(0)">体验</a><a href="javascript:void(0)">购买</a></span></h1> -->
+						<!-- <div class="store-wrap">
+							<div class="current"></div>
+							<div class="store-list">
+								<div class="store active">
+									<span>10家门店以下</span>
+								</div>
+								<div class="store">
+									<span>50家门店以下</span>
+								</div>
+								<div class="store">
+									<span>100家门店以下</span>
+								</div>
+							</div>
+						</div> -->
+						<div class="modules">
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="page page3">
+				<div class="page-content">
+					<div class="content">
+						<h1>案例</h1>
+						<div class="logo-wrap">
+							<img src="resource/image/linklogo.png" alt="" style="width: 100%;">
+							<!-- <div class="row">
+								<div class="logo">
+									<div><img src="resource/image/bjy.png" alt=""></div>
+								</div>
+								<div class="logo">
+									<div><img src="resource/image/jxmg.png" alt=""></div>
+								</div>
+								<div class="logo">
+									<div><img src="resource/image/meg.jpg" alt=""></div>
+								</div>
+								<div class="logo">
+									<div><img src="resource/image/musk.png" alt=""></div>
+								</div>
+								<div class="logo">
+									<div><img src="resource/image/musk.png" alt=""></div>
+								</div>
+							</div> -->
+							<!-- <div class="row">
+								<div class="logo">
+									<div><img src="resource/image/bjy.png" alt=""></div>
+								</div>
+								<div class="logo">
+									<div><img src="resource/image/jxmg.png" alt=""></div>
+								</div>
+								<div class="logo">
+									<div><img src="resource/image/meg.jpg" alt=""></div>
+								</div>
+								<div class="logo">
+									<div><img src="resource/image/musk.png" alt=""></div>
+								</div>
+								<div class="logo">
+									<div><img src="resource/image/musk.png" alt=""></div>
+								</div>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="page page4">
+				<div class="page-content">
+					<div class="content">
+						<h1>申请体验</h1>
+						<div class="exp-wrap">
+							<!-- <div class="current"></div>
+							<div class="exp-list">
+								<div data-key="exp" class="exp active">
+									<span>免费体验申请</span>
+								</div>
+								<div data-key="pay" class="exp">
+									<span>购买申请</span>
+								</div>
+							</div> -->
+						</div>
+						<div class="exp-content">
+							<div data-key="exp" class="exp-item active">
+								<form id="expform">
+									<div class="row">
+										<div class="cell">
+											<div class="label">
+												<span>城市</span>
+											</div>
+											<div class="input" >
+												<input type="text" class="choose" id="city2" readonly="readonly">
+												<div class="city"></div>
+											</div>
+										</div>
+										<div class="cell">
+											<div class="label">
+												<span class="must">*</span><span>公司名称</span>
+											</div>
+											<div class="input">
+												<input type="text" valid="require" id="companyName2">
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="cell">
+											<div class="label">
+												<span>公司业态</span>
+											</div>
+											<div class="input">
+												<div class="select-wrap">
+													<p class="select-show"></p>
+													<ul class="select-list">
+
+													</ul>
+												</div>
+												<!-- <select name="" id="companyFormsId2">
+													 <option value="">1</option>
+													<option value="">2</option>
+													<option value="">3</option>
+												</select> -->
+											</div>
+										</div>
+										<div class="cell">
+											<div class="label">
+												<span>门店数量</span>
+											</div>
+											<div class="input">
+												<input type="text" valid="num" errorMsg="门店数量如果填写,则必须为数字" id="storeNum2">
+											</div>
+										</div>
+									</div>
+										<!-- <div class="row">
+										<div class="cell">
+											<div class="label">
+											<span class="must">*</span>
+												<span>用户名</span>
+											</div>
+											<div class="input">
+											 	valid="require"
+												<input type="text" autocomplete="off" id="userName2">
+												<input type="text" style="display:none" data-valid="false" id="userName2">
+											</div>
+										</div>
+										<div class="cell">
+											<div class="label">
+											<span class="must">*</span>
+												<span>密码</span>
+											</div>
+											<div class="input">
+												valid="require"
+												<input type="password" style="display:none" data-valid="false" id="passWord2">
+												<input type="password" autocomplete="off" id="passWord2">
+											</div>
+										</div>
+									</div>
+									-->
+									<div class="row">
+										<div class="cell">
+											<div class="label">
+												<span class="must">*</span><span>联系电话</span>
+											</div>
+											<div class="input">
+												<input type="text" valid="require|phone" id="telephone2">
+											</div>
+										</div>
+										<div class="cell">
+											<div class="label">
+												<span class="must">*</span><span>联系人</span>
+											</div>
+											<div class="input">
+												<input type="text" valid="require" id="contactName2">
+											</div>
+										</div>
+									</div>
+									<div class="errorTip" id="errorTip">
+										&nbsp;
+									</div>
+									<div class="row control">
+										<p>体验即同意<a href="app/page/protocol/protocol.html" target="_blank" class="protocol">人力管家免费体验协议</a>中的内容</p>
+										<input type="button" value="体验" class="btn" id="submitBtn">
+									</div>
+								</form>
+							</div>
+							<div data-key="pay" class="exp-item">xxxxxxxxxxxxxxxxxxx</div>
+						</div>
+					</div>
+				</div>
+				<link rel="import" href="app/component/footer/footer.tpl?__inline">
+			</div>
+		</div>
+		<div class="showTpl">
+
+		</div>
+		<div class="loading-wrap"></div>
+		<div class="loading">
+			<img src="resource/image/loading.gif" alt="">
+		</div>
+		<div class="videoBox">
+			<div class="closeVideo">X</div>
+			<video src="videofile.ogg" autoplay poster="posterimage.jpg" controls="controls" preload="preload">
+
+				</video>
+		</div>
+		<div class="charter">
+			<div class="closeCharter">X</div>
+			<h2>请上传营业执照副本</h2>
+			<!-- <iframe name="upload" style="display:none;" onload="uploadSuccess()"></iframe> -->
+			<form id="expform2" method="post" enctype="multipart/form-data" target="upload">
+				<input class="choose" name="city" type="hidden" id="city">
+				<input valid="require" name="companyName" type="hidden" id="companyName">
+				<input valid="require" name="companyFormsId" type="hidden" id="companyFormsId">
+				<input valid="num" errorMsg="门店数量如果填写,则必须为数字" name="storeNum" type="hidden" id="storeNum">
+				<input data-valid="false" name="userName" type="hidden" id="userName">
+				<input data-valid="false" name="passWord" type="hidden" id="passWord">
+				<input valid="require|phone" name="telephone" type="hidden" id="telephone">
+				<input valid="require" name="contactName" type="hidden" id="contactName">
+				<div class="charte-box">
+					<div class="show-charte">
+						<div class="imgDiv" id="imgDiv">
+							<img src="" alt="" id="imgshow">
+						</div>
+						<p class="charte-claim">要求：PNG JPG JEPG格式，不超过50KB</p>
+					</div>
+					<div class="upload-charte">
+						<input name="file" type="file" id="businessLicense" >
+						<p>+ &nbsp;&nbsp;上传营业执照副本</p>
+					</div>
+				</div>
+				<div class="confirm">
+					<input type="submit" value="确定" class="btn" id="uploadCharteBtn">
+				</div>
+			</form>
+
+		</div>
+		<div class="success">
+			<div class="closeCharter closeSuccess">X</div>
+			<h2>确认</h2>
+			<div class="charte-box">
+				<div class="apply-success">
+					<img src="resource/image/sqcg.png" alt="">
+					<div>
+						<h3>申请成功</h3>
+						<p>感谢您对我们的支持</p>
+					</div>
+				</div>
+				<h4>三个工作日内工作人员会跟您取得联系</h4>
+			</div>
+			<div class="confirm">
+				<input type="button" value="确定" class="btn" id="uploadDone">
+			</div>
+		</div>
+	</div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var t = paper.set();
+				var t1 = paper.circle(325, 160, 70).attr({fill:"#FF0000"});
+				var t2 = paper.circle(325, 240, 70).attr({fill:"#FFFF00"});
+				/*Push objects into a set*/
+				t.push(t1, t2);
+				/*Attributes are changed consistently to the whole set*/
+				t.attr({stroke: "#000000", "fill-opacity": 0.5, "stroke-width": 4, cursor: "move" });
+
+				circle1 = paper.circle(0, 100, 50).attr({fill:"#FF0000","stroke-width":15});
+				circle2 = paper.circle(100, 200, 50).attr({fill:"#0000FF","stroke-width":15});
+				circle3 = paper.circle(200, 300, 50).attr({fill:"#00FF00","stroke-width":15});
+				circle4 = paper.circle(300, 400, 50).attr({fill:"#C0C000","stroke-width":15});
+
+				set1 = paper.set();
+				set2 = paper.set();
+
+				set1.push(circle1, circle2);
+				set2.push(circle3, circle4);
+				set3 = paper.set();
+				set3.push(set1, set2);
+
+				set3.attr({scale: 0.5});
+
+				var bb = set3.getBBox();
+				var cx = bb.x + bb.width / 2;
+				var cy = bb.y + bb.height / 2;
+
+				set3.attr({scale: '0.5 ' + cx + ' ' + cy});
+				//setInfoContent("InfoContent","Example:Paper.set.","120%");
+								
+								
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		
+		<div class="example1">
+			<code>Paper.set()</code><br/>
+			创建类数组对象，保存和一次操作其中的多个元素。<br/>
+			警告：它不创建任何元素，只是分组已存在的元素。<br/>
+			“集合”充当伪元素 - 所有元素可用的方法，都可以在集合上使用。
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var t = paper.set();
+			var t1 = paper.circle(325, 160, 70).attr({fill:"#FF0000"});
+			var t2 = paper.circle(325, 240, 70).attr({fill:"#FFFF00"});
+			/*Push objects into a set*/
+			t.push(t1, t2);
+			/*Attributes are changed consistently to the whole set*/
+			t.attr({stroke: "#000000", "fill-opacity": 0.5, "stroke-width": 4, cursor: "move" });
+
+			circle1 = paper.circle(0, 100, 50).attr({fill:"#FF0000","stroke-width":15});
+			circle2 = paper.circle(100, 200, 50).attr({fill:"#0000FF","stroke-width":15});
+			circle3 = paper.circle(200, 300, 50).attr({fill:"#00FF00","stroke-width":15});
+			circle4 = paper.circle(300, 400, 50).attr({fill:"#C0C000","stroke-width":15});
+
+			set1 = paper.set();
+			set2 = paper.set();
+
+			set1.push(circle1, circle2);
+			set2.push(circle3, circle4);
+			set3 = paper.set();
+			set3.push(set1, set2);
+
+			set3.attr({scale: 0.5});
+
+			var bb = set3.getBBox();
+			var cx = bb.x + bb.width / 2;
+			var cy = bb.y + bb.height / 2;
+
+			set3.attr({scale: '0.5 ' + cx + ' ' + cy});
+			//setInfoContent("InfoContent","Example:Paper.set.","120%");
+		</pre>
+	   
+	</body>
+</html>

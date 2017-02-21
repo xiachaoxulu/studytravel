@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				controlrect = paper.rect(100,100,100,100,20).attr({fill:"#ff0000"});
+				controlrect2 = paper.rect(200,200,100,100,20).attr({fill:"#0000FF"});
+				        
+				var fin = function(){
+					this.ofill=this.attr("fill");
+					this.attr({ 'fill':"#000000" });
+				}
+				var fout = function(){
+				    this.attr({ 'fill':this.ofill });
+					info.attr({text:"Thanks!"});
+				}
+				controlrect.hover(fin, fout); 
+				controlrect2.hover(fin, fout); 
+
+				controlrect.mousemove( function(e){
+					/*Paper.getElementByPoint implemented here*/
+					if (paper.getElementByPoint( e.clientX,e.clientY ) == controlrect) 
+						info.attr({text:"Hey! I used to be RED!", fill:"#ff0000"});
+				});
+				controlrect2.mousemove( function(e){
+					/*Paper.getElementByPoint implemented here*/
+					if (paper.getElementByPoint( e.clientX,e.clientY ) == controlrect2)
+					    info.attr({text:"Hey! I used to be BLUE!", fill:"#0000ff"});
+				});
+
+				/***Raphael Widgets*****************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				Note: function passed as argument.
+				***********************************************************/
+				unhoverButton = function (e){ 
+					var warn = "Warning:-This is going to reset the page.(br)You will lose unsaved work.(br)Do you wish to continue?";
+					if(confirm(warn)){
+						window.location="../../welcome.html";
+					}
+				}
+
+				uButton = paper.widgets.button(paper,400, 80, 70, 
+					"Don't forget\nto remove these\nevents before\nleaving!",
+				    "#800000" , "#FF7F00" ,18,unhoverButton);
+
+				info=paper.text(15,400,'Move the mouse carefully over rounded rectangles.' )
+						  .attr({fill:'#0000FF', 'font-size':16, 'stroke-width':1,'text-anchor':'start' });
+
+				//setInfoContent("InfoContent","Example:Paper.getElementByPoint.","120%");
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div class="example1">
+			<code>Paper.getElementByPoint(x, y)</code><br/>
+			返回位于指定位置的最上层元素
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			controlrect = paper.rect(100,100,100,100,20).attr({fill:"#ff0000"});
+			controlrect2 = paper.rect(200,200,100,100,20).attr({fill:"#0000FF"});
+			        
+			var fin = function(){
+				this.ofill=this.attr("fill");
+				this.attr({ 'fill':"#000000" });
+			}
+			var fout = function(){
+			    this.attr({ 'fill':this.ofill });
+				info.attr({text:"Thanks!"});
+			}
+			controlrect.hover(fin, fout); 
+			controlrect2.hover(fin, fout); 
+
+			controlrect.mousemove( function(e){
+				/*Paper.getElementByPoint implemented here*/
+				if (paper.getElementByPoint(e.clientX,e.clientY ) == controlrect) 
+					info.attr({text:"Hey! I used to be RED!", fill:"#ff0000"});
+			});
+			controlrect2.mousemove( function(e){
+				/*Paper.getElementByPoint implemented here*/
+				if (paper.getElementByPoint(e.clientX,e.clientY ) == controlrect2)
+				    info.attr({text:"Hey! I used to be BLUE!", fill:"#0000ff"});
+			});
+
+			/***Raphael Widgets*****************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			Note: function passed as argument.
+			***********************************************************/
+			unhoverButton = function (e){ 
+				var warn = "Warning:-This is going to reset the page.(br)You will lose unsaved work.(br)Do you wish to continue?";
+				if(confirm(warn)){
+					window.location="../../welcome.html";
+				}
+			}
+
+			uButton = paper.widgets.button(paper,400, 80, 70, 
+				"Don't forget\nto remove these\nevents before\nleaving!",
+			    "#800000" , "#FF7F00" ,18,unhoverButton);
+
+			info=paper.text(15,400,'Move the mouse carefully over rounded rectangles.' )
+					  .attr({fill:'#0000FF', 'font-size':16, 'stroke-width':1,'text-anchor':'start' });
+
+			//setInfoContent("InfoContent","Example:Paper.getElementByPoint.","120%");
+		</pre>
+	   
+	</body>
+</html>

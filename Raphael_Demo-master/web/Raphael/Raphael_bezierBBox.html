@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				function getRectangletoPath(x, y, width, height){
+
+					var s = "M";
+					s = s + x + " " + y + " "+
+					(x+width)+" "+y+" "+
+					(x+width)+" "+(y+height)+" "+
+					x+" "+(y+height)+" z";
+					return s;
+				}
+
+				function applySegmentString(seggyString,initialXY){
+					var fullSegment=seggyString.split(",");
+					var iXY=initialXY.split(",");
+					/*Raphael.bezierBBox implemented here*/
+					var bezierBox=Raphael.bezierBBox(iXY[1],iXY[2],fullSegment[1],fullSegment[2],fullSegment[3],fullSegment[4],fullSegment[5],fullSegment[6]);
+					paper.path(getRectangletoPath(bezierBox.x, bezierBox.y, bezierBox.width, bezierBox.height)).attr({fill:Raphael.getColor(),opacity:0.5});
+					return "NEXT,"+fullSegment[5]+","+fullSegment[6];
+				}	
+				/*Shorthand SVG command path*/
+				PATH = paper.path("M100,200 C100,100 250,100  250,200 S400,300 400,200");
+
+				/*Derive path from element*/
+				pathString = PATH.attr("path")
+
+				/*Get segments from path2curve*/
+				var segments = Raphael.path2curve(pathString);
+				var initialXY = "";
+				for (var a = 1; a < segments.length; a++){
+					if(a == 1)initialXY=segments[0].toString();	
+					initialXY=applySegmentString(segments[a].toString(),initialXY);
+				}
+				setContent("InfoContent","Abbreviated path string="+pathString+"<br/><br/>Example:Raphael.bezierBBox(�)<br/><br/>There appears to be a bug in version 2.1 on the height of the box.");
+
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div id="InfoContent" class="example1"></div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			function getRectangletoPath(x, y, width, height){
+
+				var s = "M";
+				s = s + x + " " + y + " "+
+				(x+width)+" "+y+" "+
+				(x+width)+" "+(y+height)+" "+
+				x+" "+(y+height)+" z";
+				return s;
+			}
+
+			function applySegmentString(seggyString,initialXY){
+				var fullSegment=seggyString.split(",");
+				var iXY=initialXY.split(",");
+				/*Raphael.bezierBBox implemented here*/
+				var bezierBox=Raphael.bezierBBox(iXY[1],iXY[2],fullSegment[1],fullSegment[2],fullSegment[3],fullSegment[4],fullSegment[5],fullSegment[6]);
+				paper.path(getRectangletoPath(bezierBox.x, bezierBox.y, bezierBox.width, bezierBox.height)).attr({fill:Raphael.getColor(),opacity:0.5});
+				return "NEXT,"+fullSegment[5]+","+fullSegment[6];
+			}	
+			/*Shorthand SVG command path*/
+			PATH = paper.path("M100,200 C100,100 250,100  250,200 S400,300 400,200");
+
+			/*Derive path from element*/
+			pathString = PATH.attr("path")
+
+			/*Get segments from path2curve*/
+			var segments = Raphael.path2curve(pathString);
+			var initialXY = "";
+			for (var a = 1; a < segments.length; a++){
+				if(a == 1)initialXY=segments[0].toString();	
+				initialXY=applySegmentString(segments[a].toString(),initialXY);
+			}
+			setContent("InfoContent","Abbreviated path string="+pathString+"<br/><br/>Example:Raphael.bezierBBox(�)<br/><br/>There appears to be a bug in version 2.1 on the height of the box.");
+		</pre>
+	   
+	</body>
+</html>

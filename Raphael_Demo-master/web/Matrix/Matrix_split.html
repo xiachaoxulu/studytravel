@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				PATH = paper.path("M 60,70 L  110,70   A 50,50 0 1,1   60,20   Z").attr({fill:'#C0C000'});
+				M = null;	
+				/******************
+				Matrix.split()
+
+				Splits matrix into primitive transformations
+
+				Returns: object in format:
+
+				   1. dx 		number 	translation by x
+				   2. dy 		number 	translation by y
+				   3. scale x	number	scale by x
+				   4. scale y	number	scale by y
+				   5. shear		number	shear
+				   6. rotate	number	rotation in deg
+				   7. isSimple
+				   
+				*************/
+				/***Raphael Widgets***********************************************************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				The function arbitarily called 'onselected' must have key and value parameters.
+				The function itself (What ever you called it) is passed into the dropdown/dropdowntransforms constructor.
+				*****************************************************************************************************/
+				onselected = function(key,value){
+					PATH.transform(currentTransform.attr("text"));
+					/*Matrix.split implemented here*/
+					splitObject=PATH.matrix.split();
+					
+					setContent("InfoContent",value + " transform split is :<br/>dx="+
+							splitObject.dx + "<br/>dy=" + splitObject.dy + "<br/>Scale x="+
+							splitObject.scalex +"<br/>Scale y="+splitObject.scaley + 
+							"<br/>Shear="+splitObject.shear + "<br/>Rotate(deg)="+
+							splitObject.rotate + "<br/>Transforms=" + splitObject.isSimple+
+							"<br/>Example:Matrix.split.");
+					currentTransform.attr({"text":key});
+
+				};
+
+				dropdownTransform = paper.widgets.dropdown(paper,  310, 10, 24, 
+					["Translate/Rotate","Rotate/Scale","Matrix"],
+					["t100,100r30,100,100","r30,100,100s2,2","m1.24,0.32,-0.31,1.28,90.67,79.84"],
+					onselected,
+					{ vmlWidth : 200, colour :"#800000" , backColour:"#FF7F00" , fontSize : 20}) ;
+
+				var currentTransform=paper.text(15,250,'t100,100r30,100,100').attr({fill:'#0000ff', 'font-size':20, 'stroke-width':1 ,'text-anchor':'start'});
+
+				setContent("InfoContent","Before: No Selection<br/>Example:Matrix.split.");	
+
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div id="InfoContent" class="example1"></div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			PATH = paper.path("M 60,70 L  110,70   A 50,50 0 1,1   60,20   Z").attr({fill:'#C0C000'});
+			M = null;	
+			/******************
+			Matrix.split()
+
+			Splits matrix into primitive transformations
+
+			Returns: object in format:
+
+			   1. dx 		number 	translation by x  (水平平移)
+			   2. dy 		number 	translation by y  (垂直平移)
+			   3. scale x	number	scale by x        (水平缩放)
+			   4. scale y	number	scale by y        (垂直缩放)
+			   5. shear		number	shear             (剪切)
+			   6. rotate	number	rotation in deg   (旋转角度)
+			   7. isSimple                            (是否可以简单变换代替)
+			   
+			*************/
+			/***Raphael Widgets***********************************************************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			The function arbitarily called 'onselected' must have key and value parameters.
+			The function itself (What ever you called it) is passed into the dropdown/dropdowntransforms constructor.
+			*****************************************************************************************************/
+			onselected = function(key,value){
+				PATH.transform(currentTransform.attr("text"));
+				/*Matrix.split implemented here*/
+				splitObject=PATH.matrix.split();
+				
+				setContent("InfoContent",value + " transform split is :(br)dx="+
+						splitObject.dx + "(br)dy=" + splitObject.dy + "(br)Scale x="+
+						splitObject.scalex +"(br)Scale y="+splitObject.scaley + 
+						"(br)Shear="+splitObject.shear + "(br)Rotate(deg)="+
+						splitObject.rotate + "(br)Transforms?=" + splitObject.isSimple+
+						"(br)Example:Matrix.split.");
+				currentTransform.attr({"text":key});
+
+			};
+
+			dropdownTransform = paper.widgets.dropdown(paper,  310, 10, 24, 
+				["Translate/Rotate","Rotate/Scale","Matrix"],
+				["t100,100r30,100,100","r30,100,100s2,2","m1.24,0.32,-0.31,1.28,90.67,79.84"],
+				onselected,
+				{ vmlWidth : 200, colour :"#800000" , backColour:"#FF7F00" , fontSize : 20}) ;
+
+			var currentTransform=paper.text(15,250,'t100,100r30,100,100').attr({fill:'#0000ff', 'font-size':20, 'stroke-width':1 ,'text-anchor':'start'});
+
+			setContent("InfoContent","Before: No Selection(br)Example:Matrix.split.");	
+		</pre>
+	   
+	</body>
+</html>

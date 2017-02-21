@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var st = paper.set();
+				st.push(
+				paper.path('M 227.2 294.8 L 367.2 352.8 L 425.2 492.8 L 367.2 632.8 L 227.2 690.8 L 87.2 632.8 L 29.2 492.8 L 87.2 352.8 L 227.2 294.8').attr({ stroke:'#FF0000', 'stroke-width':5 }),
+				paper.path('M 227.2 492.8 L 227.2 294.8 L 367.2 632.8 L 425.2 492.8 L 227.2 294.8').attr({ stroke:'green', 'stroke-width':5 }), 
+				paper.path('M 227.2 492.8 L 87.2 352.8 L 425.2 492.8 L 367.2 352.8 L 87.2 352.8'), 
+				paper.path('M 227.2 492.8 L 29.2 492.8 L 367.2 352.8 L 227.2 294.8 L 29.2 492.8'), 
+				paper.path('M 227.2 492.8 L 87.2 632.8 L 227.2 294.8 L 87.2 352.8 L 87.2 632.8'), 
+				paper.path('M 227.2 492.8 L 227.2 690.8 L 87.2 352.8 L 29.2 492.8 L 227.2 690.8'), 
+				paper.path('M 227.2 492.8 L 367.2 632.8 L 29.2 492.8 L 87.2 632.8 L 367.2 632.8'),
+				paper.path('M 227.2 492.8 L 425.2 492.8 L 87.2 632.8 L 227.2 690.8 L 425.2 492.8'), 
+				paper.path('M 227.2 492.8 L 367.2 352.8 L 227.2 690.8 L 367.2 632.8 L 367.2 352.8') 
+				);
+
+				st.translate( (-1*st.getBBox().x) ,(-1*st.getBBox().y));
+
+				/*Unsupported in VML*/
+				if(Raphael.vml)
+				{
+					/*Unsupported in VML*/
+					paper.text(15,420,'This method does not work in VML browsers (IE6 - 8).').attr({fill:'#000', 'font-size':16, 'stroke-width':1 ,'text-anchor':'start'});
+				}
+				else
+				{
+					st.glow({ width:10,fill:false,opacity:0.5,offsetx:0,offsety:0,color:"#0000FF"});
+				}
+				//setInfoContent("InfoContent","Example:Element.glow:-Add glow to elements in SVG browsers.","120%");
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var st = paper.set();
+			st.push(
+			paper.path('M 227.2 294.8 L 367.2 352.8 L 425.2 492.8 L 367.2 632.8 L 227.2 690.8 L 87.2 632.8 L 29.2 492.8 L 87.2 352.8 L 227.2 294.8'),
+			paper.path('M 227.2 492.8 L 227.2 294.8 L 367.2 632.8 L 425.2 492.8 L 227.2 294.8'), 
+			paper.path('M 227.2 492.8 L 87.2 352.8 L 425.2 492.8 L 367.2 352.8 L 87.2 352.8'), 
+			paper.path('M 227.2 492.8 L 29.2 492.8 L 367.2 352.8 L 227.2 294.8 L 29.2 492.8'), 
+			paper.path('M 227.2 492.8 L 87.2 632.8 L 227.2 294.8 L 87.2 352.8 L 87.2 632.8'), 
+			paper.path('M 227.2 492.8 L 227.2 690.8 L 87.2 352.8 L 29.2 492.8 L 227.2 690.8'), 
+			paper.path('M 227.2 492.8 L 367.2 632.8 L 29.2 492.8 L 87.2 632.8 L 367.2 632.8'),
+			paper.path('M 227.2 492.8 L 425.2 492.8 L 87.2 632.8 L 227.2 690.8 L 425.2 492.8'), 
+			paper.path('M 227.2 492.8 L 367.2 352.8 L 227.2 690.8 L 367.2 632.8 L 367.2 352.8') 
+			);
+
+			st.translate( (-1*st.getBBox().x) ,(-1*st.getBBox().y));
+
+			/*Unsupported in VML*/
+			if(Raphael.vml)
+			{
+				/*Unsupported in VML*/
+				paper.text(15,420,'This method does not work in VML browsers (IE6 - 8).').attr({fill:'#000', 'font-size':16, 'stroke-width':1 ,'text-anchor':'start'});
+			}
+			else
+			{
+				st.glow({ width:10,fill:false,opacity:0.5,offsetx:0,offsety:0,color:"#0000FF"});
+			}
+			//setInfoContent("InfoContent","Example:Element.glow:-Add glow to elements in SVG browsers.","120%");
+
+		</pre>
+	   
+	</body>
+</html>

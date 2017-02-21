@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				/*Crisper lines with integers*/
+				var path_1 = paper.path('M100.0001 100.0001 V400.0001');
+				path_1.attr({stroke:'#FF0000', 'stroke-width': 2 ,'arrow-end': 'classic-wide-long'});
+				var path_2 = paper.path('M200 100 V400');
+				path_2.attr({stroke:'#FF0000', 'stroke-width': 2 ,'arrow-end': 'diamond-wide-long'});
+
+				/*Gradient on a path*/
+				path_3 = paper.path('M 246.078,121.508 C 246.078,113.387 235.324,105.602 216.187,99.859 C 197.05,94.117 171.097,90.891 144.031,90.891 C 116.964,90.891 91.0117,94.117 71.875,99.859 C 52.7383,105.602 41.9844,113.387 41.9844,121.508 C 41.9844,129.625 52.7383,137.414 71.875,143.152 C 91.0117,148.895 116.964,152.121 144.031,152.121 C 171.097,152.121 197.05,148.895 216.187,143.152 C 235.324,137.414 246.078,129.625 246.078,121.508z');
+				path_3.attr({fill: "90-#fff-#FFFF00:50%-#FF0000"});
+				/*Animated path*/
+				var arc = paper.path("M300 300, L300 200, A100,100,0,0,1,400,300,L 297 300")
+							   .attr({stroke:'#0000FF', 'stroke-width':6});
+				arc.animate({path:"M300 300,L 300 200, A100,100,0,0,1,300,400, L300,300"},2000);
+
+				/*Undocumented fact:images can be used to fill paths*/
+				path_4 = paper.path('M 144.64285,71.290753 L 134.1333,73.039322 L 129.6157,82.688128 L 124.70509,73.23329 L 114.13251,71.918448 L 121.60713,64.326467 L 119.59052,53.865043 L 129.12071,58.62778 L 138.44694,53.477107 L 136.8623,64.01262 L 144.64285,71.290753 z');
+				path_4.attr({fill: "url(../../img/labelsource.png)"});
+
+				/*Arc Examples*/
+				var arc2 = paper.path("M 60,70 L   60,20   A 50,50 0 0,1 68.7,20.8 Z");
+				var arc3 = paper.path("M 60,70 L 68.7,20.8 A 50,50 0 0,1 77.1,23.0 Z");
+				var arc4 = paper.path("M 68,65 L 85.1,18.0 A 50,50 0 0,1  118,65   Z");
+				var arc5 = paper.path("M 60,70 L  110,70   A 50,50 0 1,1   60,20   Z");
+				arc2.attr({fill:'#008000'});
+				arc3.attr({fill:'#FF0000'});
+				arc4.attr({fill:'#0000FF'});
+				arc5.attr({fill:'#C0C000'});
+
+				//setInfoContent("InfoContent","Example:Paper.path.","120%");	
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div class="example1">
+			<h3>Paper.path([pathString])</h3>
+			由指定的路径字符串创建一个路径元素。
+			<h3>参数</h3>
+			pathString&nbsp;&nbsp;string &nbsp;&nbsp;SVG格式的路径字符串。<br/>
+			路径字符串由一个或多个命令组成。<br/>
+			每个命令以一个字母开始，随后是逗号（“,”）分隔的参数。例如：
+			<code>"M10,20L30,40"</code><br/>
+			我们看到两个命令：“M”与参数(10, 20)和“L”与参数(30, 40)大写字母的意思是命令是绝对的，小写是相对的。<br/>
+			这里是可用命令的简表，详细内容请参照：<a href="http://www.w3.org/TR/SVG/paths.html#PathData">SVG路径字符串格式 。</a><br/>
+			<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>命令</th>
+						<th>名称</th>
+						<th>参数</th>
+					</tr>
+				</thead>
+ 				<tr>
+ 					<td>1</td>
+ 					<td>M</td>
+ 					<td>移动到（moveTo）</td>
+ 					<td>(x y)+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>2</td>
+ 					<td>Z</td>
+ 					<td>闭合路径（closepath）</td>
+ 					<td>(none)</td>
+ 				</tr>
+ 				<tr>
+ 					<td>3</td>
+ 					<td>L</td>
+ 					<td>直线（lineTo）</td>
+ 					<td>(x y)+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>4</td>
+ 					<td>H</td>
+ 					<td>水平直线</td>
+ 					<td>x+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>5</td>
+ 					<td>V</td>
+ 					<td>垂直直线</td>
+ 					<td>y+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>6</td>
+ 					<td>C</td>
+ 					<td>曲线（curveto）</td>
+ 					<td>(x1 y1 x2 y2 x y)+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>7</td>
+ 					<td>S</td>
+ 					<td>平滑曲线</td>
+ 					<td>(x2 y2 x y)+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>8</td>
+ 					<td>Q</td>
+ 					<td>二次贝赛尔曲线</td>
+ 					<td>(x1 y1 x y)+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>9</td>
+ 					<td>T</td>
+ 					<td>平滑二次贝塞尔曲线</td>
+ 					<td>(x y)+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>10</td>
+ 					<td>A</td>
+ 					<td>椭圆弧</td>
+ 					<td>(rx ry x-axis-rotation large-arc-flag sweep-flag x y)+</td>
+ 				</tr>
+ 				<tr>
+ 					<td>11</td>
+ 					<td>R</td>
+ 					<td>
+ 						<a href="http://en.wikipedia.org/wiki/Catmull%E2%80%93Rom_spline#Catmull.E2.80.93Rom_spline" target="_blank">
+ 							Catmull-Rom 曲线*
+ 						</a>
+ 					</td>
+ 					<td>x1 y1 (x y)+</td>
+ 				</tr>
+			</table>
+			* “Catmull-Rom 曲线”不是标准SVG命令，在2.0版时被加入。<br/> 注：有种特殊情况，路径只包含三个命令：“M10,10R…z”。在这种情况下，路径将平滑连接到它的起点。<br/>
+			路径字符串的例子可以查看这些<a href="http://julying.com/lab/raphael-js/docs/icons/icons.html" target="_blank">图标</a>
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			/*Crisper lines with integers*/
+			var path_1 = paper.path('M100.0001 100.0001 V400.0001');
+			path_1.attr({stroke:'#FF0000', 'stroke-width': 2 ,'arrow-end': 'classic-wide-long'});
+			var path_2 = paper.path('M200 100 V400');
+			path_2.attr({stroke:'#FF0000', 'stroke-width': 2 ,'arrow-end': 'diamond-wide-long'});
+
+			/*Gradient on a path*/
+			path_3 = paper.path('M 246.078,121.508 C 246.078,113.387 235.324,105.602 216.187,99.859 C 197.05,94.117 171.097,90.891 144.031,90.891 C 116.964,90.891 91.0117,94.117 71.875,99.859 C 52.7383,105.602 41.9844,113.387 41.9844,121.508 C 41.9844,129.625 52.7383,137.414 71.875,143.152 C 91.0117,148.895 116.964,152.121 144.031,152.121 C 171.097,152.121 197.05,148.895 216.187,143.152 C 235.324,137.414 246.078,129.625 246.078,121.508z');
+			path_3.attr({fill: "90-#fff-#FFFF00:50%-#FF0000"});
+			/*Animated path*/
+			var arc = paper.path("M300 300, L300 200, A100,100,0,0,1,400,300,L 297 300")
+						   .attr({stroke:'#0000FF', 'stroke-width':6});
+			arc.animate({path:"M300 300,L 300 200, A100,100,0,0,1,300,400, L300,300"},2000);
+
+			/*Undocumented fact:images can be used to fill paths*/
+			path_4 = paper.path('M 144.64285,71.290753 L 134.1333,73.039322 L 129.6157,82.688128 L 124.70509,73.23329 L 114.13251,71.918448 L 121.60713,64.326467 L 119.59052,53.865043 L 129.12071,58.62778 L 138.44694,53.477107 L 136.8623,64.01262 L 144.64285,71.290753 z');
+			path_4.attr({fill: "url(../../img/labelsource.png)"});
+
+			/*Arc Examples*/
+			var arc2 = paper.path("M 60,70 L   60,20   A 50,50 0 0,1 68.7,20.8 Z");
+			var arc3 = paper.path("M 60,70 L 68.7,20.8 A 50,50 0 0,1 77.1,23.0 Z");
+			var arc4 = paper.path("M 68,65 L 85.1,18.0 A 50,50 0 0,1  118,65   Z");
+			var arc5 = paper.path("M 60,70 L  110,70   A 50,50 0 1,1   60,20   Z");
+			arc2.attr({fill:'#008000'});
+			arc3.attr({fill:'#FF0000'});
+			arc4.attr({fill:'#0000FF'});
+			arc5.attr({fill:'#C0C000'});
+
+			//setInfoContent("InfoContent","Example:Paper.path.","120%");	
+				
+		</pre>
+	   
+	</body>
+</html>

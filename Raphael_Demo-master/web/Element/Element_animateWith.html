@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+
+				//BTW Thanks gautamadude 
+				function arc(center, radius, startAngle, endAngle) {
+				    angle = startAngle;
+				    coords = toCoords(center, radius, angle);
+				    path = "M " + coords[0] + " " + coords[1];
+				    while(angle<=endAngle) {
+				        coords = toCoords(center, radius, angle);
+				        path += " L " + coords[0] + " " + coords[1];
+				        angle += 5;
+				    }
+				    path += " L " + center[0] + " " + center[1]; //so that we have a corner instead of a straight line.
+				    return path+"Z"; //Z=Close path.
+				}
+
+				function toCoords(center, radius, angle) {
+				    var radians = (angle/180) * Math.PI;
+				    var x = center[0] + Math.cos(radians) * radius;
+				    var y = center[1] + Math.sin(radians) * radius;
+				    return [x, y];
+				}
+				paper = new Raphael(0,0,900,500);
+				var arc1 = paper.path(arc([100,100], 20, 90, 180)); 
+				var arc2 = paper.path(arc([100,100], 20, 180, 270)); 
+				var arc3 = paper.path(arc([100,100], 20, 270, 360)); 
+				var arc4 = paper.path(arc([100,100], 20, 0, 90)); 
+				var arc5 = paper.path(arc([200,100], 20, 90, 180)); 
+				var arc6 = paper.path(arc([200,100], 20, 180, 270)); 
+				var arc7 = paper.path(arc([200,100], 20, 270, 360)); 
+				var arc8 = paper.path(arc([200,100], 20, 0, 90)); 
+				var arc9 = paper.path(arc([300,100], 20, 90, 180)); 
+				var arc10 = paper.path(arc([300,100], 20, 180, 270)); 
+				var arc11 = paper.path(arc([300,100], 20, 270, 360)); 
+				var arc12 = paper.path(arc([300,100], 20, 0, 90)); 
+
+				var pos1 = 200;
+				var pos2 = 200;
+				function ani() {
+				    var anim = Raphael.animation({path: arc([100+pos1,pos2], 20, 90, 180)}, 1000, "<>", ani);
+				    var elem = arc1.animate(anim);
+				    arc2.animateWith(elem, anim, {path: arc([100+pos1,pos2], 20, 180, 270)}, 2000, "<>");
+				    arc3.animateWith(elem, anim, {path: arc([100+pos1,pos2], 20, 270, 360)},1000, "<>");
+				    arc4.animateWith(elem, anim, {path: arc([100+pos1,pos2], 20, 0, 90)}, 1000, "<>");
+				    arc5.animateWith(elem, anim, {path: arc([200+pos1,pos2], 20, 90, 180)}, 1000, "<>");
+				    arc6.animateWith(elem, anim, {path: arc([200+pos1,pos2], 20, 180, 270)}, 1000, "<>");
+				    arc7.animateWith(elem, anim, {path: arc([200+pos1,pos2], 20, 270, 360)}, 1000, "<>");
+				    arc8.animateWith(elem, anim, {path: arc([200+pos1,pos2], 20, 0, 90)}, 1000, "<>");
+				    arc9.animateWith(elem, anim, {path: arc([300+pos1,pos2], 20, 90, 180)}, 1000, "<>");
+				    arc10.animateWith(elem, anim, {path: arc([300+pos1,pos2], 20, 180, 270)}, 1000, "<>");
+				    arc11.animateWith(elem, anim, {path: arc([300+pos1,pos2], 20, 270, 360)}, 1000, "<>");
+				    arc12.animateWith(elem, anim, {path: arc([300+pos1,pos2], 20, 0, 90)}, 1000, "<>");
+				    if (pos1 === 0) { pos1 = 200; }
+				    else if (pos1 == 200) { pos1 = 0; }
+				    if (pos2 == 100) { pos2 = 200; }
+				    else if (pos2 == 200) { pos2 = 100; }
+				}
+				ani();
+
+				//setInfoContent("InfoContent","Example:Element.animateWith.","120%");
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			//BTW Thanks gautamadude 
+			function arc(center, radius, startAngle, endAngle) {
+			    angle = startAngle;
+			    coords = toCoords(center, radius, angle);
+			    path = "M " + coords[0] + " " + coords[1];
+			    while(angle<=endAngle) {
+			        coords = toCoords(center, radius, angle);
+			        path += " L " + coords[0] + " " + coords[1];
+			        angle += 5;
+			    }
+			    path += " L " + center[0] + " " + center[1]; //so that we have a corner instead of a straight line.
+			    return path+"Z"; //Z=Close path.
+			}
+
+			function toCoords(center, radius, angle) {
+			    var radians = (angle/180) * Math.PI;
+			    var x = center[0] + Math.cos(radians) * radius;
+			    var y = center[1] + Math.sin(radians) * radius;
+			    return [x, y];
+			}
+			paper = new Raphael(0,0,900,500);
+			var arc1 = paper.path(arc([100,100], 20, 90, 180)); 
+			var arc2 = paper.path(arc([100,100], 20, 180, 270)); 
+			var arc3 = paper.path(arc([100,100], 20, 270, 360)); 
+			var arc4 = paper.path(arc([100,100], 20, 0, 90)); 
+			var arc5 = paper.path(arc([200,100], 20, 90, 180)); 
+			var arc6 = paper.path(arc([200,100], 20, 180, 270)); 
+			var arc7 = paper.path(arc([200,100], 20, 270, 360)); 
+			var arc8 = paper.path(arc([200,100], 20, 0, 90)); 
+			var arc9 = paper.path(arc([300,100], 20, 90, 180)); 
+			var arc10 = paper.path(arc([300,100], 20, 180, 270)); 
+			var arc11 = paper.path(arc([300,100], 20, 270, 360)); 
+			var arc12 = paper.path(arc([300,100], 20, 0, 90)); 
+
+			var pos1 = 200;
+			var pos2 = 200;
+			function ani() {
+			    var anim = Raphael.animation({path: arc([100+pos1,pos2], 20, 90, 180)}, 1000, "<>", ani);
+			    var elem = arc1.animate(anim);
+			    //这里可以故意改成2000,来观察animate和animateWith的区别,虽然改成了2000,要2秒内完成动画
+			    //但他完不成的时候,1完成了动画,所以2会随着1动画的 始终 而 始终
+			    arc2.animateWith(elem, anim, {path: arc([100+pos1,pos2], 20, 180, 270)}, 2000, "<>");
+			    arc3.animateWith(elem, anim, {path: arc([100+pos1,pos2], 20, 270, 360)}, 1000, "<>");
+			    arc4.animateWith(elem, anim, {path: arc([100+pos1,pos2], 20, 0, 90)}, 1000, "<>");
+			    arc5.animateWith(elem, anim, {path: arc([200+pos1,pos2], 20, 90, 180)}, 1000, "<>");
+			    arc6.animateWith(elem, anim, {path: arc([200+pos1,pos2], 20, 180, 270)}, 1000, "<>");
+			    arc7.animateWith(elem, anim, {path: arc([200+pos1,pos2], 20, 270, 360)}, 1000, "<>");
+			    arc8.animateWith(elem, anim, {path: arc([200+pos1,pos2], 20, 0, 90)}, 1000, "<>");
+			    arc9.animateWith(elem, anim, {path: arc([300+pos1,pos2], 20, 90, 180)}, 1000, "<>");
+			    arc10.animateWith(elem, anim, {path: arc([300+pos1,pos2], 20, 180, 270)}, 1000, "<>");
+			    arc11.animateWith(elem, anim, {path: arc([300+pos1,pos2], 20, 270, 360)}, 1000, "<>");
+			    arc12.animateWith(elem, anim, {path: arc([300+pos1,pos2], 20, 0, 90)}, 1000, "<>");
+			    if (pos1 === 0) { pos1 = 200; }
+			    else if (pos1 == 200) { pos1 = 0; }
+			    if (pos2 == 100) { pos2 = 200; }
+			    else if (pos2 == 200) { pos2 = 100; }
+			}
+			ani();
+
+			//setInfoContent("InfoContent","Example:Element.animateWith.","120%");
+
+		</pre>
+	   
+	</body>
+</html>

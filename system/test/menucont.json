@@ -1,0 +1,28 @@
+{
+    "success": "true",
+    "err_msg": "",
+    "err_code": "8888",
+    "result": {
+        "recordCount": "15",
+        "recordList": [{
+            "iD":1,
+            "menuName":"菜单1",
+            "moduleID":1,
+            "orderNum":1,
+            "parentID":1,
+            "url":"w",
+            "valid":1,
+            "des":'描述'
+        }, {
+            "iD":2,
+            "menuName":"菜单2",
+            "moduleID":1,
+            "orderNum":1,
+            "parentID":1,
+            "url":"w",
+            "valid":1,
+            "des":'描述'
+        }]
+    }
+}
+                        

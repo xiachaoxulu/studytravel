@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var circles=[];
+				for(var i=0;i<100;i++){
+					cx=Math.floor(Math.random()*800);
+					cy=Math.floor(Math.random()*400);
+					circles[i]=paper.circle(cx,cy,15);
+					/*Randomly assign class*/
+					if(cx%2==0){
+						/*Element.node implemented here*/
+						circles[i].node.setAttribute('class','type1');
+					}
+					else{
+						/*Element.node implemented here*/
+						circles[i].node.setAttribute('class','type2');
+					}
+				}
+				/*************************************************/
+				/*Have to define the classes after assigning them*/
+				/*************************************************/
+				$('.type1').css({ fill:"#00F",stroke:"#F00","stroke-width":5 });
+				$('.type2').css({ fill:"#F00",stroke:"#00F","stroke-width":3 });
+				/********************************************************************/
+				/*Determine action of 2 circle types by refering to assigned classes*/
+				/********************************************************************/
+				$('.type1').on('click', function(){
+					$(this).css("fill","#F00");
+					setContent("InfoContent","Type 1 class clicked on, they turn red when they \nare clicked.(br)(br)You can use these methods but using native Raphael methods is sometimes recommended instead.(br)(br)Example:Element.node");	
+
+				});
+				 
+				$(".type2").on("click", function(event){
+					$(this).css("fill","#00F");
+					setContent("InfoContent","Type 2 class clicked on, they turn blue when they \nare clicked.(br)(br)You can use these methods but using native Raphael methods is sometimes recommended instead.(br)(br)Example:Element.node");	
+				});
+
+				setContent("InfoContent","No Selection,Click some Circles.(br)(br)Example:Element.node");	
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+ 	    <div id='InfoContent' class="example1">info</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var circles=[];
+			for(var i=0;i<100;i++){
+				cx=Math.floor(Math.random()*800);
+				cy=Math.floor(Math.random()*400);
+				circles[i]=paper.circle(cx,cy,15);
+				/*Randomly assign class*/
+				if(cx%2==0){
+					/*Element.node implemented here*/
+					circles[i].node.setAttribute('class','type1');
+				}else{
+					/*Element.node implemented here*/
+					circles[i].node.setAttribute('class','type2');
+				}
+			}
+			/*************************************************/
+			/*Have to define the classes after assigning them*/
+			/*************************************************/
+			$('.type1').css({ fill:"#00F",stroke:"#F00","stroke-width":5 });
+			$('.type2').css({ fill:"#F00",stroke:"#00F","stroke-width":3 });
+			/********************************************************************/
+			/*Determine action of 2 circle types by refering to assigned classes*/
+			/********************************************************************/
+			$('.type1').on('click', function(){
+				$(this).css("fill","#F00");
+				setContent("InfoContent","Type 1 class clicked on, they turn red when they \nare clicked.(br)(br)You can use these methods but using native Raphael methods is sometimes recommended instead.(br)(br)Example:Element.node");	
+
+			});
+			 
+			$(".type2").on("click", function(event){
+				$(this).css("fill","#00F");
+				setContent("InfoContent","Type 2 class clicked on, they turn blue when they \nare clicked.(br)(br)You can use these methods but using native Raphael methods is sometimes recommended instead.(br)(br)Example:Element.node");	
+			});
+
+			setContent("InfoContent","No Selection,Click some Circles.(br)(br)Example:Element.node");	
+
+		</pre>
+	   
+	</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+
+				var closeAnimate= function (target)
+				{
+					target.animate({r:0,"stroke-opacity":0,"fill-opacity":0},3000);
+					initialText.attr({text:"Animation.delay: Animation delay and bounce ended.!",fill:"#000",'font-size':24});	
+				}
+				paper = new Raphael(0,0,900,500);
+				animObject=Raphael.animation({ fill: "#FFFF80" }, 1000, 'bounce',function(){ closeAnimate(this);});
+				animObject=animObject.delay(2000);
+				circle=paper.circle(200, 200, 100);
+				circle.animate(animObject);
+				initialText=paper.text(15,20,'Animation.delay:Animation delayed 2 Seconds.' ).attr({fill:'#FF0000', 'font-size':20, 'stroke-width':1,'text-anchor':'start' });
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			function closeAnimate(target)
+			{
+				target.animate({r:0,"stroke-opacity":0,"fill-opacity":0},3000);
+				initialText.attr({text:"Animation.delay: Animation delay and bounce ended.!",fill:"#000",'font-size':24});	
+			}
+			paper = new Raphael(0,0,900,500);
+			animObject=Raphael.animation({ fill: "#FFFF80" }, 1000, 'bounce',function(){ closeAnimate(this);});
+			animObject=animObject.delay(2000);
+			circle=paper.circle(200, 200, 100);
+			circle.animate(animObject);
+			initialText=paper.text(15,20,'Animation.delay:Animation delayed 2 Seconds.' ).attr({fill:'#FF0000', 'font-size':20, 'stroke-width':1,'text-anchor':'start' });
+			//setInfoContent("InfoContent","Example:Animation.delay.","120%");	
+
+		</pre>
+	   
+	</body>
+</html>

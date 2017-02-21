@@ -1,0 +1,38 @@
+{
+	"result": {
+		"pageCount": 1,
+		"pageNum": 1,
+		"pageSize": 10,
+		"recordCount": 4,
+		"recordList": [{
+			"companyCode": "123",
+			"companyName": "奥琪玮",
+			"createTime": 1456911422000,
+			"endTime": 1457516218000,
+			"ID": 1,
+			"linkMan": "房东",
+			"phone": "123213",
+			"valid": 1
+		}, {
+			"createTime": 1457421807000,
+			"ID": 2,
+			"valid": 1
+		}, {
+			"companyCode": "2",
+			"companyName": "1",
+			"createTime": 1457421807000,
+			"ID": 3,
+			"valid": 1
+		}, {
+			"companyCode": "1",
+			"companyName": "2",
+			"createTime": 1457421807000,
+			"ID": 4,
+			"valid": 1
+		}],
+		"startRecord": 0
+	},
+	"success": "true",
+	"err_msg": "请求处理成功",
+	"err_code": "8888"
+}

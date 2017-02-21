@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var stdTextAttributes={fill:'#000000', 'font-size':16, 'stroke-width':1 ,'text-anchor':'start'};
+				paper.text(50,50,"Rapha\xebl version : "+paper.raphael.version).attr(stdTextAttributes); 
+				paper.text(50,70,"Rapha\xebl type : "+paper.raphael.type).attr(stdTextAttributes); 
+				var r = paper.circle(240, 160, 160).attr({fill:'#FF0000'}).attr({opacity:0.2});
+				var g = paper.circle(400, 160, 160).attr({fill:'#00FF00'}).attr({opacity:0.2});
+
+				var hsb = paper.raphael.rgb2hsb(r.attr("fill"));
+				hsb.h = 1;
+				g.attr({fill: paper.raphael.hsb2rgb(hsb).hex});
+
+				paper.text(50,350,'A reserved word which enables access \nto Rapha\xebl\s internal methods.')
+					 .attr(stdTextAttributes);    
+
+				setInfoContent("InfoContent","Example:Paper.raphael.","120%");
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var stdTextAttributes={fill:'#000000', 'font-size':16, 'stroke-width':1 ,'text-anchor':'start'};
+			paper.text(50,50,"Rapha\xebl version : "+paper.raphael.version).attr(stdTextAttributes); 
+			paper.text(50,70,"Rapha\xebl type : "+paper.raphael.type).attr(stdTextAttributes); 
+			var r = paper.circle(240, 160, 160).attr({fill:'#FF0000'}).attr({opacity:0.2});
+			var g = paper.circle(400, 160, 160).attr({fill:'#00FF00'}).attr({opacity:0.2});
+
+			var hsb = paper.raphael.rgb2hsb(r.attr("fill"));
+			hsb.h = 1;
+			g.attr({fill: paper.raphael.hsb2rgb(hsb).hex});
+
+			paper.text(50,350,'A reserved word which enables access \nto Rapha\xebl\s internal methods.')
+				 .attr(stdTextAttributes);    
+
+			setInfoContent("InfoContent","Example:Paper.raphael.","120%");
+
+				
+		</pre>
+	   
+	</body>
+</html>

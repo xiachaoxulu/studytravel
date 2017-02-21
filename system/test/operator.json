@@ -1,0 +1,17 @@
+{
+	"result": [{
+		"companyID": 1,
+		"createTime": 1456778505000,
+		"des": "descccc",
+		"iD": 1,
+		"loginName": "syffff",
+		"operatorID": 1,
+		"password": "12345",
+		"type": 2,
+		"userID": 1,
+		"valid": 1
+	}],
+	"err_msg": "请求处理成功",
+	"err_code": 8888,
+	"success": 1
+}

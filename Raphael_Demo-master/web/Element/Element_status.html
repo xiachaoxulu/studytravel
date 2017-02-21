@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				/*Run an animation from the beginning or start it from a certain point*/
+				/***Raphael Widgets***********************************************************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				The function arbitarily called 'onselected' must have key and value parameters.
+				The function itself (What ever you called it) is passed into the dropdown/dropdowntransforms constructor.
+				*****************************************************************************************************/
+				onselected=function(key,value){
+
+					/*****************************************
+					Element.status implemented here
+					******************************************/
+					
+					circle.animate(animObject);
+					circle.status(animObject, key);	
+				};
+				dropdownSetStatus=paper.widgets.dropdown(paper,  375, 10, 24, ["Quarter","Third","Half","Three Quarters"], [0.25,0.33,0.5,0.75],onselected,{ vmlWidth : 150, colour :"#800000" , backColour:"#FF7F00" , fontSize : 20}) ;
+
+				/*The animation defined*/
+				animObject=Raphael.animation({ fill: Raphael.getColor(), r:200 }, 5000, 'bounce');
+
+				/*The element to recieve the animation*/
+				circle=paper.circle(200, 200, 100);
+
+				/***Raphael Widgets*****************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				Note: function passed as argument.
+				***********************************************************/
+				resetting =function (){ 
+				    circle.remove();
+				    circle=paper.circle(200, 200, 100);
+				};
+				paper.widgets.button(paper,410, 440, 35, "Reset", "#800000" , "#FF7F00" ,24,resetting);
+
+
+
+				setInfoContent("InfoContent","Example:Element.status.","120%");	
+
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div class="example1">
+			<code>Element.status([anim], [value])</code><br/>
+			获取或设置元素的动画状态。
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			/*Run an animation from the beginning or start it from a certain point*/
+			/***Raphael Widgets***********************************************************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			The function arbitarily called 'onselected' must have key and value parameters.
+			The function itself (What ever you called it) is passed into the dropdown/dropdowntransforms constructor.
+			*****************************************************************************************************/
+			onselected=function(key,value){
+
+				/*****************************************
+				Element.status implemented here
+				******************************************/
+				//Element.status([anim], [value])
+				//获取或设置元素的动画状态。
+				//第二个参数0 - 1。如果指定，方法就像一个setter，并设置指定动画的状态为指定值。这将导致动画跳转到指定位置。
+				circle.animate(animObject);
+				circle.status(animObject, key);	
+			};
+			dropdownSetStatus=paper.widgets.dropdown(paper,  375, 10, 24, 
+				["Quarter","Third","Half","Three Quarters"],
+			    [0.25,0.33,0.5,0.75],
+				onselected,
+				{ vmlWidth : 150, colour :"#800000" , backColour:"#FF7F00" , fontSize : 20}) ;
+
+			/*The animation defined*/
+			animObject=Raphael.animation({ fill: Raphael.getColor(), r:200 }, 5000, 'bounce');
+
+			/*The element to recieve the animation*/
+			circle=paper.circle(200, 200, 100);
+
+			/***Raphael Widgets*****************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			Note: function passed as argument.
+			***********************************************************/
+			resetting=function(){ 
+			    circle.remove();
+			    circle=paper.circle(200, 200, 100);
+			};
+			paper.widgets.button(paper,410, 440, 35, "Reset", "#800000" , "#FF7F00" ,24,resetting);
+
+
+
+			//setInfoContent("InfoContent","Example:Element.status.","120%");	
+
+
+		</pre>
+	   
+	</body>
+</html>

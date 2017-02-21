@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				function showAttributes(shape){
+				    switch(shape.type){
+				        case 'path':
+				            shapeInfo=shapeInfo+"\nObject has: "+shape.attrs.path;
+				            break;
+				        case 'image':
+				            shapeInfo=shapeInfo+"\nImage Object with x=" +shape.attrs.x+
+				            " y=" +shape.attrs.y+
+				            " Width=" +shape.attrs.width+
+				            " Height=" +shape.attrs.height+"\n"+
+				            " Source=" +shape.attrs.src;
+				            break;
+				        case 'circle':
+				           	shapeInfo=shapeInfo+"\nCircle Object with cx=" +shape.attrs.cx+
+				            " cy=" +shape.attrs.cy+
+				            " r=" +shape.attrs.r;
+				            break;
+				        case 'ellipse':
+				            shapeInfo=shapeInfo+"\nEllipse Object with x=" +shape.attrs.x+
+				            " y=" +shape.attrs.y+
+				            " rx=" +shape.attrs.rx+
+				            " ry=" +shape.attrs.ry;
+				            break;
+				        case 'rect':
+				        	shapeInfo=shapeInfo+"\nRectangle Object with ";
+				            if(shape.attrs.r){ shapeInfo=shapeInfo+"r=" +shape.attrs.r; }
+				                
+				            shapeInfo=shapeInfo+"x=" +shape.attrs.x+
+				            " y=" +shape.attrs.y+
+				            " Width=" +shape.attrs.width+
+				            " Height=" +shape.attrs.height;
+				            break;                     
+				    }
+				}
+				var shapeInfo="Accessing objects implicitly stored...\n";
+				/*Existing Objects*/
+				paper.image('../../img/labelraphael.png',300, 400, 25, 25);
+				paper.image('../../img/labelsource.png',325,400, 25, 25);
+				paper.rect(265, 60, 30, 30, 10).attr({fill:'#FF0000'});
+				paper.rect(305, 60, 30, 30, 5).attr({fill:'#0000FF'});
+				paper.rect(345, 60, 30, 30).attr({fill:'#FF8080'});
+				var bot = paper.bottom;
+				while (bot) 
+				{
+					showAttributes(bot);
+					bot = bot.next;
+				}
+				paper.rect(5, 150, 620, 210, 10).attr({fill:"#FFFF00"});
+				paper.text(10,250,shapeInfo).attr({fill:'#000000', 'font-size':16, 'stroke-width':1, 'text-anchor':'start' }) ;
+				//setInfoContent("InfoContent","Example:Paper.bottom.","120%");
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			function showAttributes(shape){
+			    switch(shape.type){
+			        case 'path':
+			            shapeInfo=shapeInfo+"\nObject has: "+shape.attrs.path;
+			            break;
+			        case 'image':
+			            shapeInfo=shapeInfo+"\nImage Object with x=" +shape.attrs.x+
+			            " y=" +shape.attrs.y+
+			            " Width=" +shape.attrs.width+
+			            " Height=" +shape.attrs.height+"\n"+
+			            " Source=" +shape.attrs.src;
+			            break;
+			        case 'circle':
+			           	shapeInfo=shapeInfo+"\nCircle Object with cx=" +shape.attrs.cx+
+			            " cy=" +shape.attrs.cy+
+			            " r=" +shape.attrs.r;
+			            break;
+			        case 'ellipse':
+			            shapeInfo=shapeInfo+"\nEllipse Object with x=" +shape.attrs.x+
+			            " y=" +shape.attrs.y+
+			            " rx=" +shape.attrs.rx+
+			            " ry=" +shape.attrs.ry;
+			            break;
+			        case 'rect':
+			        	shapeInfo=shapeInfo+"\nRectangle Object with ";
+			            if(shape.attrs.r){ shapeInfo=shapeInfo+"r=" +shape.attrs.r; }
+			                
+			            shapeInfo=shapeInfo+"x=" +shape.attrs.x+
+			            " y=" +shape.attrs.y+
+			            " Width=" +shape.attrs.width+
+			            " Height=" +shape.attrs.height;
+			            break;                     
+			    }
+			}
+			var shapeInfo="Accessing objects implicitly stored...\n";
+			/*Existing Objects*/
+			paper.image('../../img/labelraphael.png',300, 400, 25, 25);
+			paper.image('../../img/labelsource.png',325,400, 25, 25);
+			paper.rect(265, 60, 30, 30, 10).attr({fill:'#FF0000'});
+			paper.rect(305, 60, 30, 30, 5).attr({fill:'#0000FF'});
+			paper.rect(345, 60, 30, 30).attr({fill:'#FF8080'});
+			var bot = paper.bottom;
+			while (bot){
+				showAttributes(bot);
+				bot = bot.next;
+			}
+			paper.rect(5, 150, 620, 210, 10).attr({fill:"#FFFF00"});
+			paper.text(10,250,shapeInfo).attr({fill:'#000000', 'font-size':16, 'stroke-width':1, 'text-anchor':'start' }) ;
+			//setInfoContent("InfoContent","Example:Paper.bottom.","120%");
+		</pre>
+	   
+	</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var bottomupinfo="";
+				/*Black rectangle*/
+				var back = paper.rect(50, 50, 200, 200).attr({fill:"#000"});
+				/*Red rectangle*/
+				var c = paper.rect(10, 10, 50, 50).attr({fill:"#f00"});
+				/*Blue circle*/
+				var d = paper.circle(140, 140, 50).attr({fill:"#0000ff"});
+
+				var bot= paper.bottom;
+
+				while (bot){
+					bottomupinfo=bottomupinfo + "Type:"+bot.type+" Colour: " + bot.attrs.fill + "\n";
+						
+					/*Element.next implemented here*/
+					bot = bot.next;
+				}
+
+				paper.text(350,200,bottomupinfo)
+				.attr({fill:'#FF0000', 'font-size':18, 'stroke-width':1,'text-anchor':'start' });
+
+				//setInfoContent("InfoContent","Example:Element.next.","120%");	
+
+
+
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var bottomupinfo="";
+			/*Black rectangle*/
+			var back = paper.rect(50, 50, 200, 200).attr({fill:"#000"});
+			/*Red rectangle*/
+			var c = paper.rect(10, 10, 50, 50).attr({fill:"#f00"});
+			/*Blue circle*/
+			var d = paper.circle(140, 140, 50).attr({fill:"#0000ff"});
+
+			var bot= paper.bottom;
+
+			while (bot) {
+				bottomupinfo=bottomupinfo + "Type:"+bot.type+" Colour: " + bot.attrs.fill + "\n";
+					
+				/*Element.next implemented here*/
+				//层次结构中的下一个元素的引用
+				bot = bot.next;
+			}
+
+			paper.text(350,200,bottomupinfo)
+			.attr({fill:'#FF0000', 'font-size':18, 'stroke-width':1,'text-anchor':'start' });
+
+			//setInfoContent("InfoContent","Example:Element.next.","120%");	
+
+
+
+
+		</pre>
+	   
+	</body>
+</html>

@@ -1,0 +1,112 @@
+/**
+* @Created Date       : 2016-11-11T15:54:04+08:00
+* @Last Modified time : 2016-11-14T17:18:55+08:00
+*/
+
+
+
+/*
+@require "/resource/css/base.css"
+*/
+
+.dialog-container {
+  position: fixed;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  z-index: 9999999999999999999999999;
+  background-color: rgba(0, 0, 0, .6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  & .container {
+    width: 500px;
+    height: 300px;
+    background-color: #fff;
+    border-radius: 2px;
+    -webkit-background-clip: content;
+    box-shadow: 1px 1px 50px rgba(0, 0, 0, .3);
+    position: relative;
+    -webkit-user-select: none;
+    overflow: hidden;
+  }
+  & .title {
+    padding: 0 80px 0 20px;
+    height: 42px;
+    line-height: 42px;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+    color: #333;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #F8F8F8;
+    border-radius: 2px 2px 0 0;
+    cursor: move;
+    -webkit-user-select: none;
+  }
+  & .content {
+    padding: 50px;
+  }
+  & .footer {
+    position: absolute;
+    border-top: 1px solid #eee;
+    bottom: 0px;
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background-color: #F8F8F8;
+    text-align: right;
+    pointer-events: auto;
+    box-sizing: border-box;
+    & a {
+      height: 28px;
+      line-height: 28px;
+      margin: 0 6px;
+      padding: 5px 15px;
+      border: 1px #00be79 solid;
+      background-color: #00C87F;
+      border-radius: 2px;
+      font-weight: 400;
+      cursor: pointer;
+      text-decoration: none;
+      color: #fff;
+      font-family: 微软雅黑;
+      font-size: 14px;
+    }
+    & a:last-child {
+      border: 1px #dedede solid;
+      color: black;
+      background-color: #f1f1f1;
+    }
+    & a:hover {
+      opacity: 0.7;
+      filter: alpha(opacity=70);
+    }
+  }
+  & .close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    font-size: 0;
+    line-height: initial;
+    & .icon {
+      position: relative;
+      width: 16px;
+      height: 16px;
+      margin-left: 10px;
+      font-size: 12px;
+      display: inline-block;
+      vertical-align: top;
+      background: url(../../resource/image/icon.png) no-repeat;
+      background-position: 0 -40px;
+      cursor: pointer;
+    }
+    & .icon:hover {
+      opacity: 0.7;
+      filter: alpha(opacity=70);
+    }
+  }
+}

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				
+				var c = [];
+				var z=40;
+				while (z--)
+				{
+				   c[z]=paper.circle((z+1)*10, (z+1)*10, 5).attr({fill:Raphael.getColor()});
+				}
+				paper.rect(0, 0, 410, 410, 10).attr({fill:"#FFFF00","stroke-width":2,stroke:"#FF0000"});
+
+
+				var completeModal=function()
+				{
+					z=40;
+					while (z--) 
+					{
+						/*Element.toFront implemented here*/
+						c[z].toFront();
+					}
+				};
+				var warn="Warning all new primitives are behind the yellow background.\nClick to put them in front.";
+				//modal.showModalFace(warn,1,[function(){ modal.shutModal();completeModal(); },"70%"]);
+				//setInfoContent("InfoContent","Example:Element.toFront.","120%");
+
+				$('#front').on('click',function(){
+					if(confirm(warn)){
+						completeModal();
+					}
+				})
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<input type="button" value="toFront" id="front" class="btn btn-primary"/>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var c = [];
+			var z=40;
+			while (z--)
+			{
+			   c[z]=paper.circle((z+1)*10, (z+1)*10, 5).attr({fill:Raphael.getColor()});
+			}
+			paper.rect(0, 0, 410, 410, 10).attr({fill:"#FFFF00","stroke-width":2,stroke:"#FF0000"});
+
+
+			var completeModal=function()
+			{
+				z=40;
+				while(z--){
+					/*Element.toFront implemented here*/
+					c[z].toFront();
+				}
+			};
+			var warn="Warning all new primitives are behind the yellow background.\nClick to put them in front.";
+			//modal.showModalFace(warn,1,[function(){ modal.shutModal();completeModal(); },"70%"]);
+			//setInfoContent("InfoContent","Example:Element.toFront.","120%");
+
+			$('#front').on('click',function(){
+				if(confirm(warn)){
+					completeModal();
+				}
+			})
+		</pre>
+	   
+	</body>
+</html>

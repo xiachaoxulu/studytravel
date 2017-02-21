@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				PATH = paper.path("M 60,70 L  110,70   A 50,50 0 1,1   60,20   Z").attr({fill:'#C0C000'});
+				M = null;	
+				/***Raphael Widgets***********************************************************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				The function arbitarily called 'onselected' must have key and value parameters.
+				The function itself (What ever you called it) is passed into the dropdown/dropdowntransforms constructor.
+				*****************************************************************************************************/
+				onselected = function(key,value){
+					PATH.transform(currentTransform.attr("text"));
+					infokey.attr({ text: 'Path Matrix values: '+PATH.matrix.a+" , "+PATH.matrix.b+
+						" , "+PATH.matrix.c+" , "+PATH.matrix.d+" , "+PATH.matrix.e+" , "+PATH.matrix.f });
+					M = Raphael.matrix(PATH.matrix.a, PATH.matrix.b, PATH.matrix.c,
+					    PATH.matrix.d, PATH.matrix.e, PATH.matrix.f);
+					infokey2.attr({ text:'M matrix values: '+M.a+" , "+M.b+" , "+M.c+" , "+M.d+" , "+M.e+" , "+M.f });
+					totalength = PATH.getTotalLength();
+					mid_point = totalength/2;
+					point = PATH.getPointAtLength(mid_point);
+					paper.circle(point.x, point.y, 10).attr({fill:"#FF0000"});
+					/*Matrix.x referenced here*/
+					//这里调用了translate
+					M.translate(200,100);
+					infokey3.attr({ text: 'M matrix x: '+M.x(point.x, point.y) });
+					currentTransform.attr({"text":key});
+
+				};
+
+				dropdownTransform = paper.widgets.dropdown(paper,  310, 10, 20, 
+					["Translate/Rotate","Rotate/Scale","Matrix"], 
+					["t100,100r30,100,100","r30,100,100s2,2","m1.24,0.32,-0.31,1.28,90.67,79.84"],
+					onselected,
+					{ vmlWidth : 200, colour :"#800000" , backColour:"#FF7F00" , fontSize : 20}) ;
+
+				var currentTransform = paper.text(15,320,'t100,100r30,100,100')
+					.attr({fill:'#0000ff', 'font-size':20, 'stroke-width':1 ,'text-anchor':'start'});
+
+				infokey = paper.text(15,380,'No Selection')
+					.attr({fill:'#0000ff', 'font-size':14, 'stroke-width':1 ,'text-anchor':'start'});
+				infokey2 = paper.text(15,400,'No Selection')
+					.attr({fill:'#0000ff', 'font-size':14, 'stroke-width':1 ,'text-anchor':'start'});
+				infokey3 = paper.text(15,420,'No Selection')
+					.attr({fill:'#0000ff', 'font-size':14, 'stroke-width':1 ,'text-anchor':'start'});
+				//setInfoContent("InfoContent","Example:Matrix.x.","120%");	
+
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			PATH = paper.path("M 60,70 L  110,70   A 50,50 0 1,1   60,20   Z").attr({fill:'#C0C000'});
+			M = null;	
+			/***Raphael Widgets***********************************************************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			The function arbitarily called 'onselected' must have key and value parameters.
+			The function itself (What ever you called it) is passed into the dropdown/dropdowntransforms constructor.
+			*****************************************************************************************************/
+			onselected = function(key,value){
+				PATH.transform(currentTransform.attr("text"));
+				infokey.attr({ text: 'Path Matrix values: '+PATH.matrix.a+" , "+PATH.matrix.b+
+					" , "+PATH.matrix.c+" , "+PATH.matrix.d+" , "+PATH.matrix.e+" , "+PATH.matrix.f });
+				M = Raphael.matrix(PATH.matrix.a, PATH.matrix.b, PATH.matrix.c,
+				    PATH.matrix.d, PATH.matrix.e, PATH.matrix.f);
+				infokey2.attr({ text:'M matrix values: '+M.a+" , "+M.b+" , "+M.c+" , "+M.d+" , "+M.e+" , "+M.f });
+				totalength = PATH.getTotalLength();
+				mid_point = totalength/2;
+				point = PATH.getPointAtLength(mid_point);
+				paper.circle(point.x, point.y, 10).attr({fill:"#FF0000"});
+				/*Matrix.x referenced here*/
+				//这里调用了translate
+				M.translate(200,100);
+				infokey3.attr({ text: 'M matrix x: '+M.x(point.x, point.y) });
+				currentTransform.attr({"text":key});
+
+			};
+
+			dropdownTransform = paper.widgets.dropdown(paper,  310, 10, 20, 
+				["Translate/Rotate","Rotate/Scale","Matrix"], 
+				["t100,100r30,100,100","r30,100,100s2,2","m1.24,0.32,-0.31,1.28,90.67,79.84"],
+				onselected,
+				{ vmlWidth : 200, colour :"#800000" , backColour:"#FF7F00" , fontSize : 20}) ;
+
+			var currentTransform = paper.text(15,320,'t100,100r30,100,100')
+				.attr({fill:'#0000ff', 'font-size':20, 'stroke-width':1 ,'text-anchor':'start'});
+
+			infokey = paper.text(15,380,'No Selection')
+				.attr({fill:'#0000ff', 'font-size':14, 'stroke-width':1 ,'text-anchor':'start'});
+			infokey2 = paper.text(15,400,'No Selection')
+				.attr({fill:'#0000ff', 'font-size':14, 'stroke-width':1 ,'text-anchor':'start'});
+			infokey3 = paper.text(15,420,'No Selection')
+				.attr({fill:'#0000ff', 'font-size':14, 'stroke-width':1 ,'text-anchor':'start'});
+			//setInfoContent("InfoContent","Example:Matrix.x.","120%");	
+
+		</pre>
+	   
+	</body>
+</html>

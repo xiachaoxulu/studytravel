@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var path3970 =   paper.path('M 461 131 L 461 136 L 458 140 L 454 145 L 448 148 L 441 152 L 433 155 L 423 157 L 413 159 L 402 160 L 392 160 L 381 160 L 370 159 L 360 157 L 350 155 L 342 152 L 335 148 L 329 145 L 325 140 L 322 136 L 322 131 L 322 127 L 325 122 L 329 118 L 335 114 L 342 111 L 350 108 L 360 105 L 370 104 L 381 102 L 392 102 L 402 102 L 413 104 L 423 105 L 433 108 L 441 111 L 448 114 L 454 118 L 458 122 L 461 127 L 461 131').attr({'fill':'#00ffff','stroke':'#0097e6','stroke-width':'7','fill-opacity':'1','stroke-opacity':'1'}); 
+
+				path3970.node.style.cursor = 'move';
+
+				var start = function(){
+				    path3970.oBB = path3970.getBBox();
+				},
+				move = function (dx, dy){
+				    var bb = path3970.getBBox();
+				    path3970.translate(path3970.oBB.x - bb.x + dx, path3970.oBB.y - bb.y + dy);
+				},
+				up = function(){
+					undragmessage.attr({text:"That's it, you cannot drag me anymore!"});
+					path3970.undrag();
+				};
+
+				path3970.drag(move, start, up);
+				paper.text(15,300,'Warning:Using this demo will break all\nthe Drag examples in the database!' )
+					.attr({fill:'#0000ff', 'font-size':36, 'stroke-width':1,'text-anchor':'start' });
+				undragmessage=paper.text(15,400,'Ok, you can drag me once.' )
+					.attr({fill:'#0000ff', 'font-size':24, 'stroke-width':1,'text-anchor':'start' });
+				//setInfoContent("InfoContent","Example:Element.undrag.","120%");	
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var path3970 =   paper.path('M 461 131 L 461 136 L 458 140 L 454 145 L 448 148 L 441 152 L 433 155 L 423 157 L 413 159 L 402 160 L 392 160 L 381 160 L 370 159 L 360 157 L 350 155 L 342 152 L 335 148 L 329 145 L 325 140 L 322 136 L 322 131 L 322 127 L 325 122 L 329 118 L 335 114 L 342 111 L 350 108 L 360 105 L 370 104 L 381 102 L 392 102 L 402 102 L 413 104 L 423 105 L 433 108 L 441 111 L 448 114 L 454 118 L 458 122 L 461 127 L 461 131')
+				.attr({'fill':'#00ffff','stroke':'#0097e6','stroke-width':'7','fill-opacity':'1','stroke-opacity':'1'}); 
+
+			path3970.node.style.cursor = 'move';
+
+			var start = function(){
+			    path3970.oBB = path3970.getBBox();
+			},
+			move = function(dx, dy){
+			    var bb = path3970.getBBox();
+			    path3970.translate(path3970.oBB.x - bb.x + dx, path3970.oBB.y - bb.y + dy);
+			},
+			up = function(){
+				undragmessage.attr({text:"That's it, you cannot drag me anymore!"});
+				path3970.undrag();
+			};
+
+			path3970.drag(move, start, up);
+			paper.text(15,300,'Warning:Using this demo will break all\nthe Drag examples in the database!' )
+				.attr({fill:'#0000ff', 'font-size':36, 'stroke-width':1,'text-anchor':'start' });
+			undragmessage=paper.text(15,400,'Ok, you can drag me once.' )
+				.attr({fill:'#0000ff', 'font-size':24, 'stroke-width':1,'text-anchor':'start' });
+			//setInfoContent("InfoContent","Example:Element.undrag.","120%");	
+
+		</pre>
+	   
+	</body>
+</html>

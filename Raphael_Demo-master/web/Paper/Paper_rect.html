@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				/*Thanks Dmitry*/
+				// regular rectangle
+				var c = paper.rect(10, 10, 50, 50);
+				// rectangle with rounded corners
+				var c = paper.rect(40, 40, 50, 50, 10);
+				//Linear gradient
+				var attrs={fill: "90-#fff-#FFFF00:50%-#FF0000"};
+				var d = paper.rect(150, 150, 150, 150).attr(attrs);
+				d.attr({"clip-rect":"200,200,50,50"}).attr(attrs);
+				paper.text(50,350,'Primitive specific attribute:"clip-rect".')
+					 .attr({fill:'#000000', 'font-size':16, 'stroke-width':1,'text-anchor':'start' });
+				//setInfoContent("InfoContent","Example:Paper.rect.","120%");	
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			/*Thanks Dmitry*/
+			// regular rectangle
+			var c = paper.rect(10, 10, 50, 50);
+			// rectangle with rounded corners
+			var c = paper.rect(40, 40, 50, 50, 10);
+			//Linear gradient
+			var attrs={fill: "90-#fff-#FFFF00:50%-#FF0000"};
+			var d = paper.rect(150, 150, 150, 150).attr(attrs);
+			d.attr({"clip-rect":"200,200,50,50"}).attr(attrs);
+			paper.text(50,350,'Primitive specific attribute:"clip-rect".')
+				 .attr({fill:'#000000', 'font-size':16, 'stroke-width':1,'text-anchor':'start' });
+			//setInfoContent("InfoContent","Example:Paper.rect.","120%");	
+		</pre>
+	   
+	</body>
+</html>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script src="task.js"></script>
+  <script>
+ 	Task.resolve('data').then(function(data){
+ 		console.log(data);
+ 	})
+  </script>
+</head>
+
+<body>
+
+var task = new Task(function(resolve, reject) {
+    setTimeout(function() {
+      resolve('aaaa');
+    }, 100);
+  })
+  var task1 = function() {
+    return new Task(function(resolve, reject) {
+      setTimeout(function() {
+        resolve('bbbb');
+      }, 100);
+    })
+  }
+  var task2 = function() {
+    return new Task(function(resolve, reject) {
+      setTimeout(function() {
+        resolve('cccc');
+      }, 100);
+    })
+  }
+  var task3 = function() {
+    return new Task(function(resolve, reject) {
+      setTimeout(function() {
+        reject('dddd');
+      }, 100);
+    })
+  }
+  task.then(task1).then(task2).then(task3).then(function(data) {
+    console.log(data)
+  }, function(error) {
+  	console.log(data)
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ var task = new Task(function(resolve, reject) {
+    setTimeout(function() {
+      resolve('aaaa');
+    }, 100);
+  })
+  var task2 = new Task(function(resolve, reject) {
+    setTimeout(function() {
+      resolve('aaaa');
+    }, 100);
+  })
+  var task3 = new Task(function(resolve, reject) {
+    setTimeout(function() {
+      resolve('aaaa');
+    }, 100);
+  })
+  var task4 = new Task(function(resolve, reject) {
+    setTimeout(function() {
+      resolve('aaaa');
+    }, 100);
+  })
+  var task5 = new Task(function(resolve, reject) {
+    setTimeout(function() {
+      resolve('aaaa');
+    }, 100);
+  })
+ //并行
+ Task.all([task,task2,task3,task4,task5]).then(function(data){ console.log(data)})
+</body>
+
+</html>

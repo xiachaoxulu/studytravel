@@ -1,0 +1,12 @@
+{
+	"success":"true",
+	"err_msg":"服务器内部错误",
+	"err_code":"8888",
+    "result": {
+        "version": "v1.5.0",
+        "copyright": "奥琦玮信息科技（北京）有限公司",
+        "website": "http://en.acewill.cn",
+        "address": "Building B,31 Jiancaicheng Rd.Beijing China 100096",
+        "helpphone": "4001003000"
+    }
+}

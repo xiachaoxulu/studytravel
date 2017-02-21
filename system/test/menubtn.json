@@ -1,0 +1,27 @@
+{
+    "result": [{
+        "ID": 1,
+        "btnID": 1,
+        "createTime": 1458025222000,
+        "des": "1",
+        "menuID": 1,
+        "valid": 1
+    },{
+        "ID": 2,
+        "btnID": 1,
+        "createTime": 1458025222000,
+        "des": "1",
+        "menuID": 1,
+        "valid": 1
+    },{
+        "ID": 3,
+        "btnID": 1,
+        "createTime": 1458025222000,
+        "des": "1",
+        "menuID": 1,
+        "valid": 1
+    }],
+    "success": true,
+    "err_msg": "请求处理成功",
+    "err_code": 8888
+}

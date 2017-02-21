@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+
+				/*
+				Updated this code because translation, rotation and scale no longer exist as Attr parameters
+				-Thanks Phil
+				*/
+				/*Our element for transformation*/
+				paper = new Raphael(0,0,900,500);
+				var tri= paper.path("M 100 100 L 150 100 L 125 140 z").attr({fill: "blue"});
+				/*You can define the transform before the animation*/
+				tri.transform("t0,40");
+				/*Then use a callback to define a further animated transform*/
+				tri.animate({ transform:""}, 2000, "elastic",
+				function(){
+				tri.transform("r60");
+				tri.animate({ transform:""}, 2000, "elastic");
+				}
+				);
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			/*
+			Updated this code because translation, rotation and scale no longer exist as Attr parameters
+			-Thanks Phil
+			*/
+			/*Our element for transformation*/
+			paper = new Raphael(0,0,900,500);
+			var tri= paper.path("M 100 100 L 150 100 L 125 140 z").attr({fill: "blue"});
+			/*You can define the transform before the animation*/
+			tri.transform("t0,40");
+			/*Then use a callback to define a further animated transform*/
+			tri.animate({ transform:""}, 2000, "elastic",
+			function(){
+			tri.transform("r60");
+			tri.animate({ transform:""}, 2000, "elastic");
+			}
+			);
+			//setInfoContent("InfoContent","Example:Element.animate.","120%");
+
+		</pre>
+	   
+	</body>
+</html>

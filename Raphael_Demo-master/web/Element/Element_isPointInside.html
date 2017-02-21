@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var circles=[];
+				message="You missed, try again?";
+				paper.circle(320,240,30).attr({ fill:"#000"});
+				var POINT=paper.circle(320,240,5).attr({ fill:"#fff"});
+				var fontDef={ "font-size":24,"stroke-width":3,stroke:"#f00" };
+				for(var i=0;i<50;i++)
+				{
+					cx=30+Math.floor(Math.random()*580);
+					cy=30+Math.floor(Math.random()*330);
+					circles[i]=paper.circle(cx,cy,30).attr({fill: '356.05313884757-#ff3300:0-#ffff00:100',opacity:0.5});
+					/*Element.isPointInside(x, y) implemented here*/
+					if(circles[i].isPointInside(320,240))
+					{
+						paper.text(cx,cy,"Yes").attr(fontDef);
+						message="You found one, Congratulations!";
+					}
+					else
+					{
+						paper.text(cx,cy,"No").attr(fontDef);	
+					}
+				}
+
+				//setInfoContent("InfoContent",message+"(br)(br)Example:Element.isPointInside(x, y).","120%");
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div class="example1">
+			确定指定点在当前元素的形状内
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var circles=[];
+			message="You missed, try again?";
+			paper.circle(320,240,30).attr({ fill:"#000"});
+			var POINT=paper.circle(320,240,5).attr({ fill:"#fff"});
+			var fontDef={ "font-size":24,"stroke-width":3,stroke:"#f00" };
+			for(var i=0;i<50;i++)
+			{
+				cx=30+Math.floor(Math.random()*580);
+				cy=30+Math.floor(Math.random()*330);
+				circles[i]=paper.circle(cx,cy,30).attr({fill: '356.05313884757-#ff3300:0-#ffff00:100',opacity:0.5});
+				/*Element.isPointInside(x, y) implemented here*/
+				if(circles[i].isPointInside(320,240))
+				{
+					paper.text(cx,cy,"Yes").attr(fontDef);
+					message="You found one, Congratulations!";
+				}
+				else
+				{
+					paper.text(cx,cy,"No").attr(fontDef);	
+				}
+			}
+
+			//setInfoContent("InfoContent",message+"(br)(br)Example:Element.isPointInside(x, y).","120%");
+		</pre>
+	   
+	</body>
+</html>

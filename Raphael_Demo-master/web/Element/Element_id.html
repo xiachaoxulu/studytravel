@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				RECT = paper.rect(240, 40, 50, 50, 10).attr({fill:'#008000'});
+				PATH = paper.path("M 60,70 L  110,70   A 50,50 0 1,1   60,20   Z").attr({fill:'#C0C000'});
+				ELPS = paper.ellipse(250, 150, 40, 20).attr({fill:'#FF0000'});
+
+				textfill="";
+				bot=paper.bottom;
+				while (bot) 
+				{
+					/*Element.id implemented here*/
+					theID=bot.id;
+					unknownElement=paper.getById(theID);
+					textfill=textfill+'Unknown element type:'+unknownElement.type+ " Colour:"+unknownElement.attr("fill")+"\n";			
+						
+					bot = bot.next;
+				}
+				paper.text(20,250,textfill).attr({fill:'#FF0000', 'font-size':24, 'stroke-width':1 ,'text-anchor':'start'});
+
+				//setInfoContent("InfoContent","Example:Element.id.","120%");	
+
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			RECT = paper.rect(240, 40, 50, 50, 10).attr({fill:'#008000'});
+			PATH = paper.path("M 60,70 L  110,70   A 50,50 0 1,1   60,20   Z").attr({fill:'#C0C000'});
+			ELPS = paper.ellipse(250, 150, 40, 20).attr({fill:'#FF0000'});
+
+			textfill="";
+			bot=paper.bottom;//指向画布上的底层元素
+			while (bot){
+				/*Element.id implemented here*/
+				theID=bot.id;
+				unknownElement=paper.getById(theID);
+				textfill=textfill+'Unknown element type:'+unknownElement.type+ " Colour:"+unknownElement.attr("fill")+"\n";			
+					
+				bot = bot.next;
+			}
+			paper.text(20,250,textfill).attr({fill:'#FF0000', 'font-size':24, 'stroke-width':1 ,'text-anchor':'start'});
+
+			//setInfoContent("InfoContent","Example:Element.id.","120%");	
+		</pre>
+	   
+	</body>
+</html>

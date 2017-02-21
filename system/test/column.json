@@ -1,0 +1,27 @@
+{
+	"result": [{
+		"columnCN": "部门名称",
+		"columnID": "department.departmentName",
+		"createTime": 1456997319000,
+		"ID": 1,
+		"pageID": 1,
+		"valid": 1
+	}, {
+		"columnCN": "所属公司",
+		"columnID": "company.companyName",
+		"createTime": 1456997344000,
+		"ID": 2,
+		"pageID": 1,
+		"valid": 1
+	}, {
+		"columnCN": "人数",
+		"columnID": "count(employee.ID)",
+		"createTime": 1456997368000,
+		"ID": 3,
+		"pageID": 1,
+		"valid": 1
+	}],
+	"success": "true",
+	"err_msg": "请求处理成功",
+	"err_code": "8888"
+}

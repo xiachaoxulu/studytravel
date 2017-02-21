@@ -1,0 +1,1 @@
+"use strict";var head=require("app/component/head2/head2");

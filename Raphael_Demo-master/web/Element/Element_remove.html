@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				
+				/*Access the Raphael property "bottom", which contains the reference to all the Primitives*/
+				function getobjects(bot)
+				{
+					var yloc=150;
+					var objectList="";
+					var counter=1;
+					while (bot){
+						/*Only want Circles or Elipse*/
+						if(bot.attrs.cx!=null)
+						{
+							objectList=objectList+(counter++)+ ")"+
+							"Type : " + bot.type+
+							" cx :"+bot.attrs.cx + " cy :"+
+							bot.attrs.cy+".\n";			
+						}
+						bot = bot.next;
+					}
+				return objectList;
+				}
+				var commonTextAttributes={fill:'#000000', 'font-size':14, 'stroke-width':1,'text-anchor':'start' };
+				var message="\nBoth lists were shown.";
+				var circ1 = paper.circle(100, 110, 50).attr({fill:'#FF0000'});
+				var elip1 = paper.ellipse(225, 100, 40, 20).attr({fill:'#0000FF'});
+				var circ2 = paper.circle(350, 100, 50).attr({fill:'#FF0000'});
+				var elip2 = paper.ellipse(500, 130, 40, 20).attr({fill:'#0000FF'});
+
+				var removeAndShow=function(){
+					/*Element.remove implemented here*/
+					circ1.remove();
+					setContent("InfoContent","Primitives list AFTER the circle was removed...(br)"+getobjects(paper.bottom)+"(br)(br)Example:Element.remove.");	
+
+					
+				};
+				var warn="ALL OBJECTS LIST(br)Remove a Circle from (br)"+getobjects(paper.bottom)+"(br)and get an additional list?";
+				
+				//modal.showModalFace(warn,1,[removeAndShow,function(){ setInfoContent("InfoContent","Nothing removed. No new list necessary!(br)(br)Example:Element.remove.");modal.shutModal();	}],"70%");
+
+				setContent("InfoContent","Primitives list BEFORE the circle was removed...(br)"
+					+getobjects(paper.bottom)+"(br)(br)Example:Element.remove.");	
+
+				$('#remove').on('click',function(){
+					if(confirm(warn)){
+					removeAndShow();
+					
+				}
+			})
+	
+				
+		})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<input type="button" id="remove" value = "remove" class="btn btn-primary"/>
+		<div id='InfoContent' class="example1">
+			
+		</div>
+		
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+
+			/*Access the Raphael property "bottom", which contains the reference to all the Primitives*/
+			function getobjects(bot){
+				var yloc=150;
+				var objectList="";
+				var counter=1;
+				while(bot){
+					/*Only want Circles or Elipse*/
+					if(bot.attrs.cx!=null)
+					{
+						objectList=objectList+(counter++)+ ")"+
+						"Type : " + bot.type+
+						" cx :"+bot.attrs.cx + " cy :"+
+						bot.attrs.cy+".\n";			
+					}
+					bot = bot.next;
+				}
+				return objectList;
+			}
+
+			var commonTextAttributes={fill:'#000000', 'font-size':14, 'stroke-width':1,'text-anchor':'start' };
+			var message="\nBoth lists were shown.";
+			var circ1 = paper.circle(100, 110, 50).attr({fill:'#FF0000'});
+			var elip1 = paper.ellipse(225, 100, 40, 20).attr({fill:'#0000FF'});
+			var circ2 = paper.circle(350, 100, 50).attr({fill:'#FF0000'});
+			var elip2 = paper.ellipse(500, 130, 40, 20).attr({fill:'#0000FF'});
+
+			var removeAndShow=function(){
+					/*Element.remove implemented here*/
+					circ1.remove();
+					setContent("InfoContent","Primitives list AFTER the circle was removed...(br)"+getobjects(paper.bottom)+"(br)(br)Example:Element.remove.");	
+
+					
+			};
+			var warn="ALL OBJECTS LIST(br)Remove a Circle from (br)"+getobjects(paper.bottom)+"(br)and get an additional list?";
+			
+			//modal.showModalFace(warn,1,[removeAndShow,function(){ setInfoContent("InfoContent","Nothing removed. No new list necessary!(br)(br)Example:Element.remove.");modal.shutModal();	}],"70%");
+
+			setContent("InfoContent","Primitives list BEFORE the circle was removed...(br)"
+				+getobjects(paper.bottom)+"(br)(br)Example:Element.remove.");	
+
+			$('#remove').on('click',function(){
+				if(confirm(warn)){
+				removeAndShow();
+				
+			}	
+
+
+
+		</pre>
+	   
+	</body>
+</html>

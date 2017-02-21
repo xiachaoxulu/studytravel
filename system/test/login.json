@@ -1,0 +1,9 @@
+{
+    "success": "true",
+    "err_msg": "",
+    "err_code": "8888",
+    "result": {
+        "userName":"user101",
+        "passWord":"123456"
+    }
+}

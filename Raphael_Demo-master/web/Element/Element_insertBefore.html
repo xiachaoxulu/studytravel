@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				var img1="../../img/labelraphael.png";
+				var img2="../../img/labelsource.png";
+				/*Create Graphic Primitives*/
+				pic1=paper.image(img1, 150, 100, 50, 50);
+				pic2=paper.image(img2, 170, 140, 50, 50);
+
+				pic1.click(function () { pic2.insertBefore (this);});
+				pic2.click(function () { pic1.insertBefore (this);});
+				paper.text(300, 300,"Click either image to place it on top of the other").attr({fill:'#FF0000', 'font-size':12});
+
+
+				//setInfoContent("InfoContent","Example:Element.insertBefore.","120%");	
+
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			var img1="../../img/labelraphael.png";
+			var img2="../../img/labelsource.png";
+			/*Create Graphic Primitives*/
+			pic1=paper.image(img1, 150, 100, 50, 50);
+			pic2=paper.image(img2, 170, 140, 50, 50);
+
+			pic1.click(function () { pic2.insertBefore (this);});
+			pic2.click(function () { pic1.insertBefore (this);});
+			paper.text(300, 300,"Click either image to place it on top of the other").attr({fill:'#FF0000', 'font-size':12});
+
+
+			//setInfoContent("InfoContent","Example:Element.insertBefore.","120%");	
+
+		</pre>
+	   
+	</body>
+</html>

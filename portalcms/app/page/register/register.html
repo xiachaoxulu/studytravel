@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>注册-人力管家</title>
+  <link rel="stylesheet" href="resource/css/base.css">
+  <script type="text/javascript" src="lib/mod.js"></script>
+  <script type="text/javascript" src="register.js"></script>
+  <link rel="stylesheet" href="register.less">
+</head>
+
+<body>
+  <div class="wrap-register">
+    <div class="head-container">
+      <div class="head">
+        <link rel="import" href="app/component/head2/head2.tpl?__inline">
+      </div>
+    </div>
+    <main>
+      <div class="main-container">
+        <form id="expform">
+          <div class="row">
+            <div class="cell">
+              <div class="label">
+                <span>城市</span>
+              </div>
+              <div class="input">
+                <input type="text" class="choose" id="city">
+                <div class="city"></div>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="label">
+                <span class="must">*</span><span>公司名称</span>
+              </div>
+              <div class="input">
+                <input type="text" valid="require" id="companyname">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="cell">
+              <div class="label">
+                <span>公司业态</span>
+              </div>
+              <div class="input">
+                <select name="" id="companymode">
+                  <option value="">1</option>
+                  <option value="">2</option>
+                  <option value="">3</option>
+                </select>
+              </div>
+            </div>
+            <div class="cell">
+              <div class="label">
+                <span>门店数量</span>
+              </div>
+              <div class="input">
+                <input type="text" valid="num" errorMsg="门店数量如果填写,则必须为数字" id="storenum">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="cell">
+              <div class="label">
+                <span class="must">*</span><span>用户名</span>
+              </div>
+              <div class="input">
+                <input type="text" valid="require" autocomplete="off" id="username">
+                <input type="text" style="display:none" data-valid="false" id="username">
+              </div>
+            </div>
+            <div class="cell">
+              <div class="label">
+                <span class="must">*</span> <span>密码</span>
+              </div>
+              <div class="input">
+                <input type="password" style="display:none" data-valid="false" id="password">
+                <input type="password" valid="require" autocomplete="off" id="password">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="cell">
+              <div class="label">
+                <span class="must">*</span><span>联系电话</span>
+              </div>
+              <div class="input">
+                <input type="text" valid="require|phone" id="phone">
+              </div>
+            </div>
+          </div>
+          <div class="errorTip" id="errorTip">
+            &nbsp;
+          </div>
+          <div class="row control">
+            <p>注册即同意<a href="" class="protocol">人力管家免费体验协议</a>中的内容</p>
+            <input type="button" value="注册" class="btn" id="submitBtn">
+          </div>
+        </form>
+      </div>
+    </main>
+    <div class="footer">
+      <link rel="import" href="app/component/footer/footer.tpl?__inline">
+    </div>
+  </div>
+</body>
+
+</html>

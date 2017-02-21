@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+
+				/****************************************************************************
+				This is an updated drag and drop for path(Jan 2013). It is highly efficient as
+				it does away with calls to <path>.getBBox() completely.
+				It also uses the transform attribute which is refreshed when the move event
+				occurs(Do not put a lot of cpu intensive code in the move listener as it will
+				ruin your design)
+				Technique:Basic Drag and Drop.
+				****************************************************************************/
+				paper = new Raphael(0,0,900,500);
+				paper.setStart();
+				Obj=paper.path('M 61.8 400.2 L 26.1 0 L 418.5 0 L 382.8 400.2 L 221.9 445.4');
+				Obj.attr({'fill':'#e34f26','stroke':'blue'});
+				Obj=paper.path('M 222.7 410.6 L 352.4 375 L 382.8 32.2 L 222.7 32.2');
+				Obj.attr({'fill':'#ef652a','stroke':'green'});
+				Obj=paper.path('M 222.7 181 L 157.5 181 L 153.1 130.5 L 222.7 130.5 L 222.7 81.8 L 221.9 81.8 L 99.2 81.8 L 100.1 94.8 L 112.2 230.6 L 222.7 230.6Z M 222.7 308.9 L 221.9 308.9 L 167 294.1 L 163.6 254.9 L 137.5 254.9 L 114.8 254.9 L 120.9 332.3 L 221.9 360.2 L 222.7 360.2Z');
+				Obj.attr({'fill':'#ebebeb','stroke':'black'});
+				Obj=paper.path('M 221.9 181 L 221.9 230.6 L 282.8 230.6 L 276.7 294.1 L 221.9 308.9 L 221.9 360.2 L 322.8 332.3 L 323.6 323.6 L 335 194 L 336.7 181 L 322.8 181Z M 221.9 81.8 L 221.9 112.2 L 221.9 130.5 L 221.9 130.5 L 341 130.5 L 341 130.5 L 341 130.5 L 341.9 120.1 L 344.5 94.8 L 345.4 81.8Z');
+				Obj.attr({'fill':'#fff','stroke':'red'});
+				var p  = paper.setFinish(),newTX=0,newTY=0,fDx=0,fDy=0,tAddX,tAddY,reInitialize=false,
+				start = function () {
+				    
+				},
+				move = function (dx, dy) {
+					tAddX=dx-fDx,tAddY=dy-fDy,fDx=dx,fDy=dy;
+					if(reInitialize)
+					{
+						tAddX=0,fDx=0,tAddY=0;fDy=0,reInitialize=false;
+					}
+					else
+					{
+						newTX+=tAddX,newTY+=tAddY;
+						p.attr({transform: "t"+newTX+","+newTY});
+					}
+
+				},
+				up = function () {
+					reInitialize=true;
+				};
+				p.drag(move, start, up);
+				//setInfoContent("InfoContent","Example:Element.drag.","120%");
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			/****************************************************************************
+			This is an updated drag and drop for path(Jan 2013). It is highly efficient as
+			it does away with calls to <path>.getBBox() completely.
+			It also uses the transform attribute which is refreshed when the move event
+			occurs(Do not put a lot of cpu intensive code in the move listener as it will
+			ruin your design)
+			Technique:Basic Drag and Drop.
+			****************************************************************************/
+			paper = new Raphael(0,0,900,500);
+
+			//创建Paper.set 。调用此方法之后到调用Paper.setFinish方法之前创建的所有元素都会被添加到集合内。
+			//Paper.set 创建类数组对象，保存和一次操作其中的多个元素。警告：它不创建任何元素，只是分组已存在的元素。
+			//“集合”充当伪元素 - 所有元素可用的方法，都可以在集合上使用。
+			paper.setStart();
+			Obj=paper.path('M 61.8 400.2 L 26.1 0 L 418.5 0 L 382.8 400.2 L 221.9 445.4');
+			Obj.attr({'fill':'#e34f26','stroke':'blue'});
+			Obj=paper.path('M 222.7 410.6 L 352.4 375 L 382.8 32.2 L 222.7 32.2');
+			Obj.attr({'fill':'#ef652a','stroke':'green'});
+			Obj=paper.path('M 222.7 181 L 157.5 181 L 153.1 130.5 L 222.7 130.5 L 222.7 81.8 L 221.9 81.8 L 99.2 81.8 L 100.1 94.8 L 112.2 230.6 L 222.7 230.6Z M 222.7 308.9 L 221.9 308.9 L 167 294.1 L 163.6 254.9 L 137.5 254.9 L 114.8 254.9 L 120.9 332.3 L 221.9 360.2 L 222.7 360.2Z');
+			Obj.attr({'fill':'#ebebeb','stroke':'black'});
+			Obj=paper.path('M 221.9 181 L 221.9 230.6 L 282.8 230.6 L 276.7 294.1 L 221.9 308.9 L 221.9 360.2 L 322.8 332.3 L 323.6 323.6 L 335 194 L 336.7 181 L 322.8 181Z M 221.9 81.8 L 221.9 112.2 L 221.9 130.5 L 221.9 130.5 L 341 130.5 L 341 130.5 L 341 130.5 L 341.9 120.1 L 344.5 94.8 L 345.4 81.8Z');
+			Obj.attr({'fill':'#fff','stroke':'red'});
+			var p  = paper.setFinish(),newTX=0,newTY=0,fDx=0,fDy=0,tAddX,tAddY,reInitialize=false,
+			start = function () {
+			    
+			},
+			move = function (dx, dy) {
+				tAddX=dx-fDx,tAddY=dy-fDy,fDx=dx,fDy=dy;
+				if(reInitialize)
+				{
+					tAddX=0,fDx=0,tAddY=0;fDy=0,reInitialize=false;
+				}
+				else
+				{
+					newTX+=tAddX,newTY+=tAddY;
+					p.attr({transform: "t"+newTX+","+newTY});
+				}
+
+			},
+			up = function () {
+				reInitialize=true;
+			};
+			p.drag(move, start, up);
+			//setInfoContent("InfoContent","Example:Element.drag.","120%");
+
+		</pre>
+	   
+	</body>
+</html>

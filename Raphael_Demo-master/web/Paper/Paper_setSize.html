@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				paper.rect(200,200,240,80, 10).attr({fill:"#FF0000",opacity:0.4});
+				/***Raphael Widgets*****************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				Note: function passed as argument.
+				***********************************************************/
+				setSizeButton480=function(){ 
+					paper.widgets.button(paper,230, 90, 70, 
+						"Restore the\noriginal\npaper size", "#800000" , "#FF7F00" ,18,
+						function(){ paper.setSize(640, 480); });
+				}
+				setSizeButton240=function(){ 
+
+					paper.setSize(320, 240);
+					setSizeButton480();
+				}
+				paper.widgets.button(paper,90, 90, 70, 
+					"Change the\noriginal\npaper size", "#800000" , "#FF7F00" ,18,setSizeButton240);
+
+				//setInfoContent("InfoContent","We are changing the paper size. Play around, but don't forget the reset!(br)(br)Example:Paper.setSize.","120%");
+								
+								
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			paper.rect(200,200,240,80, 10).attr({fill:"#FF0000",opacity:0.4});
+			/***Raphael Widgets*****************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			Note: function passed as argument.
+			***********************************************************/
+			setSizeButton480=function(){ 
+				paper.widgets.button(paper,230, 90, 70, 
+					"Restore the\noriginal\npaper size", "#800000" , "#FF7F00" ,18,
+					function(){ paper.setSize(640, 480); });
+			}
+			setSizeButton240=function(){ 
+
+				paper.setSize(320, 240);
+				setSizeButton480();
+			}
+			paper.widgets.button(paper,90, 90, 70, 
+				"Change the\noriginal\npaper size", "#800000" , "#FF7F00" ,18,setSizeButton240);
+
+			//setInfoContent("InfoContent","We are changing the paper size. Play around, but don't forget the reset!(br)(br)Example:Paper.setSize.","120%");
+		</pre>
+	   
+	</body>
+</html>

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael.widgets.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				cb=[];
+				function scaleWith(paper,cb,scaleWidth,scaleHeight,scalecx,scalecy)
+				{
+					set1 = paper.set();
+					for(var i=1;i < cb.length;i++)
+					{
+						set1.push(cb[i]);
+					}
+					/*scale implemented here*/
+					set1.scale(scaleWidth,scaleHeight,scalecx,scalecy); 
+					set1.translate( (-1*set1.getBBox().x) ,(-1*set1.getBBox().y));
+				}
+				cb[1]=paper.path('M 590 162 L 731 124.2 L 681.9 48.5Z M 590 162 L 597.6 16.2 L 510.5 39.6Z M 590 162 L 453.7 109.7 L 449 199.8Z M 590 162 L 498.1 275.5 L 582.4 307.8Z M 590 162 L 669.5 284.4 L 726.3 214.3Z');
+				cb[1].attr({'stroke':'blue','fill':'none','stroke-width':'1','fill-opacity':'1','stroke-opacity':'1'}).mouseover(function (e) {  this.attr({fill:'#000000'});pi.label.attr({text:'Click ' +this.index + ' ?'}); }).mouseout(function (e) { this.attr({fill:this.ofill}); }).click(function (e) { showline(this.index); });
+				cb[2]=paper.path('M 604 426 L 704 425 L 701.5 402.7 L 694.1 381.6Z M 604 426 L 666.3 346.8 L 666.3 346.8 L 647.4 334.9 L 626.3 327.5Z M 604 426 L 581.7 327.5 L 581.7 327.5 L 560.6 334.9 L 541.7 346.8Z M 604 426 L 513.9 381.6 L 513.9 381.6 L 506.5 402.7 L 504 425Z M 604 426 L 513.9 468.4 L 513.9 468.4 L 525.8 487.3 L 541.7 503.2Z M 604 426 L 581.7 522.5 L 581.7 522.5 L 604 525 L 626.3 522.5Z M 604 426 L 666.3 503.2 L 682.2 487.3 L 694.1 468.4Z');
+				cb[2].attr({'stroke':'blue','fill':'none','stroke-width':'1','fill-opacity':'1','stroke-opacity':'1'}).mouseover(function (e) {  this.attr({fill:'#000000'});pi.label.attr({text:'Click ' +this.index + ' ?'}); }).mouseout(function (e) { this.attr({fill:this.ofill}); }).click(function (e) { showline(this.index); });
+				cb[3]=paper.path('M 216 398 L 344 398 L 343.3 385Z M 216 398 L 341.4 372.2 L 338.1 359.7Z M 216 398 L 333.6 347.5 L 327.9 335.9Z M 216 398 L 321 324.9 L 313.1 314.6Z M 216 398 L 304.2 305.2 L 304.2 305.2 L 294.3 296.8Z M 216 398 L 283.7 289.4 L 272.4 283.1Z M 216 398 L 260.5 278 L 248.1 274.1Z M 216 398 L 235.4 271.5 L 235.4 271.5 L 222.5 270.2Z M 216 398 L 209.5 270.2 L 196.6 271.5Z M 216 398 L 183.9 274.1 L 171.5 278Z M 216 398 L 159.6 283.1 L 159.6 283.1 L 148.3 289.4Z M 216 398 L 137.6 296.8 L 127.8 305.2Z M 216 398 L 118.9 314.6 L 118.9 314.6 L 110.9 324.9Z M 216 398 L 104.1 335.9 L 98.4 347.5Z M 216 398 L 93.9 359.7 L 90.6 372.2Z M 216 398 L 88.7 385 L 88.7 385 L 88 398Z M 216 398 L 88.7 411 L 88.7 411 L 90.6 423.8Z M 216 398 L 93.9 436.3 L 98.4 448.5Z M 216 398 L 104.1 460.1 L 104.1 460.1 L 110.9 471.1Z M 216 398 L 118.9 481.4 L 118.9 481.4 L 127.8 490.8Z M 216 398 L 137.6 499.2 L 137.6 499.2 L 148.3 506.6Z M 216 398 L 159.6 512.9 L 159.6 512.9 L 171.5 518Z M 216 398 L 183.9 521.9 L 183.9 521.9 L 196.6 524.5Z M 216 398 L 209.5 525.8 L 209.5 525.8 L 222.5 525.8Z M 216 398 L 235.4 524.5 L 235.4 524.5 L 248.1 521.9Z M 216 398 L 260.5 518 L 260.5 518 L 272.4 512.9Z M 216 398 L 283.7 506.6 L 283.7 506.6 L 294.4 499.2Z M 216 398 L 304.2 490.8 L 304.2 490.8 L 313.1 481.4Z M 216 398 L 321 471.1 L 321 471.1 L 327.9 460.1Z M 216 398 L 333.6 448.5 L 333.6 448.5 L 338.1 436.3Z M 216 398 L 341.4 423.8 L 341.4 423.8 L 343.3 410.9Z');
+				cb[3].attr({'stroke':'blue','fill':'none','stroke-width':'1','fill-opacity':'1','stroke-opacity':'1'}).mouseover(function (e) {  this.attr({fill:'#000000'});pi.label.attr({text:'Click ' +this.index + ' ?'}); }).mouseout(function (e) { this.attr({fill:this.ofill}); }).click(function (e) { showline(this.index); });
+				cb[4]=paper.path('M 219 124 L 270 124 L 269.9 120.7Z M 219 124 L 269.6 117.3 L 269 114.1Z M 219 124 L 268.3 110.8 L 267.3 107.6Z M 219 124 L 266.1 104.5 L 264.7 101.4Z M 219 124 L 263.2 98.5 L 261.4 95.7Z M 219 124 L 259.5 93 L 257.3 90.4Z M 219 124 L 255.1 87.9 L 252.6 85.7Z M 219 124 L 250 83.5 L 247.3 81.6Z M 219 124 L 244.5 79.8 L 241.6 78.3Z M 219 124 L 238.5 76.9 L 235.4 75.7Z M 219 124 L 232.2 74.7 L 228.9 74Z M 219 124 L 225.7 73.4 L 222.3 73.1Z M 219 124 L 219 73 L 215.7 73.1Z M 219 124 L 212.3 73.4 L 209.1 74Z M 219 124 L 205.8 74.7 L 202.6 75.7Z M 219 124 L 199.5 76.9 L 196.4 78.3Z M 219 124 L 193.5 79.8 L 190.7 81.6Z M 219 124 L 188 83.5 L 185.4 85.7Z M 219 124 L 182.9 87.9 L 180.7 90.4Z M 219 124 L 178.5 93 L 176.6 95.7Z M 219 124 L 174.8 98.5 L 173.3 101.4Z M 219 124 L 171.9 104.5 L 170.7 107.6Z M 219 124 L 169.7 110.8 L 169 114.1Z M 219 124 L 168.4 117.3 L 168.1 120.7Z M 219 124 L 168 124 L 168.1 127.3Z M 219 124 L 168.4 130.7 L 169 133.9Z M 219 124 L 169.7 137.2 L 170.7 140.4Z M 219 124 L 171.9 143.5 L 173.3 146.6Z M 219 124 L 174.8 149.5 L 176.6 152.3Z M 219 124 L 178.5 155 L 180.7 157.6Z M 219 124 L 182.9 160.1 L 185.4 162.3Z M 219 124 L 188 164.5 L 190.7 166.4Z M 219 124 L 193.5 168.2 L 196.4 169.7Z M 219 124 L 199.5 171.1 L 202.6 172.3Z M 219 124 L 205.8 173.3 L 209.1 174Z M 219 124 L 212.3 174.6 L 215.7 174.9Z M 219 124 L 219 175 L 222.3 174.9Z M 219 124 L 225.7 174.6 L 228.9 174Z M 219 124 L 232.2 173.3 L 235.4 172.3Z M 219 124 L 238.5 171.1 L 241.6 169.7Z M 219 124 L 244.5 168.2 L 247.3 166.4Z M 219 124 L 250 164.5 L 252.6 162.3Z M 219 124 L 255.1 160.1 L 257.3 157.6Z M 219 124 L 259.5 155 L 261.4 152.3Z M 219 124 L 263.2 149.5 L 264.7 146.6Z M 219 124 L 266.1 143.5 L 267.3 140.4Z M 219 124 L 268.3 137.2 L 269 133.9Z M 219 124 L 269.6 130.7 L 269.9 127.3Z');
+				cb[4].attr({'stroke':'blue','fill':'none','stroke-width':'1','fill-opacity':'1','stroke-opacity':'1'}).mouseover(function (e) {  this.attr({fill:'#000000'});pi.label.attr({text:'Click ' +this.index + ' ?'}); }).mouseout(function (e) { this.attr({fill:this.ofill}); }).click(function (e) { showline(this.index); });
+				/*Initialised: Scale from top left corner*/
+				scaleWith(paper,cb,0.75, 0.75, 0, 0);
+
+				/***Raphael Widgets*****************************************
+				http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+				Note: function passed as argument.
+				***********************************************************/
+				scale75br =function () 
+				{ 
+				    bbox=set1.getBBox();
+				    scaleWith(paper,cb,0.75, 0.75, bbox.x + bbox.width, bbox.y + bbox.height);
+				};
+				paper.widgets.button(paper,465, 420, 50, "75%\nBottom\nRight", "#800000" , "#FF7F00" ,24,scale75br);
+
+				scale50middle =function () 
+				{ 
+				    bbox=set1.getBBox();
+				    scaleWith(paper,cb,0.5, 0.5, bbox.x + bbox.width/2, bbox.y + bbox.height/2);
+				};
+				paper.widgets.button(paper,565, 420, 50, "50%\nMiddle", "#800000" , "#FF7F00" ,24,scale50middle);
+
+				setInfoContent("InfoContent","Example:Element.scale.","120%");	
+
+
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+		<div class="example1">
+			作者提供的代码少一个showline()方法,所以点击图形的onclick方法无效果
+		</div>
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+			cb=[];
+			function scaleWith(paper,cb,scaleWidth,scaleHeight,scalecx,scalecy){
+				set1 = paper.set();
+				for(var i=1;i < cb.length;i++)
+				{
+					set1.push(cb[i]);
+				}
+				/*scale implemented here*/
+				set1.scale(scaleWidth,scaleHeight,scalecx,scalecy); 
+				set1.translate( (-1*set1.getBBox().x) ,(-1*set1.getBBox().y));
+			}
+
+			cb[1]=paper.path('M 590 162 L 731 124.2 L 681.9 48.5Z M 590 162 L 597.6 16.2 L 510.5 39.6Z M 590 162 L 453.7 109.7 L 449 199.8Z M 590 162 L 498.1 275.5 L 582.4 307.8Z M 590 162 L 669.5 284.4 L 726.3 214.3Z');
+			cb[1].attr({'stroke':'blue','fill':'none','stroke-width':'1','fill-opacity':'1','stroke-opacity':'1'})
+			.mouseover(function (e) {  this.attr({fill:'#000000'});pi.label.attr({text:'Click ' +this.index + ' ?'}); })
+			.mouseout(function (e) { this.attr({fill:this.ofill}); }).click(function (e) { showline(this.index); });
+			
+			cb[2]=paper.path('M 604 426 L 704 425 L 701.5 402.7 L 694.1 381.6Z M 604 426 L 666.3 346.8 L 666.3 346.8 L 647.4 334.9 L 626.3 327.5Z M 604 426 L 581.7 327.5 L 581.7 327.5 L 560.6 334.9 L 541.7 346.8Z M 604 426 L 513.9 381.6 L 513.9 381.6 L 506.5 402.7 L 504 425Z M 604 426 L 513.9 468.4 L 513.9 468.4 L 525.8 487.3 L 541.7 503.2Z M 604 426 L 581.7 522.5 L 581.7 522.5 L 604 525 L 626.3 522.5Z M 604 426 L 666.3 503.2 L 682.2 487.3 L 694.1 468.4Z');
+			cb[2].attr({'stroke':'blue','fill':'none','stroke-width':'1','fill-opacity':'1','stroke-opacity':'1'})
+			.mouseover(function (e) {  this.attr({fill:'#000000'});pi.label.attr({text:'Click ' +this.index + ' ?'}); })
+			.mouseout(function (e) { this.attr({fill:this.ofill}); }).click(function (e) { showline(this.index); });
+			
+			cb[3]=paper.path('M 216 398 L 344 398 L 343.3 385Z M 216 398 L 341.4 372.2 L 338.1 359.7Z M 216 398 L 333.6 347.5 L 327.9 335.9Z M 216 398 L 321 324.9 L 313.1 314.6Z M 216 398 L 304.2 305.2 L 304.2 305.2 L 294.3 296.8Z M 216 398 L 283.7 289.4 L 272.4 283.1Z M 216 398 L 260.5 278 L 248.1 274.1Z M 216 398 L 235.4 271.5 L 235.4 271.5 L 222.5 270.2Z M 216 398 L 209.5 270.2 L 196.6 271.5Z M 216 398 L 183.9 274.1 L 171.5 278Z M 216 398 L 159.6 283.1 L 159.6 283.1 L 148.3 289.4Z M 216 398 L 137.6 296.8 L 127.8 305.2Z M 216 398 L 118.9 314.6 L 118.9 314.6 L 110.9 324.9Z M 216 398 L 104.1 335.9 L 98.4 347.5Z M 216 398 L 93.9 359.7 L 90.6 372.2Z M 216 398 L 88.7 385 L 88.7 385 L 88 398Z M 216 398 L 88.7 411 L 88.7 411 L 90.6 423.8Z M 216 398 L 93.9 436.3 L 98.4 448.5Z M 216 398 L 104.1 460.1 L 104.1 460.1 L 110.9 471.1Z M 216 398 L 118.9 481.4 L 118.9 481.4 L 127.8 490.8Z M 216 398 L 137.6 499.2 L 137.6 499.2 L 148.3 506.6Z M 216 398 L 159.6 512.9 L 159.6 512.9 L 171.5 518Z M 216 398 L 183.9 521.9 L 183.9 521.9 L 196.6 524.5Z M 216 398 L 209.5 525.8 L 209.5 525.8 L 222.5 525.8Z M 216 398 L 235.4 524.5 L 235.4 524.5 L 248.1 521.9Z M 216 398 L 260.5 518 L 260.5 518 L 272.4 512.9Z M 216 398 L 283.7 506.6 L 283.7 506.6 L 294.4 499.2Z M 216 398 L 304.2 490.8 L 304.2 490.8 L 313.1 481.4Z M 216 398 L 321 471.1 L 321 471.1 L 327.9 460.1Z M 216 398 L 333.6 448.5 L 333.6 448.5 L 338.1 436.3Z M 216 398 L 341.4 423.8 L 341.4 423.8 L 343.3 410.9Z');
+			cb[3].attr({'stroke':'blue','fill':'none','stroke-width':'1','fill-opacity':'1','stroke-opacity':'1'})
+			.mouseover(function (e) {  this.attr({fill:'#000000'});pi.label.attr({text:'Click ' +this.index + ' ?'}); })
+			.mouseout(function (e) { this.attr({fill:this.ofill}); }).click(function (e) { showline(this.index); });
+			
+			cb[4]=paper.path('M 219 124 L 270 124 L 269.9 120.7Z M 219 124 L 269.6 117.3 L 269 114.1Z M 219 124 L 268.3 110.8 L 267.3 107.6Z M 219 124 L 266.1 104.5 L 264.7 101.4Z M 219 124 L 263.2 98.5 L 261.4 95.7Z M 219 124 L 259.5 93 L 257.3 90.4Z M 219 124 L 255.1 87.9 L 252.6 85.7Z M 219 124 L 250 83.5 L 247.3 81.6Z M 219 124 L 244.5 79.8 L 241.6 78.3Z M 219 124 L 238.5 76.9 L 235.4 75.7Z M 219 124 L 232.2 74.7 L 228.9 74Z M 219 124 L 225.7 73.4 L 222.3 73.1Z M 219 124 L 219 73 L 215.7 73.1Z M 219 124 L 212.3 73.4 L 209.1 74Z M 219 124 L 205.8 74.7 L 202.6 75.7Z M 219 124 L 199.5 76.9 L 196.4 78.3Z M 219 124 L 193.5 79.8 L 190.7 81.6Z M 219 124 L 188 83.5 L 185.4 85.7Z M 219 124 L 182.9 87.9 L 180.7 90.4Z M 219 124 L 178.5 93 L 176.6 95.7Z M 219 124 L 174.8 98.5 L 173.3 101.4Z M 219 124 L 171.9 104.5 L 170.7 107.6Z M 219 124 L 169.7 110.8 L 169 114.1Z M 219 124 L 168.4 117.3 L 168.1 120.7Z M 219 124 L 168 124 L 168.1 127.3Z M 219 124 L 168.4 130.7 L 169 133.9Z M 219 124 L 169.7 137.2 L 170.7 140.4Z M 219 124 L 171.9 143.5 L 173.3 146.6Z M 219 124 L 174.8 149.5 L 176.6 152.3Z M 219 124 L 178.5 155 L 180.7 157.6Z M 219 124 L 182.9 160.1 L 185.4 162.3Z M 219 124 L 188 164.5 L 190.7 166.4Z M 219 124 L 193.5 168.2 L 196.4 169.7Z M 219 124 L 199.5 171.1 L 202.6 172.3Z M 219 124 L 205.8 173.3 L 209.1 174Z M 219 124 L 212.3 174.6 L 215.7 174.9Z M 219 124 L 219 175 L 222.3 174.9Z M 219 124 L 225.7 174.6 L 228.9 174Z M 219 124 L 232.2 173.3 L 235.4 172.3Z M 219 124 L 238.5 171.1 L 241.6 169.7Z M 219 124 L 244.5 168.2 L 247.3 166.4Z M 219 124 L 250 164.5 L 252.6 162.3Z M 219 124 L 255.1 160.1 L 257.3 157.6Z M 219 124 L 259.5 155 L 261.4 152.3Z M 219 124 L 263.2 149.5 L 264.7 146.6Z M 219 124 L 266.1 143.5 L 267.3 140.4Z M 219 124 L 268.3 137.2 L 269 133.9Z M 219 124 L 269.6 130.7 L 269.9 127.3Z');
+			cb[4].attr({'stroke':'blue','fill':'none','stroke-width':'1','fill-opacity':'1','stroke-opacity':'1'})
+			.mouseover(function (e) {  this.attr({fill:'#000000'});pi.label.attr({text:'Click ' +this.index + ' ?'}); })
+			.mouseout(function (e) { this.attr({fill:this.ofill}); }).click(function (e) { showline(this.index); });
+			
+			/*Initialised: Scale from top left corner*/
+			scaleWith(paper,cb,0.75, 0.75, 0, 0);
+
+			/***Raphael Widgets*****************************************
+			http://www.irunmywebsite.com/raphael/raphael.widgets.doc.php
+			Note: function passed as argument.
+			***********************************************************/
+			scale75br =function(){ 
+			    bbox=set1.getBBox();
+			    scaleWith(paper,cb,0.75, 0.75, bbox.x + bbox.width, bbox.y + bbox.height);
+			};
+			paper.widgets.button(paper,465, 420, 50, "75%\nBottom\nRight", "#800000" , "#FF7F00" ,24,scale75br);
+
+			scale50middle =function(){ 
+			    bbox=set1.getBBox();
+			    scaleWith(paper,cb,0.5, 0.5, bbox.x + bbox.width/2, bbox.y + bbox.height/2);
+			};
+			paper.widgets.button(paper,565, 420, 50, "50%\nMiddle", "#800000" , "#FF7F00" ,24,scale50middle);
+
+			setInfoContent("InfoContent","Example:Element.scale.","120%");	
+
+
+
+		</pre>
+	   
+	</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <script type="text/javascript" src="lib/mod.js"></script>
+  <link rel="stylesheet" href="resource/css/base.css">
+  <style>
+  body{
+  	width: 800px;
+  	margin: 0 auto;
+  }
+  .form {
+    width: 600px;
+    height: 400px;
+    position: relative;
+  }
+  </style>
+</head>
+
+<body>
+  <div class="form" id="form">
+ 
+  </div>
+</body>
+<script>
+var loading = require('app/component/loading/loading');
+var dd=loading.create(document.getElementById('form'),{
+	type:'ball'
+})
+</script>
+
+</html>

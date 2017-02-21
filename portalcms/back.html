@@ -1,0 +1,111 @@
+<!--
+* @Created Date       : 2016-10-24T10:11:03+08:00
+* @Last Modified time : 2016-10-25T16:34:00+08:00
+ -->
+
+
+
+      <article class="page page4">
+        <div class="page-content">
+          <div class="content">
+            <h1>申请体验, &nbsp;用了才知道</h1>
+            <div class="exp-wrap">
+              <div class="current"></div>
+              <div class="exp-list">
+                <div data-key="exp" class="exp active">
+                  <span>免费体验申请</span>
+                </div>
+                <div data-key="pay" class="exp">
+                  <span>购买申请</span>
+                </div>
+              </div>
+            </div>
+            <div class="exp-content">
+              <div data-key="exp" class="exp-item active">
+                <form id="expform">
+                  <div class="row">
+                    <div class="cell">
+                      <div class="label">
+                        <span>城市</span>
+                      </div>
+                      <div class="input">
+                        <input type="text" class="choose" id="city">
+                        <div class="city"></div>
+                      </div>
+                    </div>
+                    <div class="cell">
+                      <div class="label">
+                        <span class="must">*</span><span>公司名称</span>
+                      </div>
+                      <div class="input">
+                        <input type="text" valid="require" id="companyname">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="cell">
+                      <div class="label">
+                        <span>公司业态</span>
+                      </div>
+                      <div class="input">
+                        <select name="" id="companymode">
+                          <option value="">1</option>
+                          <option value="">2</option>
+                          <option value="">3</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="cell">
+                      <div class="label">
+                        <span>门店数量</span>
+                      </div>
+                      <div class="input">
+                        <input type="text" valid="num" errorMsg="门店数量如果填写,则必须为数字" id="storenum">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="cell">
+                      <div class="label">
+                        <span class="must">*</span><span>用户名</span>
+                      </div>
+                      <div class="input">
+                        <input type="text" valid="require" autocomplete="off"  id="username">
+                        <input type="text" style="display:none" data-valid="false" id="username">
+                      </div>
+                    </div>
+                    <div class="cell">
+                      <div class="label">
+                        <span class="must">*</span> <span>密码</span>
+                      </div>
+                      <div class="input">
+                        <input type="password" style="display:none" data-valid="false" id="password">
+                        <input type="password" valid="require" autocomplete="off"  id="password">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="cell">
+                      <div class="label">
+                        <span class="must">*</span><span>联系电话</span>
+                      </div>
+                      <div class="input">
+                        <input type="text" valid="require|phone" id="phone">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="errorTip" id="errorTip">
+                    &nbsp;
+                  </div>
+                  <div class="row control">
+                    <p>体验即同意<a href="" class="protocol">人力管家免费体验协议</a>中的内容</p>
+                    <input type="button" value="体验" class="btn" id="submitBtn">
+                  </div>
+                </form>
+              </div>
+              <div data-key="pay" class="exp-item">xxxxxxxxxxxxxxxxxxx</div>
+            </div>
+          </div>
+        </div>
+        <link rel="import" href="app/component/footer/footer.tpl?__inline">
+      </article>

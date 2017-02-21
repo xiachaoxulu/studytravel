@@ -1,0 +1,41 @@
+{
+	"result": [{
+		"createTime": 1457422067000,
+		"des": "123",
+		"ID": 1,
+		"moduleName": "模块1",
+		"valid": 1,
+		"checked": true
+	}, {
+		"createTime": 1457422067000,
+		"des": "123",
+		"ID": 2,
+		"moduleName": "模块2",
+		"valid": 1,
+		"checked": true
+	}, {
+		"createTime": 1457422067000,
+		"des": "123",
+		"ID": 3,
+		"moduleName": "模块3",
+		"valid": 1,
+		"checked": false
+	}, {
+		"createTime": 1457422067000,
+		"des": "123",
+		"ID": 4,
+		"moduleName": "模块4",
+		"valid": 1,
+		"checked": true
+	}, {
+		"createTime": 1457422067000,
+		"des": "123",
+		"ID": 5,
+		"moduleName": "模块5",
+		"valid": 1,
+		"checked": false
+	}],
+	"success": "true",
+	"err_msg": "请求处理成功",
+	"err_code": "8888"
+}

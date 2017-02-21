@@ -1,0 +1,22 @@
+{
+    "result": [{
+        "btnName": "1",
+        "ID": 1,
+        "valid": 1
+    }, {
+        "btnName": "1",
+        "ID": 2,
+        "valid": 4,
+    }, {
+        "btnName": "123",
+        "ID": 3,
+        "valid": 4,
+    }, {
+        "btnName": "1352",
+        "ID": 4,
+        "valid": 4,
+    }],
+    "success": 1,
+    "err_msg": "请求处理成功",
+    "err_code": 8888
+}

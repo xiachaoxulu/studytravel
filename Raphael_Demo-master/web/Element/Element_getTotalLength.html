@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Raphaël </title>
+		<!--jQuery-->
+		<script id="jquery_172" type="text/javascript" class="library" src="../../js/jquery-1.7.2.min.js"></script>
+		<!--Raphael-->
+		<script id="raphael_210" type="text/javascript" class="library" src="../../js/raphael-min.js"></script>
+		<!--bootstrap-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/bootstrap/js/bootstrap.min.js"></script>
+	    <link rel="stylesheet" href="../../js/bootstrap/css/bootstrap.min.css">
+
+	    <!--SyntaxHighlighter-->
+	    <script id="bootstrap" type="text/javascript" class="library" src="../../js/syntaxhighlighter-2.1.382/scripts/brush.js"></script>
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shCore.css">
+	    <link rel="stylesheet" href="../../js/syntaxhighlighter-2.1.382/styles/shThemeDefault.css">
+
+	    <!--Common-->
+	    <script id="common" type="text/javascript" class="library" src="../../js/common.js"></script>
+	    <link rel="stylesheet" href="../../css/default.css">
+
+		<script>
+			$(function(){
+				paper = new Raphael(0,0,900,500);
+				
+				lx=Math.random() * 200 + 100;
+				ly=Math.random() * 200 + 100;
+
+				PATH=paper.path("M"+lx+","+ly+"L153.8,147.6L159.2,167.5L140.3,159.5L140.5,180.1L124.2,167.6L119.3,187.6L106.6,171.4L96.9,189.6L88.6,170.7L74.7,185.9L71.3,165.6L54.1,176.9L55.9,156.4L36.4,163L43.2,143.6L22.7,145.1L34.1,128L13.9,124.4L29.2,110.7L10.5,102.2L28.7,92.7L12.7,79.8L32.8,75.2L20.4,58.7L41,59.2L33.2,40.1L53,45.7L50.1,25.3L67.9,35.7L70.3,15.2L84.9,29.7L92.2,10.4L102.8,28.1L114.7,11.3L120.6,31L136.3,17.7L137.1,38.2L155.6,29.2L151.3,49.3L171.4,45.2L162.2,63.6L182.8,64.6L169.3,80.2L189,86.3L172,98L189.5,108.8L170.2,115.9L184.5,130.7L164,132.8L174.2,150.7").attr({ fill:'271.491479032-#ff0000:0-#6d1313:85.897434-#cb0c0c:100' , 'stroke':'none' , 'fill-opacity':'1' , 'stroke-width':'1' , 'stroke-opacity':'1'});
+
+				PATH.translate( (-1*PATH.getBBox().x) ,(-1*PATH.getBBox().y));
+				 
+				paper.text(15,350,'Total length (Keep clicking Run):'+Math.round(PATH.getTotalLength())).attr({fill:'#FF0000', 'font-size':18, 'stroke-width':1 ,'text-anchor':'start'});
+
+				//setInfoContent("InfoContent","Example:Element.getTotalLength.","120%");
+
+				
+				
+			})
+		</script>
+
+		<style type="text/css">
+			
+		</style>
+
+	</head>
+
+	<body>
+		<div id="canvas" style="height:500px;">
+			
+		</div>
+
+        <pre class="brush: javascript">
+			paper = new Raphael(0,0,900,500);
+
+			lx=Math.random() * 200 + 100;
+			ly=Math.random() * 200 + 100;
+
+			PATH=paper.path("M"+lx+","+ly+"L153.8,147.6L159.2,167.5L140.3,159.5L140.5,180.1L124.2,167.6L119.3,187.6L106.6,171.4L96.9,189.6L88.6,170.7L74.7,185.9L71.3,165.6L54.1,176.9L55.9,156.4L36.4,163L43.2,143.6L22.7,145.1L34.1,128L13.9,124.4L29.2,110.7L10.5,102.2L28.7,92.7L12.7,79.8L32.8,75.2L20.4,58.7L41,59.2L33.2,40.1L53,45.7L50.1,25.3L67.9,35.7L70.3,15.2L84.9,29.7L92.2,10.4L102.8,28.1L114.7,11.3L120.6,31L136.3,17.7L137.1,38.2L155.6,29.2L151.3,49.3L171.4,45.2L162.2,63.6L182.8,64.6L169.3,80.2L189,86.3L172,98L189.5,108.8L170.2,115.9L184.5,130.7L164,132.8L174.2,150.7").attr({ fill:'271.491479032-#ff0000:0-#6d1313:85.897434-#cb0c0c:100' , 'stroke':'none' , 'fill-opacity':'1' , 'stroke-width':'1' , 'stroke-opacity':'1'});
+
+			PATH.translate( (-1*PATH.getBBox().x) ,(-1*PATH.getBBox().y));
+			 
+			paper.text(15,350,'Total length (Keep clicking Run):'+Math.round(PATH.getTotalLength())).attr({fill:'#FF0000', 'font-size':18, 'stroke-width':1 ,'text-anchor':'start'});
+
+			//setInfoContent("InfoContent","Example:Element.getTotalLength.","120%");
+
+		</pre>
+	   
+	</body>
+</html>
