@@ -1,0 +1,464 @@
+/**
+* @Author             : Yang
+* @Created Date       : 2016-06-22 18:45:29
+* @Last Modified by   : Yang
+* @Last Modified time : 2016-09-07 20:13:54
+*/
+
+/*  ui-table  */
+.ui-tablebox {
+}
+.ui-tablebox.auto {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+.ui-table td, .ui-table th {
+    overflow: visible;
+
+    white-space: nowrap;
+
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+
+     -khtml-user-select: none;
+}
+.ui-table-header {
+    min-height: 40px!important;
+}
+.ui-table-header th, .ui-table-header td {
+    height: 40px!important;
+    border: 1px solid #495264!important;
+
+    font-weight: normal;
+    vertical-align: middle!important;
+
+    color: #ffffff;
+    background: #5d677c;
+}
+
+.ui-table-headerInfo, .ui-table-headerInfo th, .ui-table-headerInfo td {
+    height: 40px!important;
+    border: 1px solid #495264!important;
+
+    font-weight: normal;
+
+    color: #ffffff;
+    background: #515b6f;
+}
+
+.ui-table {
+    overflow: hidden;
+
+    position: relative;
+
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+    border-radius: 6px 6px 0 0;
+}
+
+.ui-table table {
+    table-layout: fixed;
+    width: 100%;
+    margin: 0;
+    background: #ffffff;
+}
+.ui-table td {
+    height: 40px;
+    max-height: 40px;
+    padding: 0 8px !important;
+
+    vertical-align: middle;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+}
+
+.hasForm td {
+    height: 62px!important;
+}
+
+.ui-table-header {
+    overflow: hidden;
+
+    position: relative;
+
+    background: #5d677c;
+}
+.ui-table-header:after {
+    display: block;
+    clear: both;
+
+    content: "";
+}
+
+.ui-table-title {
+    padding: 10px;
+
+    font-size: 16px;
+
+    color: #ffffff;
+    background: #515b6f;
+}
+
+
+
+.ui-table-checkbox {
+    overflow: hidden;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 11;
+
+    width: 52px;
+}
+.ui-table-checkbox td {
+    overflow: hidden;
+
+    vertical-align: middle!important;
+}
+.ui-table-checkbox input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+}
+
+.ui-table-locked-front {
+    float: left;
+
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    /*box-shadow: 5px 0px 5px rgba(0,0,0,0.1);*/
+}
+
+.ui-table-locked-last {
+    float: right;
+
+    position: relative;
+    top: 0;
+    right: 0;
+    z-index: 10;
+    /*box-shadow: -5px 0 5px rgba(0,0,0,0.1);*/
+}
+
+.ui-table-header .ui-table-locked-last {
+    bottom: 0;
+    /*border-left: 1px solid #495264!important;*/
+
+    background: #5d677c;
+}
+
+.ui-table-locked-front table, .ui-table-locked-last table {
+    /*position: relative;
+    z-index: 10;*/
+}
+
+.ui-table-normal {
+    overflow: hidden;
+
+    position: absolute;
+}
+
+.ui-table-content-wrap {
+    overflow: hidden;
+
+    position: relative;
+}
+.ui-table-content:after {
+    display: block;
+    clear: both;
+
+    content: "";
+}
+
+
+.ui-table-content-wrap:before {
+    display: block;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+
+    width: 1px;
+    border-left: 1px solid #dddddd;
+
+    content: "";
+}
+.ui-table-content-wrap:after {
+    display: block;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 100;
+
+    width: 1px;
+    border-right: 1px solid #dddddd;
+
+    content: "";
+}
+
+
+.ui-table-body {
+    overflow: hidden;
+}
+.ui-table-body td, .ui-table-body th {
+    overflow: hidden;
+
+    vertical-align: middle!important;
+}
+
+.ui-table-body td.visible, .ui-table-body th.visible {
+    overflow: visible;
+}
+
+
+.ui-table-body td.hidden, .ui-table-body th.hidden {
+    overflow: hidden!important;
+}
+
+.ui-table-body td.text-hidden, .ui-table-body th.text-hidden {
+    overflow: hidden!important;
+
+    text-overflow: ellipsis;
+}
+
+.ui-table-content {
+}
+.ui-table-content.ui-table-normal {
+}
+.ui-table-content-wrap tr:nth-of-type(odd) {
+    background: #f2f3f5;
+}
+
+.ui-table-content-wrap td:hover {
+    background: #d9dae0;
+}
+
+.ui-table-pager {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+
+    padding-bottom: 6px;
+    border: 1px solid #dddddd;
+    border-top: 0;
+    border-radius: 0 0 6px 6px;
+
+    background: #ffffff;
+}
+.ui-table-pager-content {
+    padding: 15px 15px 10px;
+    border-top: 1px  solid #dddddd;
+}
+.ui-table-xline {
+    position: absolute;
+    right: 0;
+    bottom: 60px;
+    left: 0;
+
+    border-right: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+
+}
+.ui-table-xbar {
+    overflow: hidden;
+    overflow-x: auto;
+
+    height: 19px;
+
+    background: #fff;
+
+}
+.ui-table-xbar ._bar {
+    height: 5px;
+    /*background: #ddd;*/
+
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+
+}
+.ui-table-ybar {
+    overflow: hidden;
+    overflow-y: auto;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+
+    width: 20px;
+}
+.ui-table-ybar ._bar {
+    width: 1px;
+    height: 1000px;
+}
+
+
+/* td显示提示信息 */
+
+.ui-table-body td.showTip {
+    overflow: visible!important;
+
+    position: relative;
+}
+.ui-table-body td.showTip .tooltip {
+    display: none;
+
+    left: 0;
+
+    width: 100%;
+    max-width: 240px;
+    margin-left: 0;
+
+    opacity: 1;
+}
+.ui-table-body td.showTip .tooltip.top {
+    bottom: 90%;
+}
+.ui-table-body td.showTip .tooltip.top .tooltip-arrow {
+    border-top-color: #5d677c;
+}
+.ui-table-body td.showTip .tooltip.bottom .tooltip-arrow {
+    border-bottom-color: #5d677c;
+}
+.ui-table-body td.showTip .tooltip .tooltip-inner {
+    max-width: 100%;
+    padding: 10px 5px;
+
+    background: #5d677c;
+}
+.ui-table-body td.showTip:hover .tooltip {
+    display: block;
+
+    animation: flipInY 0.5s;
+}
+.ui-table-body td.showTip i.material-icons {
+    position: relative;
+    top: 4px;
+
+    font-size: 20px;
+}
+
+
+/* 精简风格 */
+
+.ui-table-simple .ui-table {
+    /*border-radius: 0;*/
+}
+.ui-table-simple .ui-table-pager {
+    /*border-radius: 0;*/
+    padding: 0;
+}
+.ui-table-simple .ui-table-pager-content {
+    padding: 5px;
+}
+
+/*.ui-table-simple .ui-table-header th,.ui-table-simple .ui-table-header td{
+    background: #fff;
+    color: #2e2e2e;
+    border: 1px solid #d3d6dd!important;
+    font-weight: normal;
+    height: 40px!important;
+    vertical-align: middle!important;
+}
+
+.ui-table-simple .ui-table-headerInfo th,.ui-table-simple .ui-table-headerInfo td{
+    background: #fff;
+    color: #2e2e2e;
+    border: 1px solid #d3d6dd!important;
+    font-weight: normal;
+    height: 40px!important;
+}*/
+
+.ui-table-simple td {
+    height: 40px;
+}
+
+/*.ui-table-simple .ui-table-header .ui-table-locked-last{
+    background: #fff;
+    border: 1px solid #d3d6dd!important;
+}
+*/
+
+
+.ui-tablebox .table-header-btn {
+    line-height: 1;
+}
+
+
+/* 列选 */
+.ui-tablebox-columnMenu--header{
+    padding-bottom: 10px;
+}
+.ui-tablebox-columnMenu--header strong{
+    margin-right: 20px;
+}
+.ui-tablebox-columnMenu--list{
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+.ui-tablebox-columnMenu--list li{
+    float: left;
+    width: 45%;
+    margin-right: 5%;
+    box-sizing: border-box;
+}
+
+.ui-grid-fieldmenu{
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10000;
+    width: 100px;
+    background: #5d677c;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.2);
+    color: #fff;
+    overflow: hidden;
+}
+.ui-grid-fieldmenu li{
+    padding: 5px 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+.ui-grid-fieldmenu li:hover{
+    background: #495264;
+}
+
+.ui-grid-editHandler{
+    display: none!important;
+    width: 15px!important;
+    height: 15px!important;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    margin-top: -9px;
+    font-size: 13px!important;
+    color: #fff!important;
+}
+.ui-grid-editHandler:hover{
+    /*transform-origin: center;
+    transform: scale(0.9);*/
+}
+
+.ui-table-header th:hover .ui-grid-editHandler{
+    display: inline-block!important;
+}

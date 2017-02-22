@@ -5,31 +5,13 @@
   <meta charset="UTF-8">
   <title>Document</title>
   <script>
-  function insertSort(arr) {
-
-    for (var i = 1; i < arr.length; i++) {
-
-      var key = arr[i];
-      var j = i - 1;
-
-
-      while (j >= 0 && arr[j] > key) {
-        arr[j + 1] = arr[j]
-        j--;
-      }
-
-      arr[j + 1] = key;
-
-    }
-
-    return arr
+  window.onblur = function() {
+ 
+    alert(1);
+    console.log(1)
 
 
   }
-
-
-  var arr = [8, 2, 6, 12, 4, 7, 24, 6, 78];
-  console.log(insertSort(arr));
   </script>
 </head>
 
@@ -37,6 +19,7 @@
   <div id="dmEvent" style="height: 500px;width: 1000px; background-color: red">
     <div style="height: 100px;width: 100px; background-color: blue"></div>
   </div>
+  <input type="text" required>
 </body>
 
 </html>

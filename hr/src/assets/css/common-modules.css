@@ -1,0 +1,585 @@
+/**
+* @Created Date       : 2016-11-17T17:39:28+08:00
+* @Last Modified time : 2016-12-05T17:31:37+08:00
+*/
+
+
+
+/*
+公用模块类名 .com-
+*/
+
+/* icons */
+@font-face {
+    font-family: "iconfont";
+
+    src: url("../fonts/iconfont.eot"); /* IE9 置顶*/
+    src: url("../fonts/iconfont.eot#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../fonts/iconfont.woff") format("woff"), /* chrome, firefox */
+    url("../fonts/iconfont.ttf") format("truetype"), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+    url("../fonts/iconfont.svg#iconfont") format("svg"); /* iOS 4.1- */
+}
+
+.icon-font {
+    font-family: "iconfont" !important;
+    font-size: 24px;
+    font-style: normal;
+
+    color: #666666;
+    /* Support for IE. */
+
+    font-feature-settings: "liga";
+    -webkit-font-smoothing: antialiased;
+    /*-webkit-text-stroke-width: 0.2px;*/
+    -moz-osx-font-smoothing: grayscale;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+}
+
+/* icon list */
+.icon {
+    display: inline-block;
+
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+/* 导航图标 */
+
+.icon-nav {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-nav-home {
+    background-image: url(../images/icons/nav/icon-nav-home.png);
+}
+.icon-nav-oe {
+    background-image: url(../images/icons/nav/icon-nav-oe.png);
+}
+.icon-nav-datatable {
+    background-image: url(../images/icons/nav/icon-nav-datatable.png);
+}
+.icon-nav-settings {
+    background-image: url(../images/icons/nav/icon-nav-settings.png);
+}
+.icon-nav-search {
+    background-image: url(../images/icons/nav/icon-nav-search.png);
+}
+
+
+/* 工具条图表 */
+
+.icon-tool {
+    width: 30px;
+    height: 30px;
+    font-family:"iconfont" !important;
+    font-size: 22px;
+    color:#565c6c;
+    cursor: pointer;
+    font-style:normal;
+    font-weight: normal !important;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+/*.icon-tool-add {
+    background-image: url(../images/icons/tool/icon-tool-add.png);
+}*/
+.icon-tool-addUser:before { content: "\e624"; }
+
+/*.icon-tool-add2 {
+    background-image: url(../images/icons/tool/icon-tool-add2.png);
+}*/
+.icon-tool-add2:before { content: "\e61d"; }
+
+/*.icon-tool-delete {
+    background-image: url(../images/icons/tool/icon-tool-delete.png);
+}*/
+.icon-tool-delete:before { content: "\e618"; }
+
+/*.icon-tool-edit {
+    background-image: url(../images/icons/tool/icon-tool-edit.png);
+}*/
+.icon-tool-edit:before { content: "\e612"; }
+
+/*.icon-tool-export {
+    background-image: url(../images/icons/tool/icon-tool-export.png);
+}*/
+.icon-tool-export:before { content: "\e636"; }
+
+/*.icon-tool-filter {
+    background-image: url(../images/icons/tool/icon-tool-filter.png);
+}*/
+.icon-tool-filter:before { content: "\e619"; }
+
+.icon-tool-kaoqin {
+    background-image: url(../images/icons/tool/icon-tool-kaoqin.png);
+}
+
+/*.icon-tool-menu {
+    background-image: url(../images/icons/tool/icon-tool-menu.png);
+}*/
+.icon-tool-menu:before { content: "\e61a"; }
+
+.icon-tool-money {
+    background-image: url(../images/icons/tool/icon-tool-money.png);
+}
+/*.icon-tool-more {
+    background-image: url(../images/icons/tool/icon-tool-more.png);
+}*/
+
+.icon-tool-more:before { content: "\e617";  font-size: 24px }
+/*.icon-tool-person {
+    background-image: url(../images/icons/tool/icon-tool-person.png);
+}*/
+.icon-tool-person:before { content: "\e62e"; }
+
+/*.icon-tool-refresh {
+    background-image: url(../images/icons/tool/icon-tool-refresh.png);
+}*/
+.icon-tool-refresh:before { content: "\e613"; }
+
+/*.icon-tool-search {
+    background-image: url(../images/icons/tool/icon-tool-add.png);
+}*/
+.icon-tool-search:before { content: "\e61c"; }
+
+/*.icon-tool-work {
+    background-image: url(../images/icons/tool/icon-tool-work.png);
+}*/
+.icon-tool-work:before { content: "\e62d"; }
+
+/*.icon-tool-sechedule {
+    background-image: url(../images/icons/tool/icon-tool-sechedule.png);
+}*/
+.icon-tool-sechedule:before { content: "\e637"; }
+
+/*权限图标*/
+/*.icon-tool-back {
+    background-image: url(../images/icons/tool/icon-tool-back.png);
+}*/
+.icon-tool-back:before { content: "\e60a"; }
+
+/*.icon-tool-save {
+    background-image: url(../images/icons/tool/icon-tool-save.jpg);
+}*/
+.icon-tool-save:before { content: "\e61e"; }
+
+/*工作流审批图标*/
+/*.icon-tool-approve {
+    background-image: url(../images/icons/tool/icon-tool-approve.png);
+}*/
+.icon-tool-approve:before { content: "\e65f"; }
+
+/*.icon-tool-reject {
+    background-image: url(../images/icons/tool/icon-tool-reject.png);
+}*/
+.icon-tool-reject:before { content: "\e660"; }
+
+/*.icon-tool-rollback {
+    background-image: url(../images/icons/tool/icon-tool-rollback.png);
+}*/
+.icon-tool-rollback:before { content: "\e661"; }
+
+/*.icon-tool-transfer {
+    background-image: url(../images/icons/tool/icon-tool-transfer.png);
+}*/
+.icon-tool-transfer:before { content: "\e662"; }
+
+.icon-tool-keyboardarrowdown:before { content: "\e608"; }
+
+.icon-tool-keyboardarrowright:before { content: "\e60b"; }
+
+.icon-tool-keyboardarrowleft:before { content: "\e60a"; }
+
+.icon-tool-keyboardarrowup:before { content: "\e60c"; }
+
+.icon-tool-expandmore:before { content: "\e606"; }
+
+.icon-tool-close:before { content: "\e618"; }
+
+.icon-tool-arrowRight:before { content: "\e616"; }
+
+.icon-tool-infooutline:before { content: "\e609"; }
+
+.icon-tool-add:before { content: "\e614"; }
+.icon-tool-fullscreen:before { content: "\e621"; }
+
+.icon-tool-apply:before { content: "\e62a"; }
+/* 功能图标 */
+.icon-fn {
+    width: 60px;
+    height: 60px;
+}
+.icon-add {
+    background-image: url(../images/icons/icon-add.png);
+}
+.icon-diaodian {
+    background-image: url(../images/icons/icon-diaodian.png);
+}
+.icon-baobiao {
+    background-image: url(../images/icons/icon-baobiao.png);
+}
+.icon-gonggao {
+    background-image: url(../images/icons/icon-gonggao.png);
+}
+.icon-jiaqi {
+    background-image: url(../images/icons/icon-jiaqi.png);
+}
+.icon-rili {
+    background-image: url(../images/icons/icon-rili.png);
+}
+.icon-ruzhi {
+    background-image: url(../images/icons/icon-ruzhi.png);
+}
+.icon-shenpi {
+    background-image: url(../images/icons/icon-shenpi.png);
+}
+
+.icon-kaoqin {
+    /*background-image: url(../images/icons/icon-kaoqin.png);*/
+}
+
+/*申请-请假*/
+.icon-apply-leave {
+    background-image: url(../images/icons/icon-apply-leave.png);
+    background-size: 60px auto;
+}
+/*申请-其他*/
+.icon-apply-other {
+    background-image: url(../images/icons/icon-apply-other.png);
+    background-size: 60px auto;
+}
+/*申请-加班*/
+.icon-apply-overtime {
+    background-image: url(../images/icons/icon-apply-overtime.png);
+    background-size: 60px auto;
+}
+/*申请-出差*/
+.icon-apply-trip {
+    background-image: url(../images/icons/icon-apply-trip.png);
+    background-size: 60px auto;
+}
+
+/*考勤-月*/
+.icon-attendance-month {
+    background-image: url(../images/icons/icon-attendance-month.png);
+    background-size: 60px auto;
+}
+/*考勤-月*/
+.icon-attendance-day {
+    background-image: url(../images/icons/icon-attendance-day.png);
+    background-size: 60px auto;
+}
+
+/*权限-代理*/
+.icon-auth-agent {
+    background-image: url(../images/icons/icon-auth-agent.png);
+    background-size: 60px auto;
+}
+/*权限-报表*/
+.icon-auth-report {
+    background-image: url(../images/icons/icon-auth-report.png);
+    background-size: 60px auto;
+}
+/*权限-角色*/
+.icon-auth-role {
+    background-image: url(../images/icons/icon-auth-role.png);
+    background-size: 60px auto;
+}
+
+/*组织-架构*/
+.icon-org-structure {
+    background-image: url(../images/icons/icon-org-structure.png);
+    background-size: 60px auto;
+}
+/*权限-岗位*/
+.icon-org-post {
+    background-image: url(../images/icons/icon-org-post.png);
+    background-size: 60px auto;
+}
+/*离职*/
+.icon-org-dimission {
+    background-image: url(../images/icons/icon-org-dimission.png);
+    background-size: 60px auto;
+}
+/*修改组织树*/
+.icon-org-structure-tree {
+    background-image: url(../images/icons/icon-org-structure-tree.png);
+    background-size: 60px auto;
+}
+/*组织架构图*/
+.icon-org-manage {
+    background-image: url(../images/icons/icon-org-manage.png);
+    background-size: 60px auto;
+}
+/*员工异动*/
+.icon-org-transaction {
+    background-image: url(../images/icons/icon-org-transaction.png);
+    background-size: 60px auto;
+}
+/* 花名册 */
+.icon-org-roster {
+    background-image: url(../images/icons/icon-org-roster.png);
+    background-size: 60px auto;
+}
+
+/* 转正 */
+.icon-org-regular {
+    background-image: url(../images/icons/icon-org-regular.png);
+    background-size: 60px auto;
+}
+
+/* 黑名单 */
+.icon-org-blacklist {
+    background-image: url(../images/icons/icon-org-blacklist.png);
+    background-size: 60px auto;
+}
+
+
+/*权限管理*/
+.icon-permission {
+    background-image: url(../images/icons/icon-permission.png);
+    background-size: 60px auto;
+}
+
+/*排班规则*/
+.icon-schedule-rule {
+    background-image: url(../images/icons/icon-schedule-rule.png);
+    background-size: 60px auto;
+}
+
+/*排班-部门*/
+.icon-schedule-department {
+    background-image: url(../images/icons/icon-schedule-department.png);
+    background-size: 60px auto;
+}
+/*排班-管理组*/
+.icon-schedule-manager {
+    background-image: url(../images/icons/icon-schedule-manager.png);
+    background-size: 60px auto;
+}
+/*排班-服务组*/
+.icon-schedule-service {
+    background-image: url(../images/icons/icon-schedule-service.png);
+    background-size: 60px auto;
+}
+
+/* 薪酬 */
+
+.icon-pay-series {
+    background-image: url(../images/icons/icon-pay-series.png);
+}
+.icon-pay-users {
+    background-image: url(../images/icons/icon-pay-users.png);
+}
+.icon-pay-calculate {
+    background-image: url(../images/icons/icon-pay-calculate.png);
+}
+
+/* 招聘 */
+.icon-recruit-post {
+    background-image: url(../images/icons/icon-recruit-post.png);
+}
+.icon-recruit-resume {
+    background-image: url(../images/icons/icon-recruit-resume.png);
+}
+
+/* 规则设置 */
+.icon-attendance {
+    background-image: url(../images/icons/icon-attendance.png);
+    background-size: 60px auto;
+}
+.icon-system {
+    background-image: url(../images/icons/icon-system.png);
+    background-size: 60px auto;
+}
+.icon-holiday {
+    background-image: url(../images/icons/icon-holiday.png);
+    background-size: 60px auto;
+}
+.icon-payment {
+    background-image: url(../images/icons/icon-payment.png);
+    background-size: 60px auto;
+}
+.icon-apply {
+    background-image: url(../images/icons/icon-apply.png);
+    background-size: 60px auto;
+}
+.icon-authority {
+    background-image: url(../images/icons/icon-authority.png);
+    background-size: 60px auto;
+}
+.icon-schedule {
+    background-image: url(../images/icons/icon-schedule.png);
+    background-size: 60px auto;
+}
+.icon-ATmachine {
+    background-image: url(../images/icons/icon-ATmachine.png);
+    background-size: 60px auto;
+}
+.icon-extendTable {
+    background-image: url(../images/icons/icon-extendTable.png);
+    background-size: 60px auto;
+}
+.icon-require {
+    background-image: url(../images/icons/icon-require.png);
+    background-size: 60px auto;
+}
+.icon-orgRule {
+    background-image: url(../images/icons/icon-orgRule.png);
+    background-size: 60px auto;
+}
+/* 审批 */
+.icon-approval {
+    background-image: url(../images/icons/icon-approval.png);
+    background-size: 60px auto;
+}
+/* 公用模块列定位 m1 */
+
+.com-col-m1-left {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+
+    width: 200px;
+}
+
+.com-col-m1-middle {
+    position: absolute;
+    top: 0;
+    right: 417px;
+    bottom: 0;
+    left: 207px;
+}
+.com-col-m1-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: 410px;
+}
+
+.com-table-wrap {
+    padding: 10px;
+}
+
+/* 搜索框 */
+
+.com-search-input {
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+    width: 190px;
+    height: 32px;
+
+    line-height: 32px;
+    text-indent: 2.5em;
+
+    color: #666666;
+    background: url(../images/search.png) no-repeat 7% center;
+    background-color: #d3d6dd;;
+}
+
+.com-search-input:focus {
+    outline: none;
+}
+
+/* 搜索框 - 带按钮 */
+
+.com-topsearch {
+    display: inline-block;
+
+    position: relative;
+    top: 2px;
+
+    margin-right: 20px;
+    border: 1px solid #cccccc;
+    border-radius: 40px;
+    padding: 0 5px;
+    width: 200px;
+    height: 32px;
+
+    line-height: 32px;
+
+    color: #666666;
+    background-color: #d3d6dd;
+}
+.com-topsearch input {
+    margin-left: 25px;
+    border: none;
+    width: 115px;
+    height: 100%;
+
+    line-height: 30px;
+
+    background: none;
+}
+.com-topsearch input:focus {
+    outline: none;
+}
+
+.com-topsearch ._icon {
+    position: absolute;
+    top: 3px;
+}
+.com-topsearch ._icon-front {
+    left: 5px;
+}
+.com-topsearch ._icon-last {
+    display: none;
+
+    right: 5px;
+
+    margin: 0;
+    border-radius: 24px;
+    padding: 0 10px;
+    height: 24px;
+
+    line-height: 20px;
+
+    cursor: pointer;
+}
+.com-topsearch:hover ._icon-last {
+    display: block;
+
+    animation: slideInRight 0.5s;
+}
+
+/* 审批状态 */
+
+.ui-table-status {
+    width: 108px;
+    height: 108px;
+
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+/* 通过 */
+.ui-table-status._passed {
+    background-image: url(../images/status_passed.png);
+}
+/* 驳回 */
+.ui-table-status._failed {
+    background-image: url(../images/status_failed.png);
+}
+/* 审批中 */
+.ui-table-status._review {
+    background-image: url(../images/status_review.png);
+}
+/* 已提交 */
+.ui-table-status._submited {
+    background-image: url(../images/status_submited.png);
+}
+/* 撤回 */
+.ui-table-status._revoke {
+    background-image: url(../images/status_revoke.png);
+}
+
+/* 转审 */
+.ui-table-status._turn {
+    background-image: url(../images/status_turn.png);
+}

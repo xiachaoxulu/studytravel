@@ -1,0 +1,218 @@
+/* fallback */
+
+
+/* button */
+
+.ui-button {
+    border-radius: 30px;
+    min-width: 120px;
+    min-height: 40px;
+
+    cursor: pointer;
+}
+
+.ui-button.large {
+    min-width: 200px;
+}
+
+.ui-button-normal.color-accent {
+    background-color: #fd6551;
+}
+.ui-button-normal.color-accent:hover:not([disabled]),
+.ui-button-normal.color-accent.dropdown-open {
+    background-color: #e34b37;
+}
+.ui-button-normal.color-accent.autofocus:focus,
+body[modality="keyboard"] .ui-button-normal.color-accent:focus {
+    background-color: #e34b37;
+
+    outline-color: #e34b37;
+}
+
+
+.ui-button.autofocus:focus,
+body[modality="keyboard"] .ui-button:focus {
+    outline: none;
+}
+
+.ui-button-normal.color-success {
+    background: #0ed185;
+}
+.ui-button-normal.color-success:hover:not([disabled]),
+.ui-button-normal.color-success.dropdown-open {
+    background-color: #11df8f;
+}
+.ui-button-normal.color-success.autofocus:focus,
+body[modality="keyboard"] .ui-button-normal.color-success:focus {
+    background-color: #11df8f;
+
+    outline-color: #11df8f;
+}
+
+/* radio */
+.ui-radio {
+    display: inline-block;
+    overflow: hidden;
+
+    padding-right: 20px;
+    min-width: 50px;
+}
+.ui-radio-input-wrapper {
+    float: left;
+}
+.ui-radio-label-text {
+    float: left;
+
+    margin-left: 10px;
+
+    font-size: 14px!important;
+    font-weight: normal;
+}
+
+.ui-radio-input:checked ~ .ui-radio-border {
+    border-color: #0ed185;
+}
+.ui-radio-input:checked ~ .ui-radio-inner-dot {
+    background-color: #0ed185;
+}
+
+.ui-radio.disabled .ui-radio-label-text {
+    color: rgba(0,0,0,.38);
+}
+
+/* checkbox */
+.ui-checkbox {
+    display: inline-block;
+    overflow: hidden;
+
+    padding-right: 20px;
+    min-width: 50px;
+}
+.ui-checkbox-checkmark {
+    float: left;
+}
+.ui-checkbox-label-text {
+    float: left;
+
+    margin-left: 10px;
+
+    font-size: 14px!important;
+}
+
+.ui-checkbox:not(.disabled).checked:hover .ui-checkbox-checkmark:before,
+.ui-checkbox:not(.disabled).checked.active .ui-checkbox-checkmark:before {
+    border-color: #0ed185;
+
+    background-color: #0ed185;
+}
+.ui-checkbox.checked .ui-checkbox-checkmark:before {
+    border-color: #0ed185;
+
+    background: #0ed185;
+}
+
+/* switch */
+label.ui-switch {
+    cursor: pointer;
+}
+.ui-switch-thumb {
+    left: -2px;
+}
+.ui-switch-track {
+    top: 0;
+
+    height: 20px;
+}
+.ui-switch.checked .ui-switch-thumb {
+    background-color: #0ed185;
+}
+.ui-switch.checked .ui-switch-track {
+    border-radius: 20px;
+
+    background-color: #afe3cf;
+}
+
+.ui-switch.disabled .ui-switch-thumb {
+    background-color: #bdbdbd;
+
+    box-shadow: 0 1px 3px rgba(0,0,0,.2);
+}
+.ui-switch.disabled .ui-switch-track {
+    background-color: rgba(0,0,0,.12);
+}
+
+label.ui-switch {
+    margin-bottom: 0;
+}
+
+/* statics */
+
+.ui.red.statistics .statistic > .value,
+.ui.statistics .red.statistic > .value,
+.ui.red.statistic > .value {
+    color: #fd6551!important;
+}
+
+.ui.teal.statistics .statistic > .value,
+.ui.statistics .teal.statistic > .value,
+.ui.teal.statistic > .value {
+    color: #27c9b4!important;
+}
+
+
+/* modal */
+.ui-modal-container {
+    border-radius: 5px;
+}
+.ui-modal-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 15px;
+}
+
+.ui-modal-footer,
+.ui-modal-footer [slot] {
+    display: block!important;
+
+    text-align: center;
+}
+
+.ui-modal-mask {
+    z-index: 20000;
+}
+
+.ui-modal-container {
+    overflow: visible;
+    /*overflow: auto;*/
+}
+
+.ui-modal-body {
+    padding-top: 30px;
+    max-height: 80vh;
+}
+
+.ui-modal-body {
+    /*overflow: visible;*/
+    overflow: auto!important;
+}
+
+.overVisible .ui-modal-body {
+    overflow: visible!important;
+}
+/*修复弹窗嵌套bug*/
+.ui-modal.ui-modal-large > .ui-modal-wrapper > .ui-modal-container {
+    width: 848px!important;
+}
+.ui-modal.ui-modal-small > .ui-modal-wrapper > .ui-modal-container {
+    width: 320px!important;
+}
+.ui-modal.ui-modal-normal > .ui-modal-wrapper > .ui-modal-container {
+    width: 528px!important;
+}
+
+
+/* alert */
+.ui-alert {
+    border-radius: 6px;
+
+    background: #fff;
+}
