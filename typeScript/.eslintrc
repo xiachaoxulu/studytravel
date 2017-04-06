@@ -1,0 +1,12 @@
+{
+    "parser": "babel-eslint",
+    "extends": "js",
+    "rules": {
+        "indent": [
+            "error",
+            4
+        ],
+        "eol-last": 0,
+        "space-before-function-paren": [0, "always"]
+    }
+}

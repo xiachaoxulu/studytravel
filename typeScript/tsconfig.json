@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "target": "es5",
+        "noImplicitAny": false,
+        "module": "commonjs",
+        "removeComments": true,
+        "sourceMap": false,
+        "allowJs": true,
+        "outDir": "js",
+        "typeRoots": [
+            "./typings"
+        ]
+    }
+}
